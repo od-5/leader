@@ -1,0 +1,7 @@
+/apps/landing/migrations
+/apps/ticket/migrations
+/apps/city/migrations
+/apps/blog/migrations
+.idea/
+*.pyc
+core/migrations/

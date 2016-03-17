@@ -1,0 +1,65 @@
+{% extends 'blog/blog_base.html' %}
+{% block meta %}
+{% endblock %}
+{% block title %}
+	<title>{% if object.meta_title %}{{ object.meta_title }}{% else %}{{ object.title|default:'' }}{% endif %}</title>
+{% endblock %}
+{% block content %}
+  {% load staticfiles %}
+					<article class="blog-article">
+						<h1>{{ object.title|default:'Заголовок статьи' }}</h1>
+						<div class="blog-line">
+							<span class="blog-date">{{ object.created|default:'' }}</span>
+							<a href="#comment" class="blog-comment-link">комментариев: {{ object.postcomment_set.count|default:'0' }}</a>
+						</div>
+            {% if object.image %}
+						<a href="{{ object.image.url }}" class="blog-img fancybox"><img src="{{ object.image.url }}" alt=""></a>
+            {% endif %}
+            {% if object.video %}
+              {{ object.video|safe }}
+            {% endif %}
+						{{ object.description|safe|default:'' }}
+					</article>
+					<div class="blog-webs">
+            {% if object.get_previous_by_created %}
+						<a href="{{ object.get_previous_by_created.get_absolute_url }}" class="blog-prev">Назад</a>
+            {% endif %}
+            {% if object.get_next_by_created %}
+						<a href="{{ object.get_next_by_created.get_absolute_url }}" class="blog-next">Вперед</a>
+            {% endif %}
+						<div class="webs">
+							<img src="{% static 'blog/images/webs.jpg' %}" alt="" >
+						</div>
+					</div>
+					<div class="comment-block" id="comment">
+						<ul class="comment-list">
+            {% for comment in object.postcomment_set.all %}
+							<li class="comment-item">
+								<div class="comment-top">
+									<div class="comment-login"><a href="">{{ comment.name|default:'anonymous' }}</a></div>
+									<div class="comment-time">{{ comment.created|default:'' }}</div>
+								</div>
+								<div class="comment-text">
+									{{ comment.text|safe|default:'' }}
+								</div>
+							</li>
+            {% empty %}
+              <li class="comment-item">
+                <p class="empty">Нет комментариев</p>
+              </li>
+            {% endfor %}
+						</ul>
+						<div class="comment-form">
+							<form action="{% url 'blog:postcomment-add' %}" method="post">{% csrf_token %}
+								<fieldset>
+                  <input type="hidden" name="post" value="{{ object.id|default:'' }}">
+									<input name="name" type="text" class="input" placeholder="Ваш имя *">
+									<input name="mail" type="text" class="input" placeholder="Ваш e-mail *">
+									<textarea name="text" cols="30" rows="10" class="textarea required" placeholder="Сообщение"></textarea>
+									<button class="submit submit-green">Оставить комментарий</button>
+								</fieldset>
+							</form>
+						</div>
+						<a href="" class="comment-button submit submit-green">Оставить комментарий</a>
+					</div>
+{% endblock %}

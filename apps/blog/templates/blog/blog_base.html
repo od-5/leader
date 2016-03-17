@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+{% block meta %}
+{% endblock %}
+	<meta name="format-detection" content="telephone=no">
+  {% load staticfiles %}
+	<link href="{% static 'blog/favicon.ico' %}" rel="shortcut icon" type="image/x-icon" />
+	<title>{{ SETUP.title|upper|default:'Не указано' }}</title>
+	<link media="all" rel="stylesheet" type="text/css" href="{% static 'blog/css/all.css' %}" />
+	<link media="all" rel="stylesheet" type="text/css" href="{% static 'blog/css/nivo-slider.css' %}" />
+	<link media="all" rel="stylesheet" type="text/css" href="{% static 'blog/css/jquery.fancybox.css' %}" />
+	<script src="{% static 'blog/js/jquery-1.9.1.min.js' %}"></script>
+	<script src="{% static 'blog/js/jquery.nivo.slider.pack.js' %}"></script>
+	<script src="{% static 'blog/js/jquery.validate.js' %}"></script>
+  <script src="{% static 'blog/js/jquery.form.js' %}"></script>
+	<script src="{% static 'blog/js/notify-combined.min.js' %}"></script>
+	<script src="{% static 'blog/js/jquery.fancybox.js' %}"></script>
+	<script src="{% static 'blog/js/tabs.js' %}"></script>
+	<script src="{% static 'blog/js/jquery.scrollTo.js' %}"></script>
+	<script src="{% static 'blog/js/jquery.maskedinput.js' %}"></script>
+	<!--[if lt IE 9]><script type="text/javascript" src="{% static 'blog/js/html5.js' %}"></script><![endif]-->
+	<!--[if lt IE 9]><script type="text/javascript" src="{% static 'blog/js/placeholder.js' %}"></script><![endif]-->
+	<script src="{% static 'blog/js/all.js' %}"></script>
+  {{ SETUP.top_js|safe|default:'' }}
+</head>
+<body>
+	<div id="wrapper">
+		<header class="header">
+			<div class="city-hidden city1">
+				<div class="holder">
+					<a href="" class="city-close">x</a>
+					<div class="city-block">
+          {% if CITY_LIST %}
+						<ul class="city-list">
+            {% for city in CITY_LIST %}
+              <li>{{ city.name }}</li>
+            {% endfor %}
+						</ul>
+          {% endif %}
+					</div>
+				</div>
+			</div>
+			<div class="header-top">	
+				<div class="holder">
+						<div class="slogan">
+						<span class="orange">Бизнес</span>, с которым<br> 
+						<span class="orange">справится</span> даже <span class="green">1</span> человек
+					</div>
+
+					<div class="logo">
+						<img src="{% static 'blog/images/logo.png' %}" alt="">
+					</div>
+					<div class="header-right">
+						<div class="header-city-link"><a href="">Города присутствия</a></div>
+						<div class="header-phone">{{ SETUP.phone|default:'0 000 000 000 00' }}</div>
+					</div>
+				</div>
+			</div>
+			<div class="header-fix header-fix-top">
+				<div class="header-fix-holder">
+					<div class="holder">
+						<a href="{% url 'landing:index' %}" class="back">Вернуться на Главную</a>
+						<a href="{% url 'blog:list' %}" class="back-blog" >Список статей</a>
+						<div class="search">
+							<form action="">
+								<fieldset>
+									<input type="text" class="search-input" placeholder="Поиск по сайту">
+									<button class="search-loupe"></button>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>	
+		<section class="blog">
+			<div class="holder">
+				{% include 'blog/__includes/blog_sidebar.html' %}
+				<section class="content">
+
+{% block content %}
+{% endblock %}
+
+				</section>
+			</div>	
+		</section>
+		<section class="ask">
+			<div class="holder">
+				<div class="form-block">
+					<div class="form-title">Остались вопросы? </div>
+					<div class="form-text">Задайте ваш вопрос в форме ниже</div>
+					<form action="{% url 'ticket:send' %}" method="post">{% csrf_token %}
+						<fieldset>
+							<div class="input-block">
+								<input type="text" name="name" class="input required" placeholder="Ваше имя *">
+								<input type="text" name="phone" class="input no-margin required" placeholder="+7 (___) ___ - __ - __">
+							</div>
+							<div class="textarea-block">
+								<textarea name="comment" cols="30" rows="10" class="textarea required" placeholder="Ваш вопрос *"></textarea>
+							</div>
+							<input type="hidden" name="theme" value="1">
+							<div class="submit-holder">
+								<button class="submit">Получить консультацию</button>
+							</div>
+						</fieldset>
+					</form>
+					<div class="form-text-min">Мы гарантируем конфиденциальность</div>
+				</div>
+			</div>
+		</section>
+		
+		<footer class="footer">
+			<div class="holder">
+				<div class="footer-logo"><img src="{% static 'blog/images/logo.png' %}" alt=""></div>
+				<div class="copy"><a href="#hidden-block" class="fancybox">Политика конфиденциальности</a><br>
+				РА «Дружба» &copy; 2015</div>
+				<a href="http://5lands.ru/" target="_blank" class="studio">
+					Дизайн сайта<br>
+					<img src="{% static 'blog/images/studio.png' %}" alt="">
+				</a>
+				<div class="footer-phone">{{ SETUP.phone|default:'0 000 000 000 00' }}</div>
+				<div id="hidden-block">
+					<h2>Политика конфиденциальности</h2>
+					<p>Мы не собираем личную информацию о Вас, когда Вы заходите на наш сайт. 
+					Вы можете анонимно просматривать сайт. Тем не менее, Ваш браузер все же автоматически сообщает нам тип компьютера и операционной системы, которые Вы используете. Единственная личная информация о Вас, которую мы получаем, это те данные, которые Вы добровольно предоставляете при заполнении форм.
+					При заполнении форм на сайте у Вас запросят персональную информацию, такую как имя, номер телефона. Предоставление такой информации в ответ на запрос осуществляется Вами исключительно добровольно. 
+					Предоставленная Вами информация используется чтобы оказать те услуги, которые Вы сами запрашиваете.
+					</p>
+				</div>
+			</div>	
+		</footer>	
+		<!--   Всплывающие окна  -->
+		<div id="popup">	
+			<div class="video-popup">
+				<iframe width="800" height="600" src="https://www.youtube.com/embed/Y1wWqG4UiTY" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</div>
+		<div id="boxes">
+			<div id="dialog" class="window">
+				<div class="tablet-popup">
+					<div class="tablet-video">
+						<iframe width="695" height="522" src="https://www.youtube.com/embed/Y1wWqG4UiTY" frameborder="0" allowfullscreen></iframe>
+					</div>
+				</div>
+			</div>
+			<div id="mask"></div>
+		</div>
+		<!--   Всплывающие окна end  -->
+	</div>
+{{ SETUP.bottom_js|safe|default:'' }}
+</body>
+</html>

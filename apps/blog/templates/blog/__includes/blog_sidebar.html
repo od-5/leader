@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<aside class="sidebar">
+  <div class="side-block">
+    <div class="side-about">
+      <h3>Об этом блоге</h3>
+      <p>Как открыть рекламный бизнес по франшизе? Будет ли он успешным? С чего начать?</p>
+      <p>Если вас беспокоят ответы на эти и другие вопросы, читайте наш блог — здесь начинается история вашего успеха!</p>
+      <p><a href="{% url 'blog:list' %}">Читать далее</a></p>
+    </div>
+  {% if POSTSECTION_LIST %}
+    <ul class="side-nav">
+    {% for section in POSTSECTION_LIST %}
+      <li><a href="{{ section.get_absolute_url }}">{{ section.title }}</a></li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  </div>
+  <div class="side-order">
+    <div class="form-block">
+      <div class="form-title">Подпишитесь на рассылку</div>
+      <div class="form-text">и получайте новые<br> публикации<br> на ваш email</div>
+      <form action="" method="post">
+        <fieldset>
+          <input type="text" name="mail" class="input required" placeholder="Ваш email">
+          <div class="submit-holder">
+            <button class="submit">Подписаться</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <div class="side-banner">
+    <div class="side-banner-info">
+      <div class="side-banner-title">НУЖНЫ КЛИЕНТЫ?</div>
+      <div class="side-banner-text">Закажите эффективную рекламу по цене 10 копеек за показ</div>
+      <div class="side-banner-link"><a href="http://nadomofone.ru">www.nadomofone.ru</a></div>
+    </div>
+    <div class="side-banner-img"><img src="{% static 'blog/images/banner.jpg' %}" alt=""></div>
+  </div>
+</aside>
