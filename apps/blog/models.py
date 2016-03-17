@@ -3,7 +3,6 @@ from PIL import Image
 from django.core.urlresolvers import reverse
 from django.db import models
 from ckeditor.fields import RichTextField
-from pytils.translit import slugify
 from core.files import upload_to
 from core.base_model import CommonPage, Common
 
@@ -41,7 +40,6 @@ class Post(CommonPage):
         return reverse('blog:detail', args=(self.slug,))
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
         super(Post, self).save()
         if self.image:
             image = Image.open(self.image)

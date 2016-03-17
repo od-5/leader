@@ -16,6 +16,7 @@ class PostSectionAdmin(SortableModelAdmin):
 class PostAdmin(SortableModelAdmin):
     list_display = ('title', 'created', 'preview')
     list_filter = ('created',)
+    prepopulated_fields = {'slug': ('title',)}
     sortable = 'sort'
 
     def preview(self, image):
