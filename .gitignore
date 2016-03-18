@@ -5,3 +5,4 @@
 .idea/
 *.pyc
 core/migrations/
+/apps/sender/migrations

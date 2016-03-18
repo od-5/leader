@@ -1,0 +1,18 @@
+<html>
+<body>
+  <a href="http://лидерфраншиз.рф{{ object.get_absolute_url }}">Посмотреть статью на сайте</a>
+  <article class="blog-article">
+    <h1>{{ object.title|default:'Заголовок статьи' }}</h1>
+    <div class="blog-line">
+      <span class="blog-date">{{ object.created|default:'' }}</span>
+    </div>
+    {% if object.image %}
+    <a href="{{ object.image.url }}" class="blog-img fancybox"><img src="{{ object.image.url }}" alt=""></a>
+    {% endif %}
+    {% if object.video %}
+      {{ object.video|safe }}
+    {% endif %}
+    {{ object.description|safe|default:'' }}
+  </article>
+</body>
+</html>

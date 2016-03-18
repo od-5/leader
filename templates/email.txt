@@ -1,0 +1,3 @@
+{{ object.title }}\n
+{{ object.created }}\n
+{{ object.description|striptags }}

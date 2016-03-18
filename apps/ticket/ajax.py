@@ -12,11 +12,12 @@ __author__ = 'alexy'
 @ajax_request
 @csrf_exempt
 def ticket(request):
-    # try:
-    #     email = Setup.objects.all()[0].email
-    # except:
-    #     email = 'od-5@yandex.ru'
-    email = 'od-5@yandex.ru'
+    try:
+        email = Setup.objects.all().first().email
+        if not email:
+            email = 'od-5@yandex.ru'
+    except:
+        email = 'od-5@yandex.ru'
     if request.method == "POST":
         form = TicketForm(data=request.POST)
         theme = request.POST.get('theme')
@@ -43,6 +44,28 @@ def ticket(request):
             return {
                 'success': 'Message send'
             }
+
+    return {
+        'success': True
+    }
+
+
+@ajax_request
+def test(request):
+    from django.template.loader import render_to_string
+    from apps.blog.models import Post
+    post = Post.objects.all().first()
+    msg_plain = render_to_string('email.txt', {'object': post})
+    msg_html = render_to_string('blog/post_detail_mail.html', {'object': post})
+    email = 'od-5@yandex.ru'
+    print email
+    send_mail(
+        post.title,
+        msg_plain,
+        settings.DEFAULT_FROM_EMAIL,
+        [email, ],
+        html_message=msg_html,
+    )
 
     return {
         'success': True

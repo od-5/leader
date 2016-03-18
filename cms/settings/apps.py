@@ -18,5 +18,6 @@ INSTALLED_APPS = (
     'apps.landing',
     'apps.blog',
     'apps.city',
+    'apps.sender',
     'django_cleanup',
 )
