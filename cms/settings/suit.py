@@ -26,7 +26,7 @@ SUIT_CONFIG = {
         {'label': u'Пользователи', 'icon': 'icon-user', 'models': ('core.user',)},
         {'label': u'Настройки', 'icon': 'icon-cog', 'models': ('core.setup',)},
         {'label': u'Заявки', 'icon': 'icon-user', 'models': ('ticket.ticket',)},
-        {'label': u'Блог', 'icon': 'icon-edit', 'models': ('blog.post',)},
+        {'label': u'Блог', 'icon': 'icon-edit', 'models': ('blog.postsection', 'blog.post', 'blog.postcomment',)},
         {'label': u'Города', 'icon': 'icon-map-marker', 'models': ('city.city',)},
     ),
 }
