@@ -63,7 +63,6 @@ def test(request):
         [email, ],
         html_message=msg_html,
     )
-
     return {
         'success': True
     }
