@@ -716,6 +716,7 @@ pulse
 	float: left;
 	width: 455px;
 	padding: 7px 0 0 110px;
+	text-align: right;
 }
 .indoor-right {
 	float: right;
