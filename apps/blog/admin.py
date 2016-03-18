@@ -30,8 +30,8 @@ class PostAdmin(SortableModelAdmin):
 
 
 class PostCommentAdmin(admin.ModelAdmin):
-    list_display = ('name', 'mail', 'created', 'text')
-    list_filter = ('name', 'mail', 'created')
+    list_display = ('name', 'created', 'text', 'post', )
+    list_filter = ('name', 'mail', 'created', 'post', )
 
 
 admin.site.register(PostSection, PostSectionAdmin)

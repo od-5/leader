@@ -4,7 +4,7 @@
 	<meta name="description" content="{{ SETUP.title|safe|default:'' }}">
 {% endblock %}
 {% block title %}
-	<title>{{ SETUP.title|upper|default:'Не указано' }}</title>
+	<title>{{ SETUP.title|default:'Не указано' }}</title>
 {% endblock %}
 {% block content %}
 {% load staticfiles %}

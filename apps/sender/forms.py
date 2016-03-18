@@ -5,7 +5,7 @@ from .models import Sender
 __author__ = 'Rylcev Alexy'
 
 
-class TicketForm(ModelForm):
+class SenderForm(ModelForm):
     class Meta:
         model = Sender
         fields = ('mail', )

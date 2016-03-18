@@ -71,14 +71,17 @@ $(document).ready(function () {
       if (error) {
         $('form').resetForm();
         $.notify('Сообщение не было отправлено. Проверьте правильность ввода данных!', 'error');
-        console.log(error);
       } else {
         $('form').resetForm();
-        $.notify('Ваше сообщение успешно отправлено!', 'success');
-        if (data.comment) {
-          $.notify('Ваш комментарий появится на сайте в ближайшее время. Если не хотите ждать - обновите страницу', 'success');
+        if (data.sender) {
+          $.notify('Спасибо, что подписались на нашу рассылку!', 'success');
+        } else {
+          if (data.comment) {
+            $.notify('Ваш комментарий появится на сайте в ближайшее время. Если не хотите ждать - обновите страницу', 'success');
+          } else {
+            $.notify('Ваше сообщение успешно отправлено!', 'success');
+          }
         }
-        console.log('not error');
       }
     }
   });

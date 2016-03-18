@@ -87,7 +87,7 @@ class PostComment(Common):
     def __unicode__(self):
         return u'Комментарий %s от %s' % (self.name, self.created)
 
-    post = models.ForeignKey(to=Post, verbose_name=u'Комментарий', null=True, blank=True)
+    post = models.ForeignKey(to=Post, verbose_name=u'Статья', null=True, blank=True)
     name = models.CharField(
         verbose_name=u'Ваше имя',
         max_length=256

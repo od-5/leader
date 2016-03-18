@@ -7,7 +7,9 @@
 	<meta name="format-detection" content="telephone=no">
   {% load staticfiles %}
 	<link href="{% static 'blog/favicon.ico' %}" rel="shortcut icon" type="image/x-icon" />
-	<title>{{ SETUP.title|upper|default:'Не указано' }}</title>
+{% block title %}
+	<title>{{ SETUP.title|default:'Не указано' }}</title>
+{% endblock %}
 	<link media="all" rel="stylesheet" type="text/css" href="{% static 'blog/css/all.css' %}" />
 	<link media="all" rel="stylesheet" type="text/css" href="{% static 'blog/css/nivo-slider.css' %}" />
 	<link media="all" rel="stylesheet" type="text/css" href="{% static 'blog/css/jquery.fancybox.css' %}" />

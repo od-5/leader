@@ -21,9 +21,7 @@ def ticket(request):
     if request.method == "POST":
         form = TicketForm(data=request.POST)
         theme = request.POST.get('theme')
-        print theme
         if form.is_valid():
-            print form
             ticket = form.save(commit=False)
             ticket.status = 1
             ticket.theme = int(theme)
@@ -58,7 +56,6 @@ def test(request):
     msg_plain = render_to_string('email.txt', {'object': post})
     msg_html = render_to_string('blog/post_detail_mail.html', {'object': post})
     email = 'od-5@yandex.ru'
-    print email
     send_mail(
         post.title,
         msg_plain,

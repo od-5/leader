@@ -1,6 +1,9 @@
 # coding=utf-8
 from annoying.decorators import ajax_request
 from django.utils.html import strip_tags
+from django.conf import settings
+from django.core.mail import send_mail
+from core.models import Setup
 from .forms import PostCommentForm
 from .models import Post
 
@@ -13,9 +16,7 @@ def load_more_posts(request):
         count = int(request.GET.get('count'))
         if request.GET.get('section'):
             section = int(request.GET.get('section'))
-            print section
             qs = Post.objects.filter(postsection__id=section)
-            print qs
         else:
             qs = Post.objects.all()
         if qs.count() <= count:
@@ -61,7 +62,21 @@ def postcomment_add(request):
     if request.method == 'POST':
         form = PostCommentForm(request.POST)
         if form.is_valid():
-            form.save()
+            comment = form.save()
+            try:
+                email = Setup.objects.all().first().email
+                if not email:
+                    email = 'od-5@yandex.ru'
+            except:
+                email = 'od-5@yandex.ru'
+            mail_theme_msg = u'Лидерфраншиз.рф - оставлен комментарий'
+            message = u'Оставлен комментарий на статью: http://лидерфраншиз.рф%s' % comment.post.get_absolute_url()
+            send_mail(
+                mail_theme_msg,
+                message,
+                settings.DEFAULT_FROM_EMAIL,
+                [email, ]
+            )
             return {
                 'comment': True
             }

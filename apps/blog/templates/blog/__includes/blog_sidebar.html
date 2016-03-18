@@ -19,7 +19,7 @@
     <div class="form-block">
       <div class="form-title">Подпишитесь на рассылку</div>
       <div class="form-text">и получайте новые<br> публикации<br> на ваш email</div>
-      <form action="" method="post">
+      <form action="{% url 'sender:add' %}" method="post">{% csrf_token %}
         <fieldset>
           <input type="text" name="mail" class="input required" placeholder="Ваш email">
           <div class="submit-holder">
