@@ -13,6 +13,7 @@ class TicketAdminForm(ModelForm):
         }
 
 
+
 class TicketAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'created', 'status', 'comment', 'manager', 'ticket_comment')
     list_filter = ['email', 'created', 'status', 'manager']
@@ -20,5 +21,14 @@ class TicketAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     fields = ('name', 'phone', 'email', 'comment', 'status', 'manager', 'ticket_comment')
     form = TicketAdminForm
+
+    def get_queryset(self, request):
+        print request.user.is_superuser
+        user = request.user
+        if user.is_superuser:
+            qs = Ticket.objects.all()
+        else:
+            qs = Ticket.objects.filter(manager=user)
+        return qs
 
 admin.site.register(Ticket, TicketAdmin)
