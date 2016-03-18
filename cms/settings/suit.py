@@ -28,6 +28,6 @@ SUIT_CONFIG = {
         {'label': u'Заявки', 'icon': 'icon-list-alt', 'models': ('ticket.ticket',)},
         {'label': u'Блог', 'icon': 'icon-edit', 'models': ('blog.postsection', 'blog.post', 'blog.postcomment',)},
         {'label': u'Города', 'icon': 'icon-map-marker', 'models': ('city.city',)},
-        {'label': u'Подписчики', 'icon': 'icon-pushpin', 'models': ('sender.sender',)},
+        {'label': u'Подписчики', 'icon': 'icon-envelope', 'models': ('sender.sender',)},
     ),
 }
