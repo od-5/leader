@@ -19,11 +19,11 @@ SUIT_CONFIG = {
     #    'auth': 'icon-lock',
     # },
     # 'MENU_OPEN_FIRST_CHILD': True, # Default True
-    'MENU_EXCLUDE': ('auth.group',),
+    # 'MENU_EXCLUDE': ('auth.group',),
     'MENU': (
         'sites',
         {'label': u'Перейти на сайт', 'icon': 'icon-eye-open', 'url': '/'},
-        {'label': u'Пользователи', 'icon': 'icon-user', 'models': ('core.user',)},
+        {'label': u'Пользователи', 'icon': 'icon-user', 'models': ('core.user', 'auth.group',)},
         {'label': u'Настройки', 'icon': 'icon-cog', 'models': ('core.setup',)},
         {'label': u'Заявки', 'icon': 'icon-list-alt', 'models': ('ticket.ticket',)},
         {'label': u'Блог', 'icon': 'icon-edit', 'models': ('blog.postsection', 'blog.post', 'blog.postcomment',)},
