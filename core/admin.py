@@ -60,6 +60,7 @@ class MyUserAdmin(UserAdmin):
         (_('Personal info'), {'fields': ('first_name', 'last_name', 'patronymic', 'phone')}),
         (_('Permissions'), {'fields': ('is_active', 'is_staff')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
+        (u'Группы', {'fields': ('groups', )}),
     )
 
     add_fieldsets = (
