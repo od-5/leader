@@ -11,6 +11,6 @@ class Sender(models.Model):
         app_label = 'sender'
 
     def __unicode__(self):
-        return self.email
+        return self.mail
 
     mail = models.CharField(max_length=100, verbose_name=u'Адрес электронной почты')
