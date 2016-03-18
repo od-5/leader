@@ -1,6 +1,7 @@
 # coding=utf-8
 from django.db import models
 from core.base_model import Common
+from core.models import User
 
 __author__ = 'alexy'
 
@@ -30,10 +31,11 @@ class Ticket(Common):
         (3, u'Получить презентацию с перечнем свободных городов'),
     )
 
+    manager = models.ForeignKey(to=User, verbose_name=u'Менеджер', blank=True, null=True)
     name = models.CharField(verbose_name=u'Имя', max_length=256)
     phone = models.CharField(verbose_name=u'E-mail', max_length=20)
     email = models.EmailField(verbose_name=u'e-mail', max_length=100, blank=True, null=True)
     comment = models.TextField(verbose_name=u'Сообщение', blank=True, null=True)
     status = models.PositiveSmallIntegerField(verbose_name=u'Статус заявки',  choices=TICKET_STATUS_CHOICE, default=1)
     theme = models.PositiveSmallIntegerField(verbose_name=u'Тема',  choices=THEME_CHOICES, default=1)
-    ticket_comment = models.TextField(verbose_name=u'Комментарий', blank=True, null=True)
+    ticket_comment = models.TextField(verbose_name=u'Комментарий менеджера', blank=True, null=True)
