@@ -15,11 +15,11 @@ class TicketAdminForm(ModelForm):
 
 
 class TicketAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'created', 'status', 'comment', 'manager', 'ticket_comment')
-    list_filter = ['email', 'created', 'status', 'manager']
-    search_fields = ['email', 'manager']
+    list_display = ('name', 'mail', 'created', 'status', 'comment', 'manager', 'ticket_comment')
+    list_filter = ['mail', 'created', 'status', 'manager']
+    search_fields = ['mail', 'manager']
     date_hierarchy = 'created'
-    fields = ('name', 'phone', 'email', 'comment', 'status', 'manager', 'ticket_comment')
+    fields = ('name', 'phone', 'mail', 'comment', 'status', 'manager', 'ticket_comment')
     form = TicketAdminForm
 
     def get_queryset(self, request):

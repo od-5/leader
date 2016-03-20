@@ -29,10 +29,10 @@ def ticket(request):
             mail_theme_msg = u'Лидерфраншиз.рф - %s' % ticket.get_theme_display()
             if ticket.comment:
                 message = u'Тема: %s\nИмя: %s\nТелефон: %s\nE-mail: %s\nСообщение: %s\n' % \
-                          (ticket.get_theme_display(), ticket.name, ticket.phone, ticket.email, ticket.comment)
+                          (ticket.get_theme_display(), ticket.name, ticket.phone, ticket.mail, ticket.comment)
             else:
                 message = u'Тема: %s\nИмя: %s\nТелефон: %s\nE-mail: %s\n' % \
-                          (ticket.get_theme_display(), ticket.name, ticket.phone, ticket.email)
+                          (ticket.get_theme_display(), ticket.name, ticket.phone, ticket.mail)
             send_mail(
                 mail_theme_msg,
                 message,
