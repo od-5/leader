@@ -7,7 +7,7 @@
       <span class="blog-date">{{ object.created|default:'' }}</span>
     </div>
     {% if object.image %}
-    <a href="{{ object.image.url }}" class="blog-img fancybox"><img src="{{ object.image.url }}" alt=""></a>
+    <img src="{{ object.image.url }}" alt="">
     {% endif %}
     {% if object.video %}
       {{ object.video|safe }}
