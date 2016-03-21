@@ -20,7 +20,7 @@ class Command(BaseCommand):
                 # print u'Отправка статьи %s' % post.title
                 subject = u'Лидерфраншиз.рф - %s' % post.title
                 msg_plain = render_to_string('email.txt', {'object': post})
-                msg_html = render_to_string('blog/post_detaila_mail.html', {'object': post})
+                msg_html = render_to_string('blog/post_detail_mail.html', {'object': post})
                 send_mail(
                     subject,
                     msg_plain,
