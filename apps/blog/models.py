@@ -75,6 +75,7 @@ class Post(CommonPage):
         verbose_name=u'url'
     )
     sort = models.PositiveIntegerField(default=1, verbose_name=u'Сортировка')
+    send = models.BooleanField(default=False)
 
 
 class PostComment(Common):
