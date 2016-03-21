@@ -20,11 +20,13 @@ class Command(BaseCommand):
                 # print u'Отправка статьи %s' % post.title
                 subject = u'Лидерфраншиз.рф - %s' % post.title
                 msg_plain = render_to_string('email.txt', {'object': post})
+                msg_html = render_to_string('blog/post_detaila_mail.html', {'object': post})
                 send_mail(
                     subject,
                     msg_plain,
                     settings.DEFAULT_FROM_EMAIL,
                     sender_list,
+                    html_message=msg_html,
                 )
                 post.send = True
                 post.save()
