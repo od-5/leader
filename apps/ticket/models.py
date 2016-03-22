@@ -33,9 +33,11 @@ class Ticket(Common):
 
     manager = models.ForeignKey(to=User, verbose_name=u'Менеджер', blank=True, null=True)
     name = models.CharField(verbose_name=u'Имя', max_length=256)
-    phone = models.CharField(verbose_name=u'E-mail', max_length=20)
+    phone = models.CharField(verbose_name=u'Телефон', max_length=20)
     mail = models.EmailField(verbose_name=u'e-mail', max_length=100, blank=True, null=True)
     comment = models.TextField(verbose_name=u'Сообщение', blank=True, null=True)
     status = models.PositiveSmallIntegerField(verbose_name=u'Статус заявки',  choices=TICKET_STATUS_CHOICE, default=1)
     theme = models.PositiveSmallIntegerField(verbose_name=u'Тема',  choices=THEME_CHOICES, default=1)
     ticket_comment = models.TextField(verbose_name=u'Комментарий менеджера', blank=True, null=True)
+    sale = models.BooleanField(verbose_name=u'Продажа', default=False)
+    price = models.PositiveIntegerField(verbose_name=u'Сумма', blank=True, null=True)
