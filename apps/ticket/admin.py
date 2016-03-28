@@ -15,10 +15,11 @@ class TicketAdminForm(ModelForm):
 
 class TicketAdmin(admin.ModelAdmin):
     list_display = ('name', 'phone', 'mail', 'created', 'status', 'comment', 'manager', 'ticket_comment')
-    list_filter = ['mail', 'created', 'status', 'manager']
+    list_filter = ['mail', 'created', 'status', 'manager', 'contact_date']
     search_fields = ['mail', 'manager']
     date_hierarchy = 'created'
-    fields = ('name', 'phone', 'mail', 'comment', 'status', 'manager', 'ticket_comment', 'sale')
+    readonly_fields = ('country', 'city', 'time_zone')
+    fields = ('name', 'phone', 'mail', 'comment', 'country', 'city', 'time_zone', 'status', 'contact_date', 'manager', 'ticket_comment', 'sale')
     form = TicketAdminForm
 
     def get_queryset(self, request):
@@ -63,7 +64,8 @@ class SaleAdmin(admin.ModelAdmin):
     list_filter = ['mail', 'created', 'status', 'manager']
     search_fields = ['mail', 'manager']
     date_hierarchy = 'created'
-    fields = ('name', 'phone', 'mail', 'manager', 'ticket_comment', 'price')
+    readonly_fields = ('country', 'city', 'time_zone')
+    fields = ('name', 'phone', 'mail', 'country', 'city', 'time_zone', 'manager', 'ticket_comment', 'price')
     form = SaleAdminForm
 
 

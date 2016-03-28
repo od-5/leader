@@ -1,5 +1,7 @@
 # coding=utf-8
 from django.db import models
+from django.conf import settings
+from core.phone_inform import getphoneObject
 from core.base_model import Common
 from core.models import User
 
@@ -14,6 +16,20 @@ class Ticket(Common):
 
     def __unicode__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        # if not self.country and self.city and self.time_zone:
+        try:
+            api_key = settings.HTMLWEB_API_KEY
+            data = getphoneObject(self.phone, api_key)
+            print data['fullname']
+            print '111111'
+            self.country = data['fullname']
+            self.city = data['0']['name']
+            self.time_zone = data['time_zone']
+        except:
+            pass
+        super(Ticket, self).save(*args, **kwargs)
 
     def performed_at(self):
         pass
@@ -41,3 +57,7 @@ class Ticket(Common):
     ticket_comment = models.TextField(verbose_name=u'Комментарий менеджера', blank=True, null=True)
     sale = models.BooleanField(verbose_name=u'Продажа', default=False)
     price = models.PositiveIntegerField(verbose_name=u'Сумма', blank=True, null=True)
+    country = models.CharField(max_length=200, verbose_name=u'Страна', blank=True, null=True)
+    city = models.CharField(max_length=200, verbose_name=u'Город', blank=True, null=True)
+    time_zone = models.CharField(max_length=10, verbose_name=u'Часовой пояс', blank=True, null=True)
+    contact_date = models.DateField(verbose_name=u'Дата контактка', blank=True, null=True)
