@@ -1,31 +1,24 @@
 {% extends 'blog/blog_base.html' %}
-{% block meta %}
-	<meta name="keywords" content="{{ SETUP.meta_keys|safe|default:'' }}">
-	<meta name="description" content="{{ SETUP.title|safe|default:'' }}">
-{% endblock %}
-{% block title %}
-	<title>{{ SETUP.title|default:'Не указано' }}</title>
-{% endblock %}
 {% block content %}
 {% load staticfiles %}
           <div class="blog-list">
           {% if object_list %}
             {% for post in object_list %}
-						<div class="blog-item">
+            <div class="blog-item">
               {% if post.image %}
-							<a href="{% url 'blog:detail' post.slug %}" class="blog-img"><img src="{{ post.image.url }}" alt="{{ post.title|default:'' }}"></a>
+              <a href="{% url 'blog:detail' post.slug %}" class="blog-img"><img src="{{ post.image.url }}" alt="{{ post.title|default:'' }}"></a>
               {% endif %}
               {% if post.video %}
               {{ post.video|safe }}
               {% endif %}
-							<h3>{{ post.title|default:'' }}</h3>
-							<div class="blog-line">
-								<span class="blog-date">{{ post.created }}</span>
-								<a href="{% url 'blog:detail' post.slug %}#comment" class="blog-comment-link">комментариев: {{ post.postcomment_set.count|default:'0' }}</a>
-							</div>
-							<div class="blog-text">{{ post.description|striptags|safe|truncatewords:50 }}</div>
-							<div class="blog-button"><a href="{% url 'blog:detail' post.slug %}" class="submit">Читать далее</a></div>
-						</div>
+              <h3>{{ post.title|default:'' }}</h3>
+              <div class="blog-line">
+                <span class="blog-date">{{ post.created }}</span>
+                <a href="{% url 'blog:detail' post.slug %}#comment" class="blog-comment-link">комментариев: {{ post.postcomment_set.count|default:'0' }}</a>
+              </div>
+              <div class="blog-text">{{ post.description|striptags|safe|truncatewords:50 }}</div>
+              <div class="blog-button"><a href="{% url 'blog:detail' post.slug %}" class="submit">Читать далее</a></div>
+            </div>
             {% empty %}
             <div class="blog-item">
               <h3>Статей не найдено</h3>
@@ -34,21 +27,21 @@
           {% endif %}
           {% if object %}
             {% for post in object.post_set.all %}
-						<div class="blog-item">
+            <div class="blog-item">
               {% if post.image %}
-							<a href="{% url 'blog:detail' post.slug %}" class="blog-img"><img src="{{ post.image.url }}" alt="{{ post.title|default:'' }}"></a>
+              <a href="{% url 'blog:detail' post.slug %}" class="blog-img"><img src="{{ post.image.url }}" alt="{{ post.title|default:'' }}"></a>
               {% endif %}
               {% if post.video %}
               {{ post.video|safe }}
               {% endif %}
-							<h3>{{ post.title|default:'' }}</h3>
-							<div class="blog-line">
-								<span class="blog-date">{{ post.created }}</span>
-								<a href="{% url 'blog:detail' post.slug %}#comment" class="blog-comment-link">комментариев: {{ post.postcomment_set.count|default:'0' }}</a>
-							</div>
-							<div class="blog-text">{{ post.description|striptags|safe|truncatewords:50 }}</div>
-							<div class="blog-button"><a href="{% url 'blog:detail' post.slug %}" class="submit">Читать далее</a></div>
-						</div>
+              <h3>{{ post.title|default:'' }}</h3>
+              <div class="blog-line">
+                <span class="blog-date">{{ post.created }}</span>
+                <a href="{% url 'blog:detail' post.slug %}#comment" class="blog-comment-link">комментариев: {{ post.postcomment_set.count|default:'0' }}</a>
+              </div>
+              <div class="blog-text">{{ post.description|striptags|safe|truncatewords:50 }}</div>
+              <div class="blog-button"><a href="{% url 'blog:detail' post.slug %}" class="submit">Читать далее</a></div>
+            </div>
             {% empty %}
             <div class="blog-item">
               <h3>Статей не найдено</h3>
@@ -56,5 +49,5 @@
             {% endfor %}
           {% endif %}
             <button class="more-button" data-count="3" data-section="{% if object %}{{ object.id }}{% endif %}" data-ajax-url="{% url 'blog:load-more' %}" id="js-button-show-more-post"><img src="{% static 'blog/images/round-arrow.png' %}" alt="" class="arrow-icon">Показать ещё публикации</button>
-					</div>
+          </div>
 {% endblock %}

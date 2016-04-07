@@ -6,5 +6,6 @@ __author__ = 'alexy'
 
 urlpatterns = patterns(
     'core.views',
-    # url(r'^robots\.txt', 'get_robots_txt', name='robots'),
+    url(r'^robots\.txt', 'get_robots_txt', name='robots'),
+    url(r'^sitemap\.xml', 'get_sitemap_xml', name='sitemap'),
 )

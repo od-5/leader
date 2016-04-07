@@ -2,14 +2,13 @@
 <html lang="ru">
 <head>
 	<meta charset="utf-8">
-{% block meta %}
-{% endblock %}
+  <title>{{ META_TITLE|default:'Не указано' }}</title>
+  <meta name="keywords" content="{{ META_KEY|safe|default:'' }}">
+  <meta name="description" content="{{ META_DESC|safe|default:'' }}">
 	<meta name="format-detection" content="telephone=no">
   {% load staticfiles %}
 	<link href="{% static 'blog/favicon.ico' %}" rel="shortcut icon" type="image/x-icon" />
-{% block title %}
-	<title>{{ SETUP.title|default:'Не указано' }}</title>
-{% endblock %}
+
 	<link media="all" rel="stylesheet" type="text/css" href="{% static 'blog/css/all.css' %}" />
 	<link media="all" rel="stylesheet" type="text/css" href="{% static 'blog/css/nivo-slider.css' %}" />
 	<link media="all" rel="stylesheet" type="text/css" href="{% static 'blog/css/jquery.fancybox.css' %}" />

@@ -1,9 +1,4 @@
 {% extends 'blog/blog_base.html' %}
-{% block meta %}
-{% endblock %}
-{% block title %}
-	<title>{% if object.meta_title %}{{ object.meta_title }}{% else %}{{ object.title|default:'' }}{% endif %}</title>
-{% endblock %}
 {% block content %}
   {% load staticfiles %}
 					<article class="blog-article">

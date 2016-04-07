@@ -9,6 +9,20 @@ from core.base_model import CommonPage, Common
 __author__ = 'alexy'
 
 
+class BlogSetup(models.Model):
+    class Meta:
+        verbose_name = u'Настройки блога'
+        verbose_name_plural = u'Настройки блога'
+        app_label = 'blog'
+
+    def __unicode__(self):
+        return self.meta_title
+
+    meta_title = models.CharField(max_length=256, verbose_name=u'META заголовок')
+    meta_key = models.CharField(max_length=256, blank=True, null=True, verbose_name=u'META ключевые слова')
+    meta_desc = models.CharField(max_length=256, blank=True, null=True, verbose_name=u'META описание')
+
+
 class PostSection(CommonPage):
     class Meta:
         verbose_name = u'Категория'

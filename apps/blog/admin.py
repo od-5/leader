@@ -1,10 +1,19 @@
 # coding=utf-8
 from django.contrib import admin
 from suit.admin import SortableModelAdmin
-from .models import PostSection, Post, PostComment
+from .models import PostSection, Post, PostComment, BlogSetup
 
 __author__ = 'alexy'
 
+
+class BlogSetupAdmin(admin.ModelAdmin):
+    list_display = ('meta_title', 'meta_key', 'meta_desc')
+
+    def has_add_permission(self, request):
+        if self.model.objects.count() != 0:
+            return False
+        else:
+            return True
 
 class PostSectionAdmin(SortableModelAdmin):
     list_display = ('title', 'slug')
@@ -34,6 +43,7 @@ class PostCommentAdmin(admin.ModelAdmin):
     list_filter = ('name', 'mail', 'created', 'post', )
 
 
+admin.site.register(BlogSetup, BlogSetupAdmin)
 admin.site.register(PostSection, PostSectionAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(PostComment, PostCommentAdmin)
