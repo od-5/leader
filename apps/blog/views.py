@@ -20,12 +20,15 @@ class PostListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data()
-        setup = BlogSetup.objects.first()
-        context.update({
-            'META_TITLE': setup.meta_title,
-            'META_KEY': setup.meta_key,
-            'META_DESC': setup.meta_desc,
-        })
+        try:
+            setup = BlogSetup.objects.first()
+            context.update({
+                'META_TITLE': setup.meta_title,
+                'META_KEY': setup.meta_key,
+                'META_DESC': setup.meta_desc,
+            })
+        except:
+            pass
         return context
 
 class PostDetailView(DetailView):
