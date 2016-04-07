@@ -9,7 +9,7 @@ def get_robots_txt(request):
     """
     Функция отображения robots.txt
     """
-    setup = Setup.objects.first()
+    setup = Setup.objects.all().first()
     try:
         content = setup.robots_txt
     except:
