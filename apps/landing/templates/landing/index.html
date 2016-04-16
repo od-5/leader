@@ -104,19 +104,14 @@
 					<div class="holder">
 						<a href="" class="city-close">x</a>
 						<div class="city-block">
-							<ul class="city-list">
-								<li>Ростов-на-Дону</li>
-								<li>Киров</li>
-							</ul>
-							<ul class="city-list">
-								<li>Волгоград</li>
-								<li>Волжский</li>
-							</ul>
-							<ul class="city-list">
-								<li>Казань</li>
-								<li>пгт. Иловля</li>
-							</ul>
-						</div>
+            {% if CITY_LIST %}
+              <ul class="city-list">
+              {% for city in CITY_LIST %}
+                <li>{{ city.name }}</li>
+              {% endfor %}
+              </ul>
+            {% endif %}
+            </div>
 					</div>
 				</div>
 				<div class="header-fix-holder">
