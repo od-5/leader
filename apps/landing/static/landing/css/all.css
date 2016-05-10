@@ -55,19 +55,7 @@ ul li {list-style: none;}
 	content: '';
 	clear: both;
 }
-.google-play {
-    height: 50px;
-    line-height: 50px;
-    text-align: right;
-}
-.google-play-link {
-    line-height: 50px;
-    display: inline-block;
-}
-.google-play-link__img {
-    width: 100px;
-    vertical-align: middle;
-}
+
 h1 {
 	margin: 0 0 105px;
 	color: #fff;
@@ -926,39 +914,59 @@ label.error {
 }
 /************************* footer *************************/
 .footer {
-	height: 102px;
+	/*height: 102px;*/
 	padding: 40px 0 0;
 }
-.footer-logo {
-	float: left;
-	margin: 0 39px 0 0;
+.footer-logo, .google-play, .studio, .footer-phone {
+	display: inline-block;
+	width: 24%;
+	vertical-align: top;
 }
 .footer-logo img {width: 200px;}
 .copy {
-	float: left;
+	/*float: left;*/
 	margin: 7px 48px 0 0;
 	font-size: 16px;
 	line-height: 25px;
+	padding-bottom: 20px;
 }
 .copy a {
 	color: #000;
 	text-decoration: none;
 	border-bottom: 1px solid #b7b7b7;
 }
+.copy span {
+	float: right;
+}
 .copy a:hover {border-bottom: 1px solid transparent;}
 .studio {
-	float: left;
+	/*float: left;*/
 	margin: 8px 0 0;
 	color: #000;
 	font-size: 12px;
 	line-height: 20px;
+	text-align: center;
 	text-decoration: none;
 }
 .footer-phone {
-	float: right;
+	text-align: right;
 	padding: 14px 0 0;
-	font-size: 35px;
+	font-size: 27px;
 	line-height: 36px;
+}
+.google-play {
+    text-align: center;
+	font-size: 12px;
+}
+.google-play-link {
+    display: block;
+	margin: 8px 0 0;
+	text-decoration: none;
+	color: #000;
+}
+.google-play-link__img {
+    width: 130px;
+    vertical-align: middle;
 }
 #hidden-block {
 	display: none;
