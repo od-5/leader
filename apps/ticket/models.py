@@ -17,20 +17,20 @@ class Ticket(Common):
     def __unicode__(self):
         return self.name
 
-    def save(self, *args, **kwargs):
-        # if not self.country and self.city and self.time_zone:
-        try:
-            api_key = settings.HTMLWEB_API_KEY
-            data = getphoneObject(self.phone, api_key)
-            try:
-                self.country = data['fullname']
-                self.city = data['0']['name']
-                self.time_zone = data['time_zone']
-            except:
-                self.country = data['0']['country']
-        except:
-            pass
-        super(Ticket, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     # if not self.country and self.city and self.time_zone:
+    #     try:
+    #         api_key = settings.HTMLWEB_API_KEY
+    #         data = getphoneObject(self.phone, api_key)
+    #         try:
+    #             self.country = data['fullname']
+    #             self.city = data['0']['name']
+    #             self.time_zone = data['time_zone']
+    #         except:
+    #             self.country = data['0']['country']
+    #     except:
+    #         pass
+    #     super(Ticket, self).save(*args, **kwargs)
 
     def performed_at(self):
         pass
