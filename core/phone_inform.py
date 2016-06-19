@@ -17,7 +17,6 @@ def format_phone(phone):
     return phone
 
 
-
 def get_JSON_data(phone, key):
     url = url_fix('http://htmlweb.ru/geo/api.php?json&charset=utf-8&telcod=%s&api_key=%s' % (phone, key))
     f = urllib2.urlopen(url)
@@ -26,8 +25,10 @@ def get_JSON_data(phone, key):
 
 def getphoneObject(phone, key):
     formated_phone = format_phone(phone)
+    print formated_phone
     response = get_JSON_data(formated_phone, key)
     data = json.loads(response)
+    print data
     return data
 
 # def geocode(key, address):
