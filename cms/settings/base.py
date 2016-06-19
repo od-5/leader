@@ -11,11 +11,11 @@ SECRET_KEY = 'u@5!he@8y6ynbta9c9(l=%b1qzb(c=*9*v)jf+1lkn%_by!jk*'
 if socket.gethostname() == 'r420':
     DEBUG = True
 else:
-    DEBUG = True
+    DEBUG = False
 
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['http://xn--80ahdjbdquza7bzc.xn--p1ai/']
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_FROM_EMAIL = 'info@nadomofone.ru'
