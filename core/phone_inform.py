@@ -25,10 +25,8 @@ def get_JSON_data(phone, key):
 
 def getphoneObject(phone, key):
     formated_phone = format_phone(phone)
-    print formated_phone
     response = get_JSON_data(formated_phone, key)
     data = json.loads(response)
-    print data
     return data
 
 # def geocode(key, address):
