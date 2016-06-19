@@ -23,7 +23,6 @@ class TicketAdmin(admin.ModelAdmin):
     form = TicketAdminForm
 
     def get_queryset(self, request):
-        print request.user.is_superuser
         user = request.user
         if user.is_superuser:
             qs = Ticket.objects.filter(sale=False)
