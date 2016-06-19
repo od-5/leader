@@ -14,7 +14,7 @@ else:
 
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['http://xn--80ahdjbdquza7bzc.xn--p1ai/', ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_FROM_EMAIL = 'info@nadomofone.ru'

@@ -46,23 +46,3 @@ def ticket(request):
     return {
         'success': True
     }
-
-
-@ajax_request
-def test(request):
-
-    from apps.blog.models import Post
-    post = Post.objects.all().first()
-    msg_plain = render_to_string('email.txt', {'object': post})
-    msg_html = render_to_string('blog/post_detail_mail.html', {'object': post})
-    email = 'od-5@yandex.ru'
-    send_mail(
-        post.title,
-        msg_plain,
-        settings.DEFAULT_FROM_EMAIL,
-        [email, ],
-        html_message=msg_html,
-    )
-    return {
-        'success': True
-    }
