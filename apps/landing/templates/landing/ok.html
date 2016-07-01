@@ -22,6 +22,7 @@
 	<script type="text/javascript">
 		setTimeout('location.replace("{% url 'landing:index' %}")', 5000);
 	</script>
+  {{ SETUP.top_js|safe|default:'' }}
 </head>
 <body>
 	<div id="wrapper" class="thnx">
@@ -29,5 +30,6 @@
       Спасибо за заявку. <br> Мы свяжемся с Вами <br> в ближайшее время.
 		</div>
 	</div>
+{{ SETUP.bottom_js|safe|default:'' }}
 </body>
 </html>
