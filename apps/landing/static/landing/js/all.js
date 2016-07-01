@@ -80,20 +80,20 @@ $(document).ready(function () {
 			}
 	    });
 	});	
-	$('form').ajaxForm({
-    success: function(data){
-      var error = data.error;
-      if (error) {
-        $('form').resetForm();
-        $.notify('Сообщение не было отправлено. Проверьте правильность ввода данных!', 'error');
-        console.log(error);
-      } else {
-        $('form').resetForm();
-        $.notify('Ваше сообщение успешно отправлено!', 'success');
-        console.log('not error');
-      }
-    }
-  });
+  //$('form').ajaxForm({
+  //  success: function(data){
+  //    var error = data.error;
+  //    if (error) {
+  //      $('form').resetForm();
+  //      $.notify('Сообщение не было отправлено. Проверьте правильность ввода данных!', 'error');
+  //      console.log(error);
+  //    } else {
+  //      $('form').resetForm();
+  //      $.notify('Ваше сообщение успешно отправлено!', 'success');
+  //      console.log('not error');
+  //    }
+  //  }
+  //});
 	// city hidden
 	$(document).on('click','.header-city-link a',function(e){
 		e.preventDefault();

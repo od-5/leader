@@ -2,6 +2,8 @@
 from annoying.decorators import ajax_request
 from django.conf import settings
 from django.core.mail import send_mail
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from core.models import Setup
 from .forms import TicketForm
@@ -39,10 +41,8 @@ def ticket(request):
                 settings.DEFAULT_FROM_EMAIL,
                 [email, ]
             )
-            return {
-                'success': 'Message send'
-            }
+    return HttpResponseRedirect(reverse('landing:thnx'))
 
-    return {
-        'success': True
-    }
+    # return {
+    #     'success': True
+    # }
