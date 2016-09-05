@@ -29,6 +29,10 @@ h1, h2, h3, h4, p, ul, li, a, span, div, input, textarea, select, form, fieldset
 	outline: 0;
 	box-sizing: border-box;
 }
+.main-title {
+	font-size: 34px;
+	line-height: 1.2;
+}
 img {
 	margin: 0;
 	padding: 0;
