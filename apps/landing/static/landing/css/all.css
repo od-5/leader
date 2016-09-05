@@ -32,6 +32,7 @@ h1, h2, h3, h4, p, ul, li, a, span, div, input, textarea, select, form, fieldset
 .main-title {
 	font-size: 34px;
 	line-height: 1.2;
+	margin-bottom: 20px;
 }
 img {
 	margin: 0;
@@ -229,7 +230,7 @@ article p {
 .header-main {
 	position: relative;
 	height: 852px;
-	padding: 104px 0 0;
+	padding: 50px 0 0;
 	background: url(../images/bg.jpg) 50% 0 no-repeat;
 }
 .header-main.margin {margin: 0 0 68px;}
