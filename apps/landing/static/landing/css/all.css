@@ -264,6 +264,10 @@ article p {
 	background: url(../images/list-arrow.png) 0 0 no-repeat;
 }
 .header-main-left-text {color: #fff;}
+.header-main-left-text span {
+	font-weight: bold;
+	text-transform: uppercase;
+}
 .header-main .form-block {
 	float: right;
 }
@@ -756,6 +760,15 @@ pulse
 	line-height: 51px;
 	text-align: center;
 }
+.contacts .info-bottom-text{
+    font-size: 20px;
+    font-weight: bold;
+    color: #666;
+    line-height: 1.5em;
+    text-align: center;
+    border-right: 3px solid #e06216;
+
+}
 .contacts-text a {
 	color: #000;
 	-webkit-transition: all .3s linear;
@@ -898,6 +911,8 @@ label.error {
 	position: absolute;
 	top: 706px;
 	left: 158px;
+    background: rgba(255, 255, 255, 0.59);
+    padding: 20px;
 }
 .form-block form {
     width: auto;
