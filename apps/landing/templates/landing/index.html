@@ -73,7 +73,11 @@
             </ul>
             <div class="header-main-left-text">Вам не придется снимать офис, нанимать менеджеров по продажам.
               Вы занимаетесь увеличением количества рекламных конструкций. <br><br>
-              <span>Мы занимаемся продажей ваших рекламных площадей</span></div>
+              <span>Мы занимаемся продажей ваших рекламных площадей</span><br><br>
+              <a href="https://vk.com/franchise_nadomofone" target="_blank">
+                <img src="{% static 'landing/images/vk.png' %}" alt="Наша группа Вконтакте">
+              </a>
+            </div>
           </div>
           <div class="form-block">
             <div class="form-title">Заполните форму</div>
@@ -400,7 +404,15 @@
       <div class="holder">
         <h2>Наши контакты</h2>
         <div class="title-text">свяжитесь с нами</div>
-        <div class="contacts-text">{{ SETUP.address|default:'' }}<br>{{ SETUP.phone|default:'0 000 000 000 00' }}<br></div>
+        <div class="contacts-text">
+          {{ SETUP.address|default:'' }}<br>
+          {{ SETUP.phone|default:'0 000 000 000 00' }}<br>
+        </div>
+        <div class="text-center">
+          <a href="https://vk.com/franchise_nadomofone" target="_blank">
+            <img src="{% static 'landing/images/vk.png' %}" alt="Наша группа Вконтакте">
+          </a>
+        </div>
         <div class="info-bottom-text">
           На данный момент ни один наш партнер не вышел из программы.
           100% людей, которые уже купили франшизу, работают с нами до сих пор

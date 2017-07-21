@@ -50,6 +50,9 @@ input, textarea, select{
 a:hover {text-decoration: none;}
 ul li {list-style: none;}
 /************************* common styles *************************/
+.text-center {
+	text-align: center;
+}
 .holder {
 	width: 980px;
 	padding: 0 10px;
