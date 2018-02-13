@@ -6,3 +6,4 @@
 *.pyc
 core/migrations/
 /apps/sender/migrations
+/cms/local_settings.py
