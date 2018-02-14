@@ -9,21 +9,12 @@
   {% load staticfiles %}
 	<link href="{% static 'blog/favicon.ico' %}" rel="shortcut icon" type="image/x-icon" />
 
-	<link media="all" rel="stylesheet" type="text/css" href="{% static 'blog/css/all.css' %}" />
-	<link media="all" rel="stylesheet" type="text/css" href="{% static 'blog/css/nivo-slider.css' %}" />
-	<link media="all" rel="stylesheet" type="text/css" href="{% static 'blog/css/jquery.fancybox.css' %}" />
-	<script src="{% static 'blog/js/jquery-1.9.1.min.js' %}"></script>
-	<script src="{% static 'blog/js/jquery.nivo.slider.pack.js' %}"></script>
-	<script src="{% static 'blog/js/jquery.validate.js' %}"></script>
-  <script src="{% static 'blog/js/jquery.form.js' %}"></script>
-	<script src="{% static 'blog/js/notify-combined.min.js' %}"></script>
-	<script src="{% static 'blog/js/jquery.fancybox.js' %}"></script>
-	<script src="{% static 'blog/js/tabs.js' %}"></script>
-	<script src="{% static 'blog/js/jquery.scrollTo.js' %}"></script>
-	<script src="{% static 'blog/js/jquery.maskedinput.js' %}"></script>
+	<link media="all" rel="stylesheet" type="text/css" href="{% static 'blog/css/all.min.css' %}" />
+	<link media="all" rel="stylesheet" type="text/css" href="{% static 'blog/css/nivo-slider.min.css' %}" />
+	<link media="all" rel="stylesheet" type="text/css" href="{% static 'blog/css/jquery.fancybox.min.css' %}" />
 	<!--[if lt IE 9]><script type="text/javascript" src="{% static 'blog/js/html5.js' %}"></script><![endif]-->
 	<!--[if lt IE 9]><script type="text/javascript" src="{% static 'blog/js/placeholder.js' %}"></script><![endif]-->
-	<script src="{% static 'blog/js/all.js' %}"></script>
+
   {{ SETUP.top_js|safe|default:'' }}
 </head>
 <body>
@@ -150,6 +141,16 @@
 		</div>
 		<!--   Всплывающие окна end  -->
 	</div>
+<script src="{% static 'blog/js/jquery-1.9.1.min.js' %}"></script>
+<script src="{% static 'blog/js/jquery.nivo.slider.pack.js' %}"></script>
+<script src="{% static 'blog/js/jquery.validate.js' %}"></script>
+<script src="{% static 'blog/js/jquery.form.js' %}"></script>
+<script src="{% static 'blog/js/notify-combined.min.js' %}"></script>
+<script src="{% static 'blog/js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'blog/js/tabs.js' %}"></script>
+<script src="{% static 'blog/js/jquery.scrollTo.js' %}"></script>
+<script src="{% static 'blog/js/jquery.maskedinput.js' %}"></script>
+<script src="{% static 'blog/js/all.js' %}"></script>
 {{ SETUP.bottom_js|safe|default:'' }}
 </body>
 </html>
