@@ -15,6 +15,7 @@ class BlogSetupAdmin(admin.ModelAdmin):
         else:
             return True
 
+
 class PostSectionAdmin(SortableModelAdmin):
     list_display = ('title', 'slug')
     list_filter = ('title',)

@@ -1027,7 +1027,7 @@ label.error {
 	width: 100%;
 	margin: 0 0 44px;
 }
-.review-reverse {direction: rtl;}
+.review-item:nth-child(odd) {direction: rtl;}
 .review-photo {
 	display: table-cell;
 	vertical-align: top;
@@ -1057,7 +1057,7 @@ label.error {
 	padding: 50px 0 0 75px;
 	direction: ltr;
 }
-.review-reverse .review-content {
+.review-item:nth-child(odd) .review-content {
 	padding: 50px 75px 0 0;
 }
 .review-name {
@@ -1239,7 +1239,7 @@ label.error {
 	.indoor {padding: 60px 0;}
 	.review-photo {width: 150px;}
 	.review-content {padding: 35px 0 0 35px;}
-	.review-reverse .review-content {padding: 35px 35px 0 0;}
+	.review-item:nth-child(odd) .review-content {padding: 35px 35px 0 0;}
 	.review-text {padding: 34px 40px 30px;}
 	.review {padding: 60px 0 30px;}
 	.contacts {padding: 60px 0 99px;}
@@ -1329,7 +1329,7 @@ label.error {
 		display: block;
 		padding: 30px 0 0;
 	}
-	.review-reverse .review-content {padding: 30px 0 0;}
+	.review-item:nth-child(odd) .review-content {padding: 30px 0 0;}
 	.review-text {
 		padding: 24px 20px 20px;
 		margin: 0 -20px;
