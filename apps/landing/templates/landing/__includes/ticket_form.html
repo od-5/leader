@@ -1,0 +1,18 @@
+<form action="{% url 'ticket:send' %}" method="post">{% csrf_token %}
+  <fieldset>
+    <input type="text" name="name" class="input required" placeholder="Ваше имя *">
+    <input type="text" name="phone" class="input no-margin required" placeholder="+7 (___) ___ - __ - __">
+    {% if email %}
+    <input type="text" name="mail" class="input required" placeholder="Ваш email *">
+    {% endif %}
+    <input type="hidden" name="theme" value="{{ theme }}">
+    <div class="submit-holder">
+      <button class="submit">{{ button }}</button>
+    </div>
+  </fieldset>
+  <fieldset class="terms text-center">
+    <input type="checkbox" name="terms" id="id-terms">
+    <label for="id-terms">Я согласен на <a href="{% url 'landing:personal' %}" target="_blank">обработку персональной информации</a></label>
+  </fieldset>
+</form>
+<div class="form-text-min">Мы гарантируем <a href="#hidden-block" class="fancybox">конфиденциальность</a></div>

@@ -11,7 +11,7 @@ class Common(models.Model):
         abstract = True
         ordering = ['-created', ]
 
-    created = models.DateField(verbose_name=u'Дата создания', auto_now=True)
+    created = models.DateField(verbose_name=u'Дата создания', auto_now_add=True)
 
 
 class CommonPage(Common):

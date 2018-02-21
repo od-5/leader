@@ -3,11 +3,17 @@
 <html lang="ru">
 <head>
 	<meta charset="utf-8">
+  {% block meta_keys %}
 	<meta name="keywords" content="{{ SETUP.meta_key|safe|default:'' }}">
+  {% endblock %}
+  {% block meta_desc %}
 	<meta name="description" content="{{ SETUP.meta_desc|safe|default:'' }}">
+  {% endblock %}
 	<meta name="format-detection" content="telephone=no">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+  {% block title %}
 	<title>{{ SETUP.title|default:'Не указано' }}</title>
+  {% endblock %}
 	<link media="all" rel="stylesheet" type="text/css" href="{% static 'landing/css/all.min.css' %}" />
 	<!--[if lt IE 9]><script type="text/javascript" src="{% static 'landing/js/html5.js' %}"></script><![endif]-->
 	<!--[if lt IE 9]><script type="text/javascript" src="{% static 'landing/js/placeholder.js' %}"></script><![endif]-->
@@ -23,7 +29,9 @@
             <span class="orange">справится</span> даже <span class="green">1</span> человек
             </div>
             <div class="logo">
-            <img src="{% static 'landing/images/logo.png' %}" alt="">
+              <a href="{% url 'landing:index' %}">
+                <img src="{% static 'landing/images/logo.png' %}" alt="">
+              </a>
             </div>
             <div class="header-right">
               <div class="header-mob-text">Работаем с 2009 года</div>
@@ -32,14 +40,16 @@
             </div>
           </div>
         </div>
+    {% block header_main %}
 		  <div class="header-main">
 			  <div class="header-main-bg"></div>
         <div class="holder">
-          <h1 class="main-title">
-          <strong>Откройте свой рекламный бизнес по франшизе</strong><br>
-          Заработок свыше 1000000РУБ. В ГОД
-          </h1>
+
           <div class="header-main-left">
+            <h1 class="main-title">
+              <strong>Откройте свой рекламный бизнес по франшизе</strong><br>
+              Заработок свыше 1000000РУБ. В ГОД
+              </h1>
             <ul class="header-main-list">
               <li>Удаленное управление и контроль прямо из дома</li>
               <li>Готовый бизнес «под ключ» от 200 тыс. рублей</li>
@@ -52,17 +62,9 @@
           <div class="form-block">
             <div class="form-title">Заполните форму</div>
             <div class="form-text">и узнайте все условия открытия вашего бизнеса</div>
-            <form action="{% url 'ticket:send' %}" method="post">{% csrf_token %}
-              <fieldset>
-              <input type="text" name="name" class="input required" placeholder="Ваше имя *">
-              <input type="text" name="phone" class="input no-margin required" placeholder="+7 (___) ___ - __ - __">
-              <input type="hidden" name="theme" value="1">
-              <div class="submit-holder">
-                <button class="submit">Получить информацию</button>
-              </div>
-              </fieldset>
-            </form>
-            <div class="form-text-min">Мы гарантируем конфиденциальность</div>
+            {% with theme=1 button='Получить информацию' %}
+              {% include 'landing/__includes/ticket_form.html' %}
+            {% endwith %}
           </div>
         </div>
         <div class="main-slider">
@@ -91,8 +93,10 @@
           </div>
         </div>
       </div>
+    {% endblock %}
 
 		</header>
+  {% block content %}
 		<section class="reclame">
 		  <div class="holder">
 			<h2>Новое направление в рекламе</h2>
@@ -242,18 +246,9 @@
 			<div class="form-block">
 			  <div class="form-title">Заполните форму</div>
 			  <div class="form-text">и получите подробную консультацию о франшизе</div>
-			  <form action="{% url 'ticket:send' %}" method="post">{% csrf_token %}
-				<fieldset>
-				  <input type="text" name="name" class="input required" placeholder="Ваше имя *">
-				  <input type="text" name="phone" class="input no-margin required" placeholder="+7 (___) ___ - __ - __">
-				  <input type="text" name="mail" class="input required" placeholder="Ваш email *">
-				  <input type="hidden" name="theme" value="2">
-				  <div class="submit-holder">
-					<button class="submit">Получить консультацию</button>
-				  </div>
-				</fieldset>
-			  </form>
-			  <div class="form-text-min">Мы гарантируем конфиденциальность</div>
+        {% with theme=2 button='Получить консультацию' email=True %}
+          {% include 'landing/__includes/ticket_form.html' %}
+        {% endwith %}
 			</div>
 			<div class="video-tablet">
 			  <a href="#dialog" class="tablet-link modal">
@@ -607,18 +602,9 @@
 				<div class="form-block form-block-big">
 					<div class="form-title">Заполните форму</div>
 					<div class="form-text">и получите презентацию с перечнем<br> свободных городов</div>
-					<form action="{% url 'ticket:send' %}" method="post">	{% csrf_token %}
-						<fieldset>
-							<input type="text" name="name" class="input required" placeholder="Ваше имя *">
-							<input type="text" name="phone" class="input no-margin required" placeholder="+7 (___) ___ - __ - __">
-							<input type="text" name="mail" class="input required" placeholder="Ваш email *">
-							<input type="hidden" name="theme" value="Получить презентацию с перечнем свободных городов">
-							<div class="submit-holder">
-								<button class="submit">Получить презентацию</button>
-							</div>
-						</fieldset>
-					</form>
-					<div class="form-text-min">Мы гарантируем конфиденциальность</div>
+          {% with theme=3 button='Получить презентацию' email=True %}
+            {% include 'landing/__includes/ticket_form.html' %}
+          {% endwith %}
 				</div>
 				<h3 class="map-text">Города, где франшиза уже нашла своего владельца</h3>
 				<div class="map-text-min">Эксклюзивным представителем по городу может быть только одна компания</div>
@@ -626,6 +612,7 @@
 			<div id="ya_map"></div>
 
 		</section>
+  {% endblock %}
 		<footer class="footer">
 		  <div class="holder">
 			<div class="footer-logo"><img src="{% static 'landing/images/logo.png' %}" alt=""></div>

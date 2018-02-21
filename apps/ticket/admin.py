@@ -14,12 +14,14 @@ class TicketAdminForm(ModelForm):
 
 
 class TicketAdmin(admin.ModelAdmin):
-    list_display = ('name', 'phone', 'mail', 'created', 'status', 'manager', 'ticket_comment', 'country', 'city', 'time_zone')
+    list_display = ('name', 'phone', 'mail', 'created', 'status', 'manager', 'ticket_comment', 'country', 'city',
+                    'time_zone', 'mail_view')
     list_filter = ['mail', 'created', 'status', 'manager', 'contact_date']
     search_fields = ['mail', 'manager']
     date_hierarchy = 'created'
     readonly_fields = ('country', 'city', 'time_zone')
-    fields = ('name', 'phone', 'mail', 'comment', 'country', 'city', 'time_zone', 'status', 'contact_date', 'manager', 'ticket_comment', 'sale')
+    fields = ('name', 'phone', 'mail', 'comment', 'country', 'city', 'time_zone', 'status', 'contact_date', 'manager',
+              'ticket_comment', 'sale')
     form = TicketAdminForm
 
     def get_queryset(self, request):

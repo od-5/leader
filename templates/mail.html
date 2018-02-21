@@ -1,0 +1,427 @@
+﻿{% load static %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=320, target-densitydpi=device-dpi">
+    <style type="text/css">
+        /* Client-specific Styles */
+        #outlook a {
+            padding: 0;
+        }
+
+        /* Force Outlook to provide a "view in browser" menu link. */
+        body {
+            width: 100% !important;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
+        .ExternalClass {
+            width: 100%;
+        }
+
+        /* Force Hotmail to display emails at full width */
+        .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+            line-height: 100%;
+        }
+
+        /* Force Hotmail to display normal line spacing.*/
+        #backgroundTable {
+            margin: 0;
+            padding: 0;
+            width: 100% !important;
+            line-height: 100% !important;
+        }
+
+        img {
+            outline: none;
+            text-decoration: none;
+            border: none;
+            -ms-interpolation-mode: bicubic;
+        }
+
+        a img {
+            border: none;
+        }
+
+        .image_fix {
+            display: block;
+        }
+
+        p {
+            margin: 0px 0px !important;
+        }
+
+        table td {
+            border-collapse: collapse;
+        }
+
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        a {
+            color: #222222;
+            text-decoration: none;
+            text-decoration: none !important;
+        }
+        .phone, .email{
+            color: #ffffff; font-size: 24px; font-family: Arial; font-weight: 400; line-height: 25px;
+        }
+
+        /*STYLES*/
+
+        /*IPAD STYLES*/
+        @media only screen and (max-width: 640px) {
+            table[class=devicewidth] {
+                width: 440px !important;
+                text-align: center !important;
+            }
+
+        }
+
+        /*IPHONE STYLES*/
+        @media only screen and (max-width: 480px) {
+            table[class=devicewidth] {
+                width: 320px !important;
+                text-align: center !important;
+            }
+            .phone, .email{
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+<table bgcolor="#efefef" border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tbody>
+
+
+    <tr>
+        <td align="center" width="100%" bgcolor="#efefef"
+            style="font-family: Arial, Verdana, Helvetica, sans-serif; -webkit-text-size-adjust: none; -ms-text-size-adjust: none;">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td align="center" height="40" width="600"></td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <table border="0" cellpadding="0" cellspacing="0" width="600" bgcolor="#111010"
+                               style="background:#111010;" class="devicewidth">
+                            <tbody>
+                            <tr>
+                                <td width="100%"height="100%" colspan="3">
+                                    <img src="{{ site_name|default:'' }}{% static 'mail/banner.jpg' %}" alt="" width="100%">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <table border="0" cellpadding="0" cellspacing="0" width="600" bgcolor="#111010"
+                               style="background: #ffffff;" class="devicewidth">
+                            <tbody>
+                            <tr>
+                                <td height="60" width="100%" valign="top" colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td width="10%" height="1" valign="top"></td>
+                                <td width="80%" valign="top">
+				  <span style="color: #000000; font-size: 18px; font-family: Arial; line-height: 25px;">
+					Добрый день,<span style="color: #ed6a07;">{{ name|default:'Александр' }}</span> <br>
+                      Мы получили вашу заявку!
+				  </span>
+          <img src="{{ site_name|default:'' }}{% url 'ticket:mail_read' id %}" alt="" width="100%">
+                                </td>
+                                <td width="10%" height="1" valign="top"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <table border="0" cellpadding="0" cellspacing="0" width="600" bgcolor="#fff"
+                               style="background:#fff;" class="devicewidth">
+                            <tbody>
+                            <tr>
+                                <td height="30" width="100%" valign="top" colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td width="10%" height="1" valign="top"></td>
+                                <td width="80%" valign="top">
+				  <span style="color: #000000; font-size: 18px; font-family: Arial; line-height: 25px;">
+					 В течении дня освободившийся менеджер вам<br> обязательно позвонит и ответит на вопросы.
+				  </span>
+                                </td>
+                                <td width="10%" height="1" valign="top"></td>
+                            </tr>
+                            <tr>
+                                <td height="30" width="100%" valign="top" colspan="3"></td>
+                            </tr>
+
+                            <tr>
+                                <td width="10%" height="1" valign="top"></td>
+                                <td width="80%" valign="top">
+				  <span style="color: #000000; font-size: 18px; font-family: Arial; line-height: 25px;">
+					 Прямо сейчас самое важное для вас<br>
+					 <span style="color: #ed6a07;">Почему 100% наших партнеров успешны</span> и почему наш<br>
+                      формат гарантированно востребован среди ведущих <br>
+                      компаний России <span style="color: #959595;">(Билайн, Дом.ру, МТС, Светофор,<br>
+                      Сбербанк и т.д.)</span>
+				  </span>
+                                </td>
+                                <td width="10%" height="1" valign="top"></td>
+                            </tr>
+                            <tr>
+                                <td height="30" width="100%" valign="top" colspan="3"></td>
+                            </tr>
+
+                            <tr>
+                                <td width="10%" height="1" valign="top"></td>
+                                <td width="80%" valign="top">
+
+                                </td>
+                                <td width="10%" height="1" valign="top"></td>
+                            </tr>
+
+                            <tr>
+                                <td width="10%" height="1" valign="top"></td>
+                                <td width="80%" valign="top">
+				  <span style="color: #000000; font-size: 18px; font-family: Arial; line-height: 25px;">
+					Посмотрите видео и запишите вопросы, чтобы задать <br> менеджеру.
+				  </span>
+                                </td>
+                                <td width="10%" height="1" valign="top"></td>
+                            </tr>
+                            <tr>
+                                <td height="30" width="100%" valign="top" colspan="3"></td>
+                            </tr>
+
+                            <tr>
+                                <td width="10%" height="1" valign="top"></td>
+                                <td width="80%" valign="top">
+				            <span style="color: #000000; font-size: 18px; font-family: Arial; line-height: 25px;">
+					            « Удачного дня! <br> <span style="margin-left: 16px">Рад знакомству, {{ name|default:'Александр' }} »</span>
+				            </span>
+                                </td>
+                                <td width="10%" height="1" valign="top"></td>
+                            </tr>
+                            <tr>
+                                <td height="60" width="100%" valign="top" colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td width="10%" height="1" valign="top"></td>
+                                <td width="80%" valign="top">
+                                    <a href="https://www.youtube.com/watch?v=HsLoyu0LeM4 " target="_blank">
+                                        <img src="{{ site_name|default:'' }}{% static 'mail/video.jpg' %}" alt="" width="100%">
+                                    </a>
+                                </td>
+                                <td width="10%" height="1" valign="top"></td>
+                            </tr>
+                            <tr>
+                                <td height="60" width="100%" valign="top" colspan="3"></td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td align="center">
+                        <table border="0" cellpadding="0" cellspacing="0" width="600" bgcolor="#ed6a07"
+                               style="background:#ed6a07;" class="devicewidth">
+                            <tbody>
+                            <tr>
+                                <td width="10%" height="1" valign="top"></td>
+                                <td width="80%" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+                                        <tbody align="left">
+                                        <tr>
+                                            <td width="99" valign="top" align="center">
+                                                <img src="{{ site_name|default:'' }}{% static 'mail/angle2.jpg' %}" alt="" width="28" height="24" align="center">
+                                            </td>
+                                            <td width="25" valign="top" align="left"></td>
+                                            <td valign="top" align="left"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td width="10%" height="1" valign="top"></td>
+                            </tr>
+                            <tr>
+                                <td height="38" width="100%" valign="top" colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td width="10%" height="1" valign="top"></td>
+
+                                <td width="80%" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="80%">
+                                        <tbody>
+                                        <tr>
+                                            <td width="99" valign="top" align="left">
+                                                <img src="{{ site_name|default:'' }}{% static 'mail/photo.png' %}" alt="" width="99" height="99">
+                                            </td>
+                                            <td width="25" valign="top" align="left"></td>
+                                            <td valign="top" align="left">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td height="27" width="100%" valign="top" colspan="3"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="100%" valign="top">
+									  <span style="color: #ffffff; font-size: 24px; font-family: Arial; font-weight: 400; line-height: 25px;">
+										 Никитин Дмитрий
+									  </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td height="1" width="100%" valign="top" colspan="3"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="100%" valign="top">
+									  <span style="color: #ffffff; font-size: 14px; font-family: Arial; font-weight: 400; font-style: italic; line-height: 18px;">
+										 сооснователь проекта nadomofone.ru
+									  </span>
+                                                        </td>
+                                                    </tr>
+
+
+                                                    <tr>
+                                                        <td height="45" width="100%" valign="top" colspan="3"></td>
+                                                    </tr>
+
+
+                                                    <tr>
+                                                        <td width="100%" valign="top">
+									  <span style="color: #ffffff; font-size: 14px; font-family: Arial; font-weight: 400; font-style: italic; line-height: 18px;">
+										 телефон
+									  </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td height="1" width="100%" valign="top" colspan="3"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="100%" valign="top">
+									  <span class="phone">
+										 <a href='tel:89526086295' style="color: #ffffff;">8(952)608-62-95</a>
+									  </span>
+                                                        </td>
+                                                    </tr>
+
+
+                                                    <tr>
+                                                        <td height="25" width="100%" valign="top" colspan="3"></td>
+                                                    </tr>
+
+
+                                                    <tr>
+                                                        <td width="100%" valign="top">
+									  <span style="color: #ffffff; font-size: 14px; font-family: Arial; font-weight: 400; font-style: italic; line-height: 18px;">
+										 email
+									  </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td height="1" width="100%" valign="top" colspan="3"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="100%" valign="top">
+									  <span class="email">
+										<a href="mailto:nikitin-nadomofone@yandex.ru" style="color: #ffffff;">nikitin-nadomofone@yandex.ru</a>
+									  </span>
+                                                        </td>
+                                                    </tr>
+
+
+                                                    <tr>
+                                                        <td height="45" width="100%" valign="top" colspan="3"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="100%" valign="top">
+                                                            <table border="0" cellpadding="0" cellspacing="0"
+                                                                   width="100%" style="table-layout: fixed;">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td width="26" valign="middle" align="left">
+                                                                        <a href="https://www.youtube.com/channel/UCpf71zr4GJstAU-yyyKpzeA" target="_blank"><img
+                                                                                src="{{ site_name|default:'' }}{% static 'mail/youtube.png' %}"
+                                                                                alt=""
+                                                                                width="24"
+                                                                                height="24"></a>
+                                                                    </td>
+                                                                    <td width="16" valign="middle" align="left"></td>
+                                                                    <td valign="middle" align="left">
+                                                                        <a href="https://www.youtube.com/channel/UCpf71zr4GJstAU-yyyKpzeA" target="_blank">
+											  <span style="color: #ffffff; font-size: 16px; font-family: Arial; font-weight: 400; text-decoration: underline; line-height: 20px;">
+												Наш канал на Youtube
+											  </span>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td height="12" width="100%" valign="top"
+                                                                        colspan="3"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="26" valign="middle" align="left">
+                                                                        <a href="https://vk.com/franchise_nadomofone" target="_blank"><img src="{% static 'mail/vk.png' %}"
+                                                                                                        alt=""
+                                                                                                        width="26"
+                                                                                                        height="15"></a>
+                                                                    </td>
+                                                                    <td width="16" valign="middle" align="left"></td>
+                                                                    <td valign="middle" align="left">
+                                                                        <a href="https://vk.com/franchise_nadomofone" target="_blank">
+											  <span style="color: #ffffff; font-size: 16px; font-family: Arial; font-weight: 400; text-decoration: underline; line-height: 20px;">
+												Наша группа Vkontakte
+											  </span>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+
+                                <td width="10%" height="1" valign="top"></td>
+                            </tr>
+                            <tr>
+                                <td height="90" width="100%" valign="top" colspan="3"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>
