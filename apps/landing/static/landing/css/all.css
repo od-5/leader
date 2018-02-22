@@ -310,6 +310,12 @@ article p {
     padding: 102px 0 106px;
     background: #fff;
 }
+.reclame h2 {
+    font-size: 40px;
+}
+.reclame .title-text {
+    font-size: 20px;
+}
 .reclame-photo {
     overflow: hidden;
     width: 980px;
@@ -791,6 +797,9 @@ label[for='terms'].error {
     font-size: 12px;
 }
 .terms a, .terms a:visited {
+    color: #999999;
+}
+.header-main .terms a, .header-main .terms a:visited {
     color: #f1f1f1;
 }
 .terms label[for='id-terms'], .form-text-min a {
