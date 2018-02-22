@@ -777,7 +777,6 @@ pulse
     text-align: center;
 }
 .form-text-min a {
-    color: #666;
     text-decoration: underline;
 }
 .form-block form {
@@ -792,8 +791,12 @@ label[for='terms'].error {
     font-size: 12px;
 }
 .terms a, .terms a:visited {
-    color: #0099FF;
+    color: #f1f1f1;
 }
+.terms label[for='id-terms'], .form-text-min a {
+    color: #b7b7b7;
+}
+
 /*form .terms a, .header-form .terms a:visited {*/
     /*color: #fff;*/
 /*}*/
