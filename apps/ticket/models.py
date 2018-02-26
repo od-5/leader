@@ -9,6 +9,7 @@ from django.template.loader import render_to_string
 from core.phone_inform import getphoneObject
 from core.base_model import Common
 from core.models import User, Setup
+from lib.sms.views import SmsMessage
 
 __author__ = 'alexy'
 
@@ -107,5 +108,5 @@ def create_mail(sender, created, **kwargs):
         ticket.send_admin_mail()
         ticket.send_client_mail()
 
-        # message = u'Проверьте вашу почту. Вам высланы материалы по франшизе nadomofone.ru.'
-        # SmsMessage(ticket.phone, message).send()
+        message = u'Добрый день! Проверьте вашу почту. Вам высланы материалы по франшизе nadomofone.ru.'
+        SmsMessage(ticket.phone, message).send()
