@@ -102,10 +102,10 @@ fieldset{
         margin:0;
     }
     .logo img{
-        width: 55%;
+        width: 75%;
     }
     .input{
-        width: 225px;
+        width: 270px;
     }
     .input:nth-of-type(3) {
         margin-right: 0;
@@ -148,7 +148,7 @@ fieldset{
 
 @media screen and (max-width: 479px) {
     .input{
-        width: 270px;
+        width: 225px;
         margin-right: 15px;
     }
     .head-icon{
