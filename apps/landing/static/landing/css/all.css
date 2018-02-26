@@ -789,10 +789,11 @@ pulse
     width: 278px;
     margin: 0 auto;
 }
+
+/************************* personal terms *************************/
 label[for='terms'].error {
     padding-left: 10px;
 }
-/************************* personal terms *************************/
 .terms {
     font-size: 12px;
 }

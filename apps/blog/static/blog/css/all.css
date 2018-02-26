@@ -52,6 +52,9 @@ input, textarea, select{
 a:hover {text-decoration: none;}
 ul li {list-style: none;}
 /************************* common styles *************************/
+.text-center {
+	text-align: center;
+}
 .holder {
 	width: 1000px;
 	padding: 0 20px;
@@ -98,6 +101,29 @@ article p {
 #wrapper {
 	position: relative;
 	overflow: hidden;
+}
+/************************* personal terms *************************/
+label[for='terms'].error {
+    padding-left: 10px;
+    color: indianred;
+}
+.terms {
+    font-size: 12px;
+}
+.terms a, .terms a:visited {
+    color: #999999;
+}
+.header-main .terms a, .header-main .terms a:visited {
+    color: #f1f1f1;
+}
+.terms label[for='id-terms'], .form-text-min a {
+    color: #b7b7b7;
+}
+.side-order .terms label[for='id-terms'], .side-order .terms a, .side-order .terms a:visited {
+    color: #fff;
+}
+.side-order label[for='terms'].error {
+    color: #a50000;
 }
 /************************* header__nav *************************/
 .header-fix {
@@ -723,10 +749,6 @@ article p {
 .input.error, .textarea.error {
 	color: rgb(255, 86, 71);
 	background-color: rgb(255, 206, 202);
-}
-label.error {
-	position: absolute;
-	left: -9999px;
 }
 /************************* footer *************************/
 .footer {

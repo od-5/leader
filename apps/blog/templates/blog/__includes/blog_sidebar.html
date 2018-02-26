@@ -21,10 +21,14 @@
       <div class="form-text">и получайте новые<br> публикации<br> на ваш email</div>
       <form action="{% url 'sender:add' %}" method="post">{% csrf_token %}
         <fieldset>
-          <input type="text" name="mail" class="input required" placeholder="Ваш email">
+          <input type="text" name="mail" class="input" placeholder="Ваш email">
           <div class="submit-holder">
             <button class="submit">Подписаться</button>
           </div>
+        </fieldset>
+        <fieldset class="terms text-center">
+          <input type="checkbox" name="terms" id="id-terms">
+          <label for="id-terms">Я согласен на <a href="{% url 'landing:personal' %}" target="_blank">обработку персональной информации</a></label>
         </fieldset>
       </form>
     </div>

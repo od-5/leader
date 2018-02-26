@@ -50,7 +50,7 @@ $(document).ready(function () {
   $(".input[name='phone']").mask("+7 (999) 999-99-99");
   $('form').each(function(){
     $(this).validate({
-         rules: {
+      rules: {
         name: {
           required: true
         },
@@ -61,9 +61,22 @@ $(document).ready(function () {
         phone: {
           required: true,
           minlength: 6
+        },
+        comment: {
+          required: true
+        },
+        terms: {
+          required: true
         }
+      },
+      messages: {
+        phone: false,
+        name: false,
+        mail: false,
+        comment: false,
+        terms: 'Вы не можете оставить заявку без согласия на обработку персональных данных'
       }
-      });
+    });
   });
   $('form').ajaxForm({
     success: function(data){

@@ -31,6 +31,7 @@ class PostListView(ListView):
             pass
         return context
 
+
 class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/post_detail.html'

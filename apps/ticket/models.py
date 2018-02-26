@@ -1,4 +1,6 @@
 # coding=utf-8
+import collections
+
 from django.core.mail import send_mail
 from django.db import models
 from django.conf import settings
@@ -10,6 +12,7 @@ from core.phone_inform import getphoneObject
 from core.base_model import Common
 from core.models import User, Setup
 from lib.sms.views import SmsMessage
+from lib.phone_inform.views import PhoneGeocode
 
 __author__ = 'alexy'
 
@@ -52,20 +55,22 @@ class Ticket(Common):
     def __unicode__(self):
         return self.name
 
-    # def save(self, *args, **kwargs):
-    #     # if not self.country and self.city and self.time_zone:
-    #     try:
-    #         api_key = settings.HTMLWEB_API_KEY
-    #         data = getphoneObject(self.phone, api_key)
-    #         try:
-    #             self.country = data['fullname']
-    #             self.city = data['0']['name']
-    #             self.time_zone = data['time_zone']
-    #         except:
-    #             self.country = data['0']['country']
-    #     except:
-    #         pass
-    #     super(Ticket, self).save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        # if not self.country and self.city and self.time_zone:
+
+        data = PhoneGeocode(self.phone).get_info()
+        if data:
+            if 'fullname' in data:
+                self.country = data['fullname']
+            elif 'country' in data and 'fullname' in data['country']:
+                self.country = data['country']['fullname']
+            if 'time_zone' in data:
+                self.time_zone = data['time_zone']
+            if '0' in data and 'name' in data['0']:
+                self.city = data['0']['name']
+            elif 'region' in data and 'name' in data['region']:
+                self.city = data['region']['name']
+        super(Ticket, self).save(*args, **kwargs)
 
     def performed_at(self):
         pass
