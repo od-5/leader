@@ -306,6 +306,9 @@ article p {
 }
 .mobile {display: none;}
 /************************* reclame *************************/
+#slider {
+    display: none;
+}
 .reclame {
     padding: 102px 0 106px;
     background: #fff;
@@ -1506,6 +1509,12 @@ label[for='terms'].error {
     }
 }
 @media screen and (max-width: 560px) {
+    .reclame-photo {
+        display: none;
+    }
+    #slider {
+        display: block;
+    }
     .review-name {
         font-size: 20px;
         line-height: 24px;
