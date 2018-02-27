@@ -127,15 +127,27 @@
 			<h2>Новое направление в рекламе</h2>
 			<div class="title-text">Информационные таблички на входных дверях подъездов<br>
 			Реклама в home-формате эффективна и востребована</div>
-      <div id="slider">
-			  <img src="{% static 'landing/images/rec/1b.jpg' %}" alt="">
-			  <img src="{% static 'landing/images/rec/22b.jpg' %}" alt="">
-			  <img src="{% static 'landing/images/rec/33b.jpg' %}" alt="">
-			  <img src="{% static 'landing/images/rec/44b.jpg' %}" alt="">
-			  <img src="{% static 'landing/images/rec/55b.jpg' %}" alt="">
-			  <img src="{% static 'landing/images/rec/6b.jpg' %}" alt="">
+      <div id="slider" class="mobile">
+        <div class="slide">
+          <img src="{% static 'landing/images/rec/1b.jpg' %}" alt="">
+        </div>
+			  <div class="slide">
+          <img src="{% static 'landing/images/rec/22b.jpg' %}" alt="">
+        </div>
+			  <div class="slide">
+          <img src="{% static 'landing/images/rec/33b.jpg' %}" alt="">
+        </div>
+			  <div class="slide">
+          <img src="{% static 'landing/images/rec/44b.jpg' %}" alt="">
+        </div>
+			  <div class="slide">
+          <img src="{% static 'landing/images/rec/55b.jpg' %}" alt="">
+        </div>
+			  <div class="slide">
+          <img src="{% static 'landing/images/rec/6b.jpg' %}" alt="">
+        </div>
 			</div>
-			<div class="reclame-photo">
+			<div class="reclame-photo desktop">
 			  <a href="{% static 'landing/images/rec/1b.jpg' %}" class="fancybox" data-fancybox-group="rec"><img src="{% static 'landing/images/rec/1.jpg' %}" alt=""></a>
 			  <a href="{% static 'landing/images/rec/22b.jpg' %}" class="fancybox" data-fancybox-group="rec"><img src="{% static 'landing/images/rec/22.jpg' %}" alt=""></a>
 			  <a href="{% static 'landing/images/rec/33b.jpg' %}" class="fancybox" data-fancybox-group="rec"><img src="{% static 'landing/images/rec/33.jpg' %}" alt=""></a>
@@ -693,15 +705,15 @@
 		</div>
 		<!--   Всплывающие окна end  -->
 	</div>
-<link media="all" rel="stylesheet" type="text/css" href="{% static 'landing/css/nivo-slider.min.css' %}" />
 <link media="all" rel="stylesheet" type="text/css" href="{% static 'landing/css/jquery.fancybox.min.css' %}" />
+<link media="all" rel="stylesheet" type="text/css" href="{% static 'landing/css/owl.carousel.min.css' %}" />
 <script src="{% static 'landing/js/jquery-1.9.1.min.js' %}"></script>
-<script src="{% static 'landing/js/jquery.nivo.slider.pack.js' %}"></script>
 <script src="{% static 'landing/js/jquery.validate.js' %}"></script>
 <script src="{% static 'landing/js/jquery.fancybox.js' %}"></script>
 <script src="{% static 'landing/js/tabs.js' %}"></script>
 <script src="{% static 'landing/js/jquery.scrollTo.min.js' %}"></script>
 <script src="{% static 'landing/js/jquery.maskedinput.js' %}"></script>
+<script src="{% static 'landing/js/owl.carousel.min.js' %}"></script>
 <script src="{% static 'landing/js/all.js' %}"></script>
 <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 <script type="text/javascript">

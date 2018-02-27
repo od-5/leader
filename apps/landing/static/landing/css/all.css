@@ -306,9 +306,6 @@ article p {
 }
 .mobile {display: none;}
 /************************* reclame *************************/
-#slider {
-    display: none;
-}
 .reclame {
     padding: 102px 0 106px;
     background: #fff;
@@ -1331,11 +1328,11 @@ label[for='terms'].error {
     }
 }
 @media screen and (max-width: 800px) {
-
-}
-@media screen and (max-width: 767px) {
     .mobile {display: block;}
     .desktop {display: none;}
+}
+@media screen and (max-width: 767px) {
+
     .main-title {
         font-size: 30px;
         line-height: 1.2;
@@ -1509,12 +1506,6 @@ label[for='terms'].error {
     }
 }
 @media screen and (max-width: 560px) {
-    .reclame-photo {
-        display: none;
-    }
-    #slider {
-        display: block;
-    }
     .review-name {
         font-size: 20px;
         line-height: 24px;
@@ -1587,6 +1578,13 @@ label[for='terms'].error {
 }
 @media screen and (max-width: 420px) {
     body {overflow-x: hidden;}
+
+}
+@media screen and (max-height: 640px) {
+    .owl-carousel, .slide {height: 500px;}
+}
+@media screen and (max-height: 384px) {
+    .owl-carousel, .slide {height: 310px;}
 }
 
 
