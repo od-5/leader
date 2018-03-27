@@ -18,7 +18,7 @@
 	<link media="all" rel="stylesheet" type="text/css" href="{% static 'landing/css/new.min.css' %}" />
 	<!--[if lt IE 9]><script type="text/javascript" src="{% static 'landing/js/html5.js' %}"></script><![endif]-->
 	<!--[if lt IE 9]><script type="text/javascript" src="{% static 'landing/js/placeholder.js' %}"></script><![endif]-->
-
+{{ SETUP.top_js|safe|default:'' }}
 </head>
 <body>
 	<div id="wrapper">
