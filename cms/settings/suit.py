@@ -28,8 +28,8 @@ SUIT_CONFIG = {
         {'label': u'Заявки', 'icon': 'icon-list-alt', 'models': ('ticket.ticket',)},
         {'label': u'Отзывы', 'icon': 'icon-list-alt', 'models': ('landing.review',)},
         {'label': u'Продажи', 'icon': 'icon-user', 'models': ('ticket.sale',)},
-        {'label': u'Блог', 'icon': 'icon-edit', 'models': ('blog.blogsetup', 'blog.postsection', 'blog.post', 'blog.postcomment',)},
+        # {'label': u'Блог', 'icon': 'icon-edit', 'models': ('blog.blogsetup', 'blog.postsection', 'blog.post', 'blog.postcomment',)},
         {'label': u'Города', 'icon': 'icon-map-marker', 'models': ('city.city',)},
-        {'label': u'Подписчики', 'icon': 'icon-envelope', 'models': ('sender.sender',)},
+        # {'label': u'Подписчики', 'icon': 'icon-envelope', 'models': ('sender.sender',)},
     ),
 }
