@@ -13,7 +13,7 @@ urlpatterns = patterns(
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('core.urls')),
     url(r'', include('apps.landing.urls', namespace='landing')),
-    url(r'blog/', include('apps.blog.urls', namespace='blog')),
+    # url(r'blog/', include('apps.blog.urls', namespace='blog')),
     url(r'ticket/', include('apps.ticket.urls', namespace='ticket')),
     url(r'sender/', include('apps.sender.urls', namespace='sender')),
 )

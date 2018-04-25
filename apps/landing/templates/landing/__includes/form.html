@@ -1,0 +1,22 @@
+<form action="{% url 'ticket:send' %}" method="post" class="js-{{ MAIN_FORM|yesno:'ticket,plan' }}-form">{% csrf_token %}
+  <fieldset>
+  {% if MAIN_FORM %}
+    <input name="name" type="text" class="input" placeholder="Как вас зовут">
+  {% endif %}
+{#								<input name="name" type="text" class="input" placeholder="Опишите ваш опыт в бизнесе, если есть">#}
+    <input name="mail" type="text" class="input" placeholder="Ваш email">
+  {% if MAIN_FORM %}
+    <input name="phone" type="text" class="input" placeholder="Ваш телефон">
+    <div class="check-item">
+      <input type="checkbox" id="id-terms{{ NUMBER }}" name="terms">
+      <label for="id-terms{{ NUMBER }}">Я принимаю условия <a href="#hidden-block2" class="fancybox">пользовательского соглашения</a> пользовательского соглашения,
+      а также ознакомлен и согласен с <a href="#hidden-block" class="fancybox">политикой конфиденциальности</a> и даю согласие на обработку
+      моих персональных данных</label>
+    </div>
+  {% endif %}
+    <div class="order-button">
+      <button class="submit">{{ FORM_SUBMIT_TEXT|default:'УЗНАТЬ ПОДРОБНЕЕ' }}</button>
+      <div class="order-button-text">сегодня <span class="red">9</span> человек <br>оставили заявку</div>
+    </div>
+  </fieldset>
+</form>

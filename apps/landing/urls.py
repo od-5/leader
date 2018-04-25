@@ -11,6 +11,5 @@ urlpatterns = patterns(
     '',
     url(r'^$', LandingView.as_view(), name='index'),
     url(r'^thnx/$', TemplateView.as_view(template_name='landing/ok.html'), name='thnx'),
-    url(r'^personal/$', TemplateView.as_view(template_name='landing/personal.html'), name='personal'),
     url(r'^mail/$', MailView.as_view(), name='mail'),
 )

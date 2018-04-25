@@ -3,7 +3,7 @@
 <html lang="ru">
 <head>
 	<meta charset="utf-8">
-  {% block meta_keys %}
+	{% block meta_keys %}
 	<meta name="keywords" content="{{ SETUP.meta_key|safe|default:'' }}">
   {% endblock %}
   {% block meta_desc %}
@@ -11,746 +11,708 @@
   {% endblock %}
 	<meta name="format-detection" content="telephone=no">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  {% block title %}
+{#	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />#}
+	{% block title %}
 	<title>{{ SETUP.title|default:'Не указано' }}</title>
   {% endblock %}
-	<link media="all" rel="stylesheet" type="text/css" href="{% static 'landing/css/all.min.css' %}?v=1" />
-	<link media="all" rel="stylesheet" type="text/css" href="{% static 'landing/css/new.min.css' %}" />
+	<link media="all" rel="stylesheet" type="text/css" href="{% static 'landing/css/all.min.css' %}" />
+	<link media="all" rel="stylesheet" type="text/css" href="{% static 'landing/css/jquery.fancybox.min.css' %}" />
+	<script src="{% static 'landing/js/jquery-1.9.1.min.js' %}"></script>
+	<script src="{% static 'landing/js/jquery.fancybox.js' %}"></script>
+	<script src="{% static 'landing/js/jquery.validate.js' %}"></script>
+	<script src="{% static 'landing/js/jquery.maskedinput.js' %}"></script>
+	<script src="{% static 'landing/js/jquery.scrollTo.min.js' %}"></script>
+	<script src="{% static 'landing/js/typed.min.js' %}"></script>
 	<!--[if lt IE 9]><script type="text/javascript" src="{% static 'landing/js/html5.js' %}"></script><![endif]-->
-	<!--[if lt IE 9]><script type="text/javascript" src="{% static 'landing/js/placeholder.js' %}"></script><![endif]-->
+	<script src="{% static 'landing/js/all.js' %}"></script>
+{% block top_js %}
+{% endblock %}
 {{ SETUP.top_js|safe|default:'' }}
 </head>
 <body>
+{% block content %}
 	<div id="wrapper">
-		<header class="header">
-		  <div class="header-top">
-        <div class="holder">
-          <div class="slogan">
-            <span class="orange">Бизнес</span>, с которым<br>
-            <span class="orange">справится</span> даже <span class="green">1</span> человек
-            </div>
-            <div class="logo">
-              <a href="{% url 'landing:index' %}">
-                <img src="{% static 'landing/images/logo.png' %}" alt="">
-              </a>
-            </div>
-            <div class="header-right">
-              <div class="header-mob-text">Работаем с 2009 года</div>
-            <!--<div class="header-city-link"><a href="">Города присутствия</a></div>-->
-              <div class="header-phone">{{ SETUP.phone|default:'8(952)608-62-95' }}</div>
-            </div>
-          </div>
-        </div>
-    {% block header_main %}
-		  <div class="header-main">
-        <div class="video-bg">
-				  <video class="video-block_" loop autoplay muted>
-					  <source src="{% static 'landing/video/video.mp4' %}" type="video/mp4; codecs=avc1.42E01E, mp4a.40.2">
-				  </video>
-			  </div>
-        <div class="holder">
-					<h1 class="main-title">
-					<strong>Откройте свой рекламный </strong><br>
-						<strong>бизнес по франшизе</strong><br>
-					<span> Заработок свыше 1 000 000 РУБ/ГОД</span>
-					</h1>
-					<div class="head-icon">
-						<div>Удаленное управление и<br> контроль прямо из дома</div>
-						<div>Готовый бизнес «под ключ»<br> от 200 000 рублей</div>
-						<div>Окупаемость за<br> 5 месяцев</div>
+		<div class="top-trigger popup-trigger">
+			<a href="#popup2" class="popup-trigger-link fancy-black"></a>
+		</div>
+		<header class="header">	
+			<div class="header-top">
+				<div class="holder">
+					<a href="" class="mob-nav-icon"><span class="mob-nav-block"></span></a>
+					<div class="header-nav">
+						<ul>
+							<li><a href="#wrapper" class="scroll">Главная</a></li>
+							<li><a href="#block2" class="scroll">О бизнесе</a></li>
+							<li><a href="#block3" class="scroll">Кейсы и прибыль</a></li>
+							<li><a href="#block4" class="scroll">Отзывы партнеров</a></li>
+							<li><a href="#block5" class="scroll">Контакты</a></li>
+						</ul>
 					</div>
-          {% with theme=1 button='Получить информацию' email=True %}
-              {% include 'landing/__includes/ticket_form.html' %}
-            {% endwith %}
-					<div class="head-icon second">
-						<div>
-              <strong>ГАРАНТИЯ!</strong> Вернем вложения при отсутствии<br>
-						  результатов в течении 6 мес. Прописано в договоре!</div>
+					<div class="header-top-link"><a href="{% url 'landing:index' %}">франшиза рекламного бизнеса</a></div>
+				</div>
+			</div>
+			<div class="header-main">
+				<div class="header-main-block">
+					<div class="holder">
+						<div class="header-column">
+							<div class="header-logo">
+								<img src="{% static 'landing/images/logo.png' %}" alt="">
+								<div class="header-logo-text">работаем с 2009 года</div>
+							</div>
+							<div class="header-phone"><a href="tel:+{{ SETUP.tel_format }}">{{ SETUP.phone|default:'8(952)608-62-95' }}</a></div>
+							<h1 class="header-title">
+								<span class="type-holder"><span class="type-animation"></span> </span>
+								<div class="header-title-light">по франшизе и зарабатывайте от 1 000 000 руб. в год</div>
+							</h1>
+							<div class="header-button">
+								<a href="#popup" class="button button-red fancybox">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ</a>
+								<div class="header-button-text">Все 100% наших <br>партнеров успешны </div>
+							</div>
+							<div class="header-warranty">
+								<img src="{% static 'landing/images/shield.png' %}" alt="">
+								<div class="header-warranty-text">Гарантия! Вернем вложения при отсутствии результатов в течении 6 мес. <br>Прописано в договоре.</div>
+							</div>
+							<img src="{% static 'landing/images/media/house.png' %}" alt="" class="header-img-big">
+						</div>
 					</div>
 				</div>
-{#        <div class="holder">#}
-{##}
-{#          <div class="header-main-left">#}
-{#            <h1 class="main-title">#}
-{#              <strong>Откройте свой рекламный бизнес по франшизе</strong><br>#}
-{#              Заработок свыше 1000000РУБ. В ГОД#}
-{#              </h1>#}
-{#            <ul class="header-main-list">#}
-{#              <li>Удаленное управление и контроль прямо из дома</li>#}
-{#              <li>Готовый бизнес «под ключ» от 200 тыс. рублей</li>#}
-{#              <li>Окупаемость за 5 месяцев</li>#}
-{#            </ul>#}
-{#            <div class="header-main-left-text">#}
-{#              <span style="text-transform: uppercase;">Гарантия</span>: вернем вложения при отсутствии результатов в течение 6 мес. Прописано в договоре!#}
-{#            </div>#}
-{#          </div>#}
-{#          <div class="form-block">#}
-{#            <div class="form-title">Заполните форму</div>#}
-{#            <div class="form-text">и узнайте все условия открытия вашего бизнеса</div>#}
-{#            {% with theme=1 button='Получить информацию' %}#}
-{#              {% include 'landing/__includes/ticket_form.html' %}#}
-{#            {% endwith %}#}
-{#          </div>#}
-{#        </div>#}
-{#        <div class="main-slider">#}
-{#          <div id="slider" class="nivoSlider">#}
-{#            <img src="{% static 'landing/images/slide1.png' %}" alt="">#}
-{#            <img src="{% static 'landing/images/slide2.png' %}" alt="">#}
-{#            <img src="{% static 'landing/images/slide3.png' %}" alt="">#}
-{#            <img src="{% static 'landing/images/slide4.png' %}" alt="">#}
-{#          </div>#}
-{#        </div>#}
-      </div>
-      <div class="header-fix">
-        <div class="header-fix-holder">
-          <div class="holder">
-            <ul class="header-nav">
-              <li class="scroll"><a href="#block1" class="block1">Для кого</a></li>
-              <li class="scroll"><a href="#block2" class="block2">Видео-презентация</a></li>
-              <li class="scroll"><a href="#block3" class="block3">Что входит</a></li>
-              <li class="scroll"><a href="#block4" class="block4">Преимущества</a></li>
-              <li class="scroll"><a href="#block41" class="block41">Отзывы</a></li>
-              <li class="scroll"><a href="#block5" class="block5">Контакты</a></li>
-              <li class="scroll"><a href="#block6" class="block6">Получить условия</a></li>
-              <!--<li><a href="/blog/">Блог</a></li>-->
-            </ul>
-          <!--<div class="header-fix-link"><a href="">Города пристутствия</a></div>-->
-          </div>
-        </div>
-      </div>
-    {% endblock %}
-
+			</div>
 		</header>
-  {% block content %}
-		<section class="reclame">
-		  <div class="holder">
-			<h2>Новое направление в рекламе</h2>
-			<div class="title-text">Информационные таблички на входных дверях подъездов<br>
-			Реклама в home-формате эффективна и востребована</div>
-      <div id="slider" class="mobile">
-        <div class="slide">
-          <img src="{% static 'landing/images/rec/1b.jpg' %}" alt="">
-        </div>
-			  <div class="slide">
-          <img src="{% static 'landing/images/rec/22b.jpg' %}" alt="">
-        </div>
-			  <div class="slide">
-          <img src="{% static 'landing/images/rec/33b.jpg' %}" alt="">
-        </div>
-			  <div class="slide">
-          <img src="{% static 'landing/images/rec/44b.jpg' %}" alt="">
-        </div>
-			  <div class="slide">
-          <img src="{% static 'landing/images/rec/55b.jpg' %}" alt="">
-        </div>
-			  <div class="slide">
-          <img src="{% static 'landing/images/rec/6b.jpg' %}" alt="">
-        </div>
+		<section class="clients">
+			<div class="holder">
+				<div class="clients-title">
+					<h2 class="clients-title-text">Наши клиенты</h2>
+				</div>
+				<div class="clients-block">
+					<div class="clients-block-holder">
+						<div class="clients-item animate fade">
+							<img src="{% static 'landing/images/media/client1.png' %}" alt="">
+						</div>
+						<div class="clients-item clients-item-red animate fade delay1">
+							<img src="{% static 'landing/images/media/client2.png' %}" alt="">
+						</div>
+						<div class="clients-item animate fade delay2">
+							<img src="{% static 'landing/images/media/client3.png' %}" alt="">
+						</div>
+						<div class="clients-item clients-item-red animate fade delay3">
+							<img src="{% static 'landing/images/media/client4.png' %}" alt="">
+						</div>
+					</div>
+					<div class="clients-block-text">и многие другие</div>
+				</div>
 			</div>
-			<div class="reclame-photo desktop">
-			  <a href="{% static 'landing/images/rec/1b.jpg' %}" class="fancybox" data-fancybox-group="rec"><img src="{% static 'landing/images/rec/1.jpg' %}" alt=""></a>
-			  <a href="{% static 'landing/images/rec/22b.jpg' %}" class="fancybox" data-fancybox-group="rec"><img src="{% static 'landing/images/rec/22.jpg' %}" alt=""></a>
-			  <a href="{% static 'landing/images/rec/33b.jpg' %}" class="fancybox" data-fancybox-group="rec"><img src="{% static 'landing/images/rec/33.jpg' %}" alt=""></a>
-			  <a href="{% static 'landing/images/rec/44b.jpg' %}" class="fancybox" data-fancybox-group="rec"><img src="{% static 'landing/images/rec/44.jpg' %}" alt=""></a>
-			  <a href="{% static 'landing/images/rec/55b.jpg' %}" class="fancybox" data-fancybox-group="rec"><img src="{% static 'landing/images/rec/55.jpg' %}" alt=""></a>
-			  <a href="{% static 'landing/images/rec/6b.jpg' %}" class="fancybox" data-fancybox-group="rec"><img src="{% static 'landing/images/rec/6.jpg' %}" alt=""></a>
-			</div>
-			<div class="reclame-text">
-			  <p>Благодаря уникальной запатентованной программной разработке  «Контроль рекламных поверхностей» ваши
-			  рекламодатели смогут проконтролировать процесс монтажа конструкций в онлайн-режиме в несколько кликов,
-			  не покидая стен своего офиса.</p>
-			  <p>Ваши клиенты оценят доступный и эффективный формат рекламы, который мы довели до совершенства с
-			  помощью современных технологий.</p>
-			  <p class="orange">Аналогов подобной программы в рекламной сфере нет!</p>
-			</div>
-		  </div>
 		</section>
-		<section class="about" id="block1">
-		  <div class="holder">
-			<h2>Вас заинтересует<br> наше предложение</h2>
-			<div class="about-top">
-			  <div class="about-block about-left"><b>Вам</b> хочется идти в ногу со временем и использовать в своем бизнесе современные автоматизированные технологии работы.<br><br></div>
-			  <div class="about-block about-right"><b>Вы</b> хотите купить проверенный временем бизнес-проект у франчайзера с большим опытом работы.
-          <br><br><br></div>
-			  <div class="about-round round1">если</div>
+		<section class="about" id="block2">
+			<div class="holder">
+				<article class="about-content">
+					<h2>О бизнесе Nadomofone</h2>
+					<p>Рекламный бизнес Nadomofone - это от 200 до 10 000 рекламных площадей в каждом городе, на которых вы можете зарабатывать 
+					от 1000 000 рублей в год, сдавая их в аренду, как крупным 
+					федеральным компаниям, так и локальным бизнесам с полной автоматизацией и отчетностью в онлайн-режиме. </p>
+					<div class="about-content-block">
+						<img src="{% static 'landing/images/media/about-img.jpg' %}" alt="" class="about-content-img">
+						<div class="about-content-text">Бизнес, который можно вести и контролировать с вашего смартфона или планшета в любой точке мира.</div>
+					</div>
+					<p>Наши партнеры зарабатывают, рекламируя таких гигантов, как Ростелеком, МТС, Билайн, Дом.ru и множество других компаний.
+					Все 100% наших партнеров в 34 городах России 
+					довольны сотрудничеством с нами.</p>
+				</article>
+				<div class="about-video">
+					<a href="#video-popup1" class="about-video-item fancybox">
+						<img src="{% static 'landing/images/media/preview1.jpg' %}" alt="">
+						<span class="about-video-cover">
+							<span class="about-video-float">
+								<span class="about-video-text">Что получают ваши клиенты</span>
+							</span>
+						</span>
+					</a>
+					<a href="#video-popup2" class="about-video-item fancybox">
+						<img src="{% static 'landing/images/media/preview2.jpg' %}" alt="">
+						<span class="about-video-cover">
+							<span class="about-video-float">
+								<span class="about-video-text">Что получают наши партнеры</span>
+							</span>
+						</span>
+					</a>
+				</div>
 			</div>
-			<!--
-			<div class="about-main">
-			  <div class="about-round round2">а также </div>
-			  <div class="about-point point1 about1">
-				<div class="about-point-block about2">У вас уже есть работающий бизнес, но он не приносит  желаемой прибыли и отнимает  много времени.</div>
-			  </div>
-			  <div class="about-point point2 about3">
-				<div class="about-point-block about4">Вам важно выбрать проверенный временем и другими людьми бизнес проект.</div>
-			  </div>
-			  <div class="about-point point3 about5">
-				<div class="about-point-block about6">Вы хотите грамотно распорядиться своими накоплениями, но при этом у вас недостаточно опыта  и знаний</div>
-			  </div>
-			  <div class="about-point point4 about7">
-				<div class="about-point-block about8">Вам хочется идти в ногу со временем и использовать в своем бизнесе современные автоматизированные системы управления.</div>
-			  </div>
-			</div>
-			-->
-		  </div>
-		</section>
-		<section class="video-block" id="block2">
-		  <div class="holder">
-			<h2>Вы сможете вести свой бизнес,<br> не выходя из дома!</h2>
-			<div class="title-text">Все бизнес-процессы полностью автоматизированы:<br> покинуть уютное офисное кресло
-			вам придется лишь<br> для подписания договоров с клиентами</div>
-			<div class="video-text-min">Как работает программа онлайн-мониторинга и автоматизации бизнес-процессов?</div>
-			<div class="video-monitor">
-			  <a href="#popup" class="video-link fancybox">
-				<img src="{% static 'landing/images/play.png' %}" alt="" class="monitor-play pulsing">
-				<img src="{% static 'landing/images/monitor-text.png' %}" alt="" class="monitor-text">
-			  </a>
-			</div>
-		  </div>
-		</section>
-		<section class="info" id="block3">
-		  <div class="holder">
-			<h2>Что вы получите</h2>
-			<div class="title-text">выбрав модель бизнеса, которую мы предлагаем</div>
-			<ul class="info-list">
-			  <li class="info-list-item">
-				<div class="info-list-icon">
-				  <img src="{% static 'landing/images/icons/1.png' %}" alt="">
-				</div>
-				<div class="info-list-content">
-				  <h4 class="info-list-title">Востребованный продукт с гарантированным сбытом</h4>
-				  <p class="info-list-text">Реклама на подъездах пользуется большим спросом у рекламодателей.
-				  Такой продукт легко продать, потому что он простой, эффективный и экономически выгодный.
-				  Вместе с франшизой вы получите подключение к программе онлайн-мониторинга и автоматизации
-				  «Контроль рекламных поверхностей» для вашего города и приложение для контроля процесса
-				  монтажа для операционной системы Андроид.</p>
-				</div>
-			  </li>
-			  <li class="info-list-item">
-				<div class="info-list-icon">
-				  <img src="{% static 'landing/images/icons/4.png' %}" alt="">
-				</div>
-				<div class="info-list-content">
-				  <h4 class="info-list-title">Бизнес-модель, которая работает на 100%</h4>
-				  <p class="info-list-text">Бизнес-модель, которую мы предлагаем, основана на собственном опыте,
-				  миллионных инвестициях, ошибках и экспериментах. Сегодня мы полностью уверены в ее
-				  работоспособности и эффективности.
-				  </p>
-				</div>
-			  </li>
-			  <li class="info-list-item">
-				<div class="info-list-icon">
-				  <img src="{% static 'landing/images/icons/2.png' %}" alt="">
-				</div>
-				<div class="info-list-content">
-				  <h4 class="info-list-title">Высокую доходность и минимальный срок запуска</h4>
-				  <p class="info-list-text">При четком выполнении наших рекомендаций вы запустите проект уже
-				  через 20 дней с момента покупки! <i>Вы сможете зарабатывать ежемесячно от 100 тыс. рублей.</i></p>
-				</div>
-			  </li>
-			  <li class="info-list-item">
-				<div class="info-list-icon">
-				  <img src="{% static 'landing/images/icons/5.png' %}" alt="">
-				</div>
-				<div class="info-list-content">
-				  <h4 class="info-list-title">Постоянную поддержку команды с 8-летним опытом работы на рекламном рынке</h4>
-				  <p class="info-list-text">Персональный менеджер предоставит обучающие материалы и будет оказывать
-				  вам всестороннюю поддержку на всех этапах запуска франшизы.</p>
-				</div>
-			  </li>
-			  <li class="info-list-item">
-				<div class="info-list-icon">
-				  <img src="{% static 'landing/images/icons/6.png' %}" alt="">
-				</div>
-				<div class="info-list-content">
-				  <h4 class="info-list-title">Специально разработанную систему ведения базы клиентов и продаж</h4>
-				  <p class="info-list-text">Вы получите систему работы, полностью адаптированную под рекламный
-				  продукт и бизнес-процессы. Ваши менеджеры не забудут о клиентах и не заберут базу с собой.
-				  Вы всегда будете знать, кто, кому и когда должен позвонить.</p>
-				</div>
-			  </li>
-			  <li class="info-list-item">
-				<div class="info-list-icon">
-				  <img src="{% static 'landing/images/icons/7.png' %}" alt="">
-				</div>
-				<div class="info-list-content">
-				  <h4 class="info-list-title">Запатентованную рекламную конструкцию</h4>
-				  <p class="info-list-text">После  экспериментов с рекламной конструкцией, мы выбрали
-				  оптимальный вариант и запатентовали его как промышленный образец. Вы можете не беспокоиться
-				  о сохранности таблички: она максимально защищена от вандализма.<br>
-				  </p>
-				</div>
-			  </li>
-			</ul>
-			<blockquote class="info-bottom-text">Мы взяли за основу простой и понятный рекламодателям формат рекламы и с помощью
-			современных технологий довели его до совершенства, <b>обогнав конкурентов минимум на 2 года</b></blockquote>
-		  </div>
 		</section>
 		<section class="order">
-		  <div class="holder">
-			<div class="order-title"><span>Система </span>онлайн-мониторинга размещения рекламы</div>
-			<div class="form-block">
-			  <div class="form-title">Заполните форму</div>
-			  <div class="form-text">и получите подробную консультацию о франшизе</div>
-        {% with theme=2 button='Получить консультацию' email=True %}
-          {% include 'landing/__includes/ticket_form.html' %}
-        {% endwith %}
-			</div>
-			<div class="video-tablet">
-			  <a href="#dialog" class="tablet-link modal">
-				<img src="{% static 'landing/images/play2.png' %}" alt="" class="tablet-play pulsing">
-				<img src="{% static 'landing/images/tablet-text.png' %}" alt="" class="tablet-text">
-			  </a>
-			</div>
-		  </div>
-		</section>
-		<section class="advantages" id="block4">
-		  <div class="holder">
-			<h2>Франшиза от Федеральной сети <br>агентств INDOOR рекламы «Дружба»</h2>
-			<div class="title-text">Мы достигли высоких финансовых показателей благодаря сочетанию простого
-			и полезного формата рекламы с инновационным подходом в ведении бизнеса.</div>
-			<h3>Наши преимущества</h3>
-			<ul class="advantages-list">
-			  <li class="advantages-list-item ad1">
-				<div class="advantages-list-num">1.</div>
-				<div class="advantages-list-text">За 8 лет работы в рекламном бизнесе мы досконально изучили его
-				специфику и готовы поделиться с вами только актуальной и полезной информацией. Мы — практики.
-				Последние 6 лет мы занимаемся исключительно продажей собственных рекламных поверхностей,
-				поэтому точно знаем, что нужно делать для развития и процветания вашего бизнеса.</div>
-			  </li>
-			  <li class="advantages-list-item ad2">
-				<div class="advantages-list-num">2.</div>
-				<div class="advantages-list-text">Мы разработали и внедрили собственную программу отчетности
-				и мониторинга размещения рекламы в онлайн-режиме для вас и ваших клиентов. Рекламодатели будут
-				уверены в вашей честности, а вы всегда будете в курсе всех происходящих событий на вашей фирме.
-				С помощью программы мы снизили до минимума расходную часть по ведению бизнеса.</div>
-			  </li>
-			  <li class="advantages-list-item ad3">
-				<div class="advantages-list-num">3.</div>
-				<div class="advantages-list-text">Благодаря эффективной схеме работы мы увеличили
-				лояльность и удовлетворенность наших клиентов. </div>
-			  </li>
-			  <li class="advantages-list-item ad4">
-				<div class="advantages-list-num">4.</div>
-				<div class="advantages-list-text">Мы довели до совершенства систему поиска, сбора и обработки
-				заявок от потенциальных клиентов и добились высокого процента повторного обращения. Более
-				70% рекламодателей – это «входящие» клиенты.</div>
-			  </li>
-			  <li class="advantages-list-item ad5">
-				<div class="advantages-list-num">5.</div>
-				<div class="advantages-list-text">Мы постоянно расширяем географию нашего присутствия. Сеть из
-				8 собственных филиалов и 13 успешно работающих рекламных агентства, взявших за основу нашу
-				бизнес-модель, являются доказательством эффективности выбранной стратегии. Наши филиалы стабильно
-				работают на рекламном рынке более 5 лет и ежегодно зарабатывают многомиллионную прибыль.</div>
-			  </li>
-			  <li class="advantages-list-item ad6">
-				<div class="advantages-list-num">6.</div>
-				<div class="advantages-list-text">Наш тип рекламного носителя прописан в маркетинговых планах
-				многих федеральных компаний. Сейчас они вынуждены размещаться на альтернативных носителях,
-				поскольку в вашем городе нет нашего формата рекламы. Около 30% наших постоянных клиентов —
-				это федеральные компании. География их присутствия — вся Россия.</div>
-			  </li>
-			</ul>
-		  </div>
-		</section>
-		<section class="person" id="block41">
-		  <div class="holder">
-        <div class="review">
-          <h2>Отзывы наших франчайзи</h2>
-        {% if review_list.exists %}
-          {% for review in review_list %}
-          <div class="review-item">
-            <div class="review-photo">
-              <div class="review-photo-img"><img src="{{ review.photo.url }}" alt=""></div>
-              <div class="review-photo-text">
-                {% if review.phone %}{{ review.phone }}<br>{% endif %}
-                {% if review.email %}{{ review.email }}<br>{% endif %}
-                {% if review.site %}<a href="{{ review.site }}" target="_blank">{{ review.site }}</a>{% endif %}
-              </div>
-            </div>
-            <div class="review-content">
-              <div class="review-name">{{ review.name }},<br> партнер по г. {{ review.city }}</div>
-              <div class="review-info">
-                <div class="review-info-item">
-                  <div class="review-info-num">{{ review.stands }}</div>
-                  <div class="review-info-text">стендов </div>
-                </div>
-                <div class="review-info-item">
-                  <div class="review-info-num">{{ review.income }} руб</div>
-                  <div class="review-info-text">ежемесячный доход</div>
-                </div>
-              </div>
-              <div class="review-text">{{ review.text|safe }}</div>
-            </div>
-          </div>
-          {% endfor %}
-        {% else %}
-
-          <div class="review-item">
-            <div class="review-photo">
-              <div class="review-photo-img"><img src="{% static 'landing/images/r1.jpg' %}" alt=""></div>
-              <div class="review-photo-text">8-914-503-26-46<br>
-              mariybiryukova@yandex.ru</div>
-            </div>
-            <div class="review-content">
-              <div class="review-name">Бирюкова Мария Константиновна,<br> партнер по г. Чита</div>
-              <div class="review-info">
-                <div class="review-info-item">
-                  <div class="review-info-num">850</div>
-                  <div class="review-info-text">стендов </div>
-                </div>
-                <div class="review-info-item">
-                  <div class="review-info-num">80 000 руб</div>
-                  <div class="review-info-text">ежемесячный доход</div>
-                </div>
-              </div>
-              <div class="review-text">После длительного поиска дополнительного заработка, наткнулась на франшизу ГК "Дружба".
-              Долго сомневалась, но решила, что надо попробовать. Я далека и от бизнеса, и от рекламы, и от продаж, но
-              сотрудники ГК Дружбы оказывали помощь во всем, Валерий прилетел ко мне в город, после знакомства с ним я
-              поняла, что смогу стать успешной в этом бизнесе. Приобрела 300 стендов, уже через 3 месяца все стенды были
-              размещены и я поняла, что этого количества очень мало, так как стенды заняты постоянно в полном объёме, но
-              доход от такого количества небольшой. Сейчас мы с мужем приняли решение и дополнительно приобрели еще 800
-              стендов. С такими руководителями франшизного проекта не страшно, каждый шаг уже продуман до мелочей, клиентов
-              помогают найти, дополнительно предлагают сопутствующие " продукты" по раскрутке бизнеса. Спасибо Валерию и
-              Дмитрию с ними я уверена в завтрашнем дне и успехе!</div>
-            </div>
-          </div>
-          <div class="review-item">
-            <div class="review-photo">
-              <div class="review-photo-img"><img src="{% static 'landing/images/r2.jpg' %}" alt=""></div>
-              <div class="review-photo-text">8-978-783-85-37<br>
-              <a href="https://vk.com/id4171929" target="_blank">www.vk.com/id4171929</a></div>
-            </div>
-            <div class="review-content">
-              <div class="review-name">Юсько Данила Сергеевич,<br> партнер по г. Севастополь, Симферополь</div>
-              <div class="review-info">
-                <div class="review-info-item">
-                  <div class="review-info-num">3000</div>
-                  <div class="review-info-text">стендов </div>
-                </div>
-                <div class="review-info-item">
-                  <div class="review-info-num">250 000 руб</div>
-                  <div class="review-info-text">ежемесячный доход</div>
-                </div>
-              </div>
-              <div class="review-text">Преимущество такой франшизы не только в том, что проект достаточно прибыльный и несет
-              социальную пользу, что упрощает его внедрение в городах. Продают не только саму бизнес-идею с программным
-              комплексом, но и клиентскую наработку. Думаю, для многих плюс будет еще и в том, что можно вполне обойтись
-              без собственного продажного отдела с соответствующими тратами, проблемным персоналом и т.д, франчайзер
-              предоставляет услуги своих продажных отделов, что существенно упрощает функционирование франчайзи- все
-              переговоры, споры, иные вопросы с клиентами решает преимущественно специалист франчайзера. По факту, от
-              партнера требуется только качественное размещение рекламы. После 1 года работы приняли решение о покупке
-              дополнительно одного города. </div>
-            </div>
-          </div>
-          <div class="review-item">
-            <div class="review-photo">
-              <div class="review-photo-img"><img src="{% static 'landing/images/r3.jpg' %}" alt=""></div>
-              <div class="review-photo-text">8-913-750-66-33<br>
-              rad-novosibirsk@mail.ru</div>
-            </div>
-            <div class="review-content">
-              <div class="review-name">Мошачков Андрей Николаевич,<br> партнер по г. Новосибирск и г. Бердск</div>
-              <div class="review-info">
-                <div class="review-info-item">
-                  <div class="review-info-num">900</div>
-                  <div class="review-info-text">стендов </div>
-                </div>
-                <div class="review-info-item">
-                  <div class="review-info-num">115 000 руб</div>
-                  <div class="review-info-text">ежемесячный доход</div>
-                </div>
-              </div>
-              <div class="review-text">
-                <p>Рекламную франшизу взял под себя, чтобы рекламировать свой основной бизнес, так как сам вкладывался
-                постоянно в рекламу. После 4-х месяцев я еще не успел разместить свою рекламу, так как мне привели клиентов
-                на рекламные конструкции отдел продаж из Ростова. Пока они приносят деньги, мне пока нет смысла вешать свою рекламу. </p>
-                <p>По началу, вешал рекламу на стенды сам и не понимал, зачем нужно мобильное приложение. Так как это мой
-                бизнес, делал все качественно и так. Как только нанял монтажников, понял, что программа эта необходима,
-                так как каждый пытался меня надурить. Я очень занятой человек и некогда следить за работой монтажника,
-                поэтому приложение на телефоне реально облегчило мою жизнь. Сейчас у меня 900 рекламных конструкций.</p>
-              </div>
-            </div>
-          </div>
-          <div class="review-item">
-            <div class="review-photo">
-              <div class="review-photo-img"><img src="{% static 'landing/images/r4.jpg' %}" alt=""></div>
-              <div class="review-photo-text">8-904-756-46-76<br>
-              igorancho@gmail.com<br>
-              <a href="https://vk.com/igorancho" target="_blank">www.vk.com/igorancho</a></div>
-            </div>
-            <div class="review-content">
-              <div class="review-name">Аладин Игорь Александрович,<br> партнер по г.Волгоград, г.Волжский</div>
-              <div class="review-info">
-                <div class="review-info-item">
-                  <div class="review-info-num">6500</div>
-                  <div class="review-info-text">стендов </div>
-                </div>
-                <div class="review-info-item">
-                  <div class="review-info-num">400 000 руб</div>
-                  <div class="review-info-text">ежемесячный доход</div>
-                </div>
-              </div>
-              <div class="review-text">
-                <p>Для меня рекламный бизнес хорошо знаком, т.к. в рекламной сфере я с 17 лет - студентом начинал работать
-                промоутером. Работал в газете менеджером по рекламе, пресс-секретарём партии ЛДПР, руководил проведением
-                рекламных кампаний по выборам в ГосДуму, ОблДуму, Городскую Думу( полный цикл: наисание и размещение статей,
-                сюжеты на телевидении, ролики на радио, наружка индор и аутдор). </p>
-                <p>Затем пришёл на должность начальником отдела продаж в только что зародившуюся компанию занимающуюся
-                рекламой в лифтах (компания РЕКВолга успешно работает и по сей день является самой крупной  в г. Волгоград,
-                кстати, они пользуются идентичным программным комплексом). Считаю своей личной заслугой развитие данной
-                компании с 50 стендов до 3000 стендов. </p>
-                <p>Я могу оценивать целесообразность размещения  и справедливую цену того или иного рекламного носителя и
-                считаю продукт nadomofone.ru инновационным, а главное - высокоэффективным, прозрачным и честным для рекламодателя.
-                Сейчас у нас 6500 стендов, уже заключено долгосрочных договоров с рекламодателями  почти на 300 тысяч ежемесячных платежей.</p>
-              </div>
-            </div>
-          </div>
-          <div class="review-item">
-            <div class="review-photo">
-              <div class="review-photo-img"><img src="{% static 'landing/images/r5.jpg' %}" alt=""></div>
-              <div class="review-photo-text">8-987-009-90-90 <br>
-              ynd16@mail.ru<br>
-              <a href="https://vk.com/nikolaiyumaev" target="_blank">www.vk.com/nikolaiyumaev</a></div>
-            </div>
-            <div class="review-content">
-              <div class="review-name">Юмаев Николай Дмитриевич,<br> партнер по Казани, Альметьевску</div>
-              <div class="review-info">
-                <div class="review-info-item">
-                  <div class="review-info-num">2400</div>
-                  <div class="review-info-text">стендов </div>
-                </div>
-                <div class="review-info-item">
-                  <div class="review-info-num">200 000 руб</div>
-                  <div class="review-info-text">ежемесячный доход</div>
-                </div>
-              </div>
-              <div class="review-text">
-                <p>Рекламная компания РТС МЕДИА. г. Казань.</p>
-                <p>В рекламном бизнесе с 2010г. Обратили внимание на данный продукт , проанализировали и решили развивать
-                данное направление . Решающую роль сыграли многие факторы…</p>
-                <p>В том числе:</p>
-                <p>- уникальность продукта…</p>
-                <p>- хороший контакт с аудиторией..</p>
-                <p>- программа онлайн контроля, которая очень помогает контролировать множество рабочих процессов …. Продажи…монтажи…и т.п.</p>
-                <p>- отличный сервис для клиента…все прозрачно и понятно….</p>
-                <p>- работа с лидерами рынка : МТС, Билай….а так же доступность мелком и среднему бизнесу…</p>
-                <p>- обширный сегмент заказчиков, которые хотят доносить свою информацию максимально доступным и эффективным способом…
-                Те кто хочет чтобы его рекламу видели несколько раз в день… Отличная бизнес модель!</p>
-              </div>
-            </div>
-          </div>
-          <div class="review-item">
-            <div class="review-photo">
-              <div class="review-photo-img"><img src="{% static 'landing/images/r6.jpg' %}" alt=""></div>
-              <div class="review-photo-text">8(923)665-13-29<br>
-              work04@list.ru</div>
-            </div>
-            <div class="review-content">
-              <div class="review-name">Оксана Захарова,<br> партнер по Горно-Алтайску</div>
-              <div class="review-info">
-                <div class="review-info-item">
-                  <div class="review-info-num">350</div>
-                  <div class="review-info-text">стендов </div>
-                </div>
-                <div class="review-info-item">
-                  <div class="review-info-num">37 000 руб</div>
-                  <div class="review-info-text">ежемесячный доход</div>
-                </div>
-              </div>
-              <div class="review-text">
-                <p>На данный момент имеем 350 рекламных поверхностей. Стенды все сданы под клиентов.</p>
-                <p>Планируем расширяться к весне, так как монтаж в морозы почти невозможен. Вандализм небольшой,  не более 3%.
-                Работать нравится, приходится учиться чему то новому, сам бизнес востребованный и многие бы хотели разместить
-                свою рекламу на наших стендах.</p>
-                <p>Нравится работа офиса продаж, как по оперативности, как и по удобности, всегда помогут словом или делом.
-                Отдельное спасибо Марине и Дмитрию.</p>
-              </div>
-            </div>
-          </div>
-          <div class="review-item">
-            <div class="review-photo">
-              <div class="review-photo-img"><img src="{% static 'landing/images/r7.jpg' %}" alt=""></div>
-              <div class="review-photo-text">8-900-496-66-57<br>
-              <a href="https://vk.com/id3597965" target="_blank">www.vk.com/id3597965</a></div>
-            </div>
-            <div class="review-content">
-              <div class="review-name">Вадим Бекетов, <br>партнер по г. Мичуринск</div>
-              <div class="review-info">
-                <div class="review-info-item">
-                  <div class="review-info-num">450</div>
-                  <div class="review-info-text">стендов </div>
-                </div>
-                <div class="review-info-item">
-                  <div class="review-info-num">35 000 руб</div>
-                  <div class="review-info-text">ежемесячный доход</div>
-                </div>
-              </div>
-              <div class="review-text">У меня есть собственная типография и техника загружена не на 100%. Поэтому
-              решил попробовать себя в рекламной франшизе. Мне понравился проект надомофоне, что у них свой отдел продаж
-              в помощь партнерам. В январе 2018 года я подключился к франшизе, хотя были сомнения. Сразу у меня появился
-              клиентов "Светофор супермаркет". Через неделю мне позвонил менеджер с Ростова и сказал, что клиент Ростелеком
-              забирает весь город на год. Сейчас я планирую довести до 900 конструкций в моем городе и франшиза будет
-              приносить пассивный доход около 80 тысяч в месяц. Весной собираюсь купить франшизу в соседних Тамбове и
-              в Липецке. Надеюсь, что города закрепяться за мной и не уйдут к другим партнерам.</div>
-            </div>
-          </div>
-        {% endif %}
-        </div>
-		  </div>
-		</section>
-		<section class="indoor">
-		  <div class="holder">
-			<h2>Успейте захватить рынок Indoor<br> рекламы в своем городе</h2>
-			<div class="title-text">Оставьте позади конкурентов, внедряя самые передовые технологии!</div>
-			<div class="indoor-block">
-			  <div class="indoor-left">
-				<img src="{% static 'landing/images/indoor.jpg' %}" alt="">
-			  </div>
-			  <div class="indoor-right">
-				<div class="contacts-blog-text">Остались вопросы?<br> Посмотрите наш блог<a href="{% url 'blog:list' %}"></a></div>
-        {% if POSTSECTION_LIST %}
-          <ul class="contacts-blog-list">
-            {% for section in POSTSECTION_LIST %}
-            <li><a href="{{ section.get_absolute_url }}">{{ section.title }}</a></li>
-            {% endfor %}
-{#							<li><a href="{% url 'blog:list' %}">Новости проекта</a></li>#}
-{#							<li><a href="{% url 'blog:list' %}">Истории успеха</a></li>#}
-{#							<li><a href="{% url 'blog:list' %}">Специальные предложения</a></li>#}
-{#							<li><a href="{% url 'blog:list' %}">Вопросы-ответы</a></li>#}
-          </ul>
-        {% endif %}
-			  </div>
-			</div>
-		  </div>
-		</section>
-		<section class="contacts" id="block5">
-		  <div class="holder">
-			<h2>Наши контакты</h2>
-			<div class="title-text">свяжитесь с нами</div>
-			<div class="contacts-text">
-			  {{ SETUP.address|default:'' }}<br>
-			  {{ SETUP.phone|default:'8(952)608-62-95' }}<br>
-			</div>
-			<div class="text-center">
-			  <a href="https://vk.com/franchise_nadomofone" target="_blank">
-				<img src="{% static 'landing/images/vk.png' %}" alt="Наша группа Вконтакте">
-			  </a>
-			</div>
-			<div class="info-bottom-text">
-			  100% наших партнеров добились положительных результатов
-			</div>
-		  </div>
-		</section>		
-		<section class="map">
-			<div id="block6"></div>
 			<div class="holder">
-				<div class="form-block form-block-big">
-					<div class="form-title">Заполните форму</div>
-					<div class="form-text">и получите презентацию с перечнем<br> свободных городов</div>
-          {% with theme=3 button='Получить презентацию' email=True %}
-            {% include 'landing/__includes/ticket_form.html' %}
-          {% endwith %}
-				</div>
-				<h3 class="map-text">Города, где франшиза уже нашла своего владельца</h3>
-				<div class="map-text-min">Эксклюзивным представителем по городу может быть только одна компания</div>
-			</div>
-			<div id="ya_map"></div>
-
-		</section>
-  {% endblock %}
-		<footer class="footer">
-		  <div class="holder">
-			<div class="footer-logo"><img src="{% static 'landing/images/logo.png' %}" alt=""></div>
-			<div class="google-play">
-			  <a href="https://play.google.com/store/apps/details?id=com.gw.porches" class="google-play-link">
-				Скачайте приложение
-				<img src="{% static 'landing/images/googleplay.png' %}" alt="Скачайте приложение" class="google-play-link__img">
-			  </a>
-			</div>
-			<a href="http://5lands.ru/" target="_blank" class="studio">
-			  Дизайн сайта<br>
-			  <img src="{% static 'landing/images/studio.png' %}" alt="">
-			</a>
-			<div class="footer-phone">{{ SETUP.phone|safe|default:'8(952)608-62-95' }}</div>
-			<div class="copy">
-			  <a href="#hidden-block" class="fancybox">Политика конфиденциальности</a>
-			  <span>РА «Дружба» &copy; 2015</span>
-			</div>
-			<div id="hidden-block">
-			  <h2>Политика конфиденциальности</h2>
-			  <p>Мы не собираем личную информацию о Вас, когда Вы заходите на наш сайт.
-			  Вы можете анонимно просматривать сайт. Тем не менее, Ваш браузер все же автоматически сообщает нам тип компьютера и операционной системы, которые Вы используете. Единственная личная информация о Вас, которую мы получаем, это те данные, которые Вы добровольно предоставляете при заполнении форм.
-			  При заполнении форм на сайте у Вас запросят персональную информацию, такую как имя, номер телефона. Предоставление такой информации в ответ на запрос осуществляется Вами исключительно добровольно.
-			  Предоставленная Вами информация используется чтобы оказать те услуги, которые Вы сами запрашиваете.
-			  </p>
-			</div>
-		  </div>
-		</footer>
-		
-		<!--   Всплывающие окна  -->
-		<div id="popup">	
-			<div class="video-popup">
-				{{ SETUP.video_franchise|safe|default:'' }}
-			</div>
-		</div>
-		<div id="boxes">
-			<div id="dialog" class="window">
-				<div class="tablet-popup">
-					<div class="tablet-video">
-						{{ SETUP.video_client|safe|default:'' }}
+				<div class="order-holder">
+					<div class="order-frame frame1"></div>
+					<div class="order-img2"></div>
+					<div class="order-img3"></div>
+					<div class="order-img1"></div>
+					<div class="order-form">
+						<div class="order-form-title">Хотите узнать о нашем бизнесе подробнее?</div>
+            {% include 'landing/__includes/form.html' with MAIN_FORM=True NUMBER=1 %}
 					</div>
 				</div>
 			</div>
-			<div id="mask"></div>
+		</section>
+		<section class="case" id="block3">
+			<div class="holder">
+				<h2 class="center">Кейсы и прибыль партнеров</h2>
+				<div class="case-block">
+					<div class="case-item animate fadeUp">
+						<div class="case-img">
+							<div class="case-img-block">
+								<img src="{% static 'landing/images/media/case1.jpg' %}" alt="" class="case-img-big">
+								<img src="{% static 'landing/images/media/case-logo1.jpg' %}" alt="" class="case-img-logo">
+							</div>
+						</div>
+						<div class="case-content">
+							<div class="case-item-title">
+								<span>Выручка партнеров в год</span><br>
+								<span class="case-title-big">2 400 000 руб.</span>
+							</div>
+							<div class="case-item-text">В каких городах размещается реклама:</div>
+							<ul class="case-item-list">
+								<li>- Ростов-на-Дону</li>
+								<li>- Волгоград</li>
+								<li>- Волжский</li>
+								<li>- Севастополь</li>
+							</ul>
+						</div>
+					</div>
+					<div class="case-item animate fadeUp">
+						<div class="case-img">
+							<div class="case-img-block">
+								<img src="{% static 'landing/images/media/case2.jpg' %}" alt="" class="case-img-big">
+								<img src="{% static 'landing/images/media/case-logo2.jpg' %}" alt="" class="case-img-logo">
+							</div>
+						</div>
+						<div class="case-content">
+							<div class="case-item-title">
+								<span>Выручка партнеров в год</span><br>
+								<span class="case-title-big">3 209 000 руб.</span>
+							</div>
+							<div class="case-item-text">В каких городах размещается реклама:</div>
+							<ul class="case-item-list">
+								<li>- Чита</li>
+								<li>- Новосибирск</li>
+								<li>- Ростов-на-Дону</li>
+								<li>- Горно-Алтайск</li>
+							</ul>
+						</div>
+					</div>
+					<div class="case-item animate fadeUp">
+						<div class="case-img">
+							<div class="case-img-block">
+								<img src="{% static 'landing/images/media/case3.jpg' %}" alt="" class="case-img-big">
+								<img src="{% static 'landing/images/media/case-logo3.jpg' %}" alt="" class="case-img-logo">
+							</div>
+						</div>
+						<div class="case-content">
+							<div class="case-item-title">
+								<span>Выручка партнеров в год</span><br>
+								<span class="case-title-big">8 160 000 руб.</span>
+							</div>
+							<div class="case-item-text">В каких городах размещается реклама:</div>
+							<ul class="case-item-list">
+								<li>- Волгоград</li>
+								<li>- Волжский</li>
+								<li>- Ростов-на-Дону</li>
+								<li>- Новочеркасск</li>
+							</ul>
+						</div>
+					</div>
+					<div class="case-item animate fadeUp">
+						<div class="case-img">
+							<div class="case-img-block">
+								<img src="{% static 'landing/images/media/case4.jpg' %}" alt="" class="case-img-big">
+								<img src="{% static 'landing/images/media/case-logo4.jpg' %}" alt="" class="case-img-logo">
+							</div>
+						</div>
+						<div class="case-content">
+							<div class="case-item-title">
+								<span>Выручка партнеров в год</span><br>
+								<span class="case-title-big">3 960 000 руб.</span>
+							</div>
+							<div class="case-item-text">В каких городах размещается реклама:</div>
+							<ul class="case-item-list">
+								<li>- Ростов-на-Дону</li>
+								<li>- Волгоград</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="case-item case-collapsed">
+						<div class="case-img">
+							<div class="case-img-block">
+								<img src="{% static 'landing/images/media/case5.jpg' %}" alt="" class="case-img-big">
+								<img src="{% static 'landing/images/media/case-logo5.jpg' %}" alt="" class="case-img-logo">
+							</div>
+						</div>
+						<div class="case-content">
+							<div class="case-item-title">
+								<span>Выручка партнеров в год</span><br>
+								<span class="case-title-big">576 000 руб.</span>
+							</div>
+							<div class="case-item-text">В каких городах размещается реклама:</div>
+							<ul class="case-item-list">
+								<li>- Батайск</li>
+							</ul>
+						</div>
+					</div>
+					<div class="case-item case-collapsed">
+						<div class="case-img">
+							<div class="case-img-block">
+								<img src="{% static 'landing/images/media/case6.jpg' %}" alt="" class="case-img-big">
+								<img src="{% static 'landing/images/media/case-logo6.jpg' %}" alt="" class="case-img-logo">
+							</div>
+						</div>
+						<div class="case-content">
+							<div class="case-item-title">
+								<span>Выручка партнеров в год</span><br>
+								<span class="case-title-big">360 000 руб.</span>
+							</div>
+							<div class="case-item-text">В каких городах размещается реклама:</div>
+							<ul class="case-item-list">
+								<li>- Волгоград</li>
+							</ul>
+						</div>
+					</div>
+					<div class="case-item case-collapsed">
+						<div class="case-img">
+							<div class="case-img-block">
+								<img src="{% static 'landing/images/media/case7.jpg' %}" alt="" class="case-img-big">
+								<img src="{% static 'landing/images/media/case-logo7.jpg' %}" alt="" class="case-img-logo">
+							</div>
+						</div>
+						<div class="case-content">
+							<div class="case-item-title">
+								<span>Выручка партнеров в год</span><br>
+								<span class="case-title-big">780 000 руб.</span>
+							</div>
+							<div class="case-item-text">В каких городах размещается реклама:</div>
+							<ul class="case-item-list">
+								<li>- Севастополь</li>
+								<li>- Симферополь</li>
+							</ul>
+						</div>
+					</div>
+					<div class="case-item case-collapsed">
+						<div class="case-img">
+							<div class="case-img-block">
+								<img src="{% static 'landing/images/media/case8.jpg' %}" alt="" class="case-img-big">
+								<img src="{% static 'landing/images/media/case-logo8.jpg' %}" alt="" class="case-img-logo">
+							</div>
+						</div>
+						<div class="case-content">
+							<div class="case-item-title">
+								<span>Выручка партнеров в год</span><br>
+								<span class="case-title-big">864 000 руб.</span>
+							</div>
+							<div class="case-item-text">В каких городах размещается реклама:</div>
+							<ul class="case-item-list">
+								<li>- Севастополь</li>
+								<li>- Ростов-на-Дону</li>
+								<li>- Волгоград</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="button-holder">
+					<a href="" class="button case-more">ЗАГРУЗТЬ ЕЩЕ</a>
+				</div>
+			</div>
+		</section>
+		<section class="review" id="block4">
+			<div class="holder">
+				<h2 class="center">Отзывы наших партнеров</h2>
+				<div class="review-block">
+					<div class="review-item animate fadeUp">
+						<div class="review-top">
+							<div class="review-photo"><img src="{% static 'landing/images/media/r1.jpg' %}" alt=""></div>
+							<div class="review-top-content">
+								<div class="review-author">Вадим Бекетов</div>
+								<div class="review-author-text">партнер по г. Мичуринск</div>
+							</div>
+						</div>
+						<div class="review-info">
+							<div class="review-info-min"><b>450</b> стендов</div>
+							<div class="review-info-big"><b>35 000 руб.</b> Ежемесячный доход</div>
+						</div>
+						<div class="review-text">У меня есть собственная типография и техника загружена не на 100%. Поэтому решил попробовать себя в 
+						рекламной франшизе. Мне понравился проект надомофоне, что у них свой отдел продаж в помощь партнерам. В январе 2018 года я 
+						подключился к франшизе, хотя были сомнения. Сразу у меня появился клиентов "Светофор супермаркет". Через неделю мне позвонил 
+						менеджер с Ростова и сказал, что клиент Ростелеком забирает весь город на год. Сейчас я планирую довести до 900 конструкций 
+						в моем городе и франшиза будет приносить пассивный доход около 80 тысяч в месяц. Весной собираюсь купить франшизу в соседних 
+						Тамбове и в Липецке. Надеюсь, что города закрепяться за мной и не уйдут к другим партнерам.</div>
+						<div class="review-bottom">
+							<span>8-900-496-66-57</span>
+							<a href="">www.vk.com/id3597965</a>
+						</div>
+					</div>
+					<div class="review-item animate fadeUp delay1">
+						<div class="review-top">
+							<div class="review-photo"><img src="{% static 'landing/images/media/r5.png' %}" alt=""></div>
+							<div class="review-top-content">
+								<div class="review-author">Андрей Мошачков</div>
+								<div class="review-author-text">партнер по г. Новосибирск и г. Бердск</div>
+							</div>
+						</div>
+						<div class="review-info">
+							<div class="review-info-min"><b>900</b> стендов</div>
+							<div class="review-info-big"><b>115 000 руб.</b> Ежемесячный доход</div>
+						</div>
+						<div class="review-text">Рекламную франшизу взял под себя, чтобы рекламировать свой основной бизнес, так как сам вкладывался
+						постоянно в рекламу. После 4-х месяцев я еще не успел разместить свою рекламу, так как мне привели клиентов на рекламные 
+						конструкции отдел продаж из Ростова. Пока они приносят деньги, мне пока нет смысла вешать свою рекламу.<br>
+						По началу, вешал рекламу на стенды сам и не понимал, зачем нужно мобильное приложение. Так как это мой бизнес, делал все 
+						качественно и так. Как только нанял монтажников, понял, что программа эта необходима, так как каждый пытался меня 
+						надурить. Я очень занятой человек и некогда следить за работой монтажника, поэтому приложение на телефоне реально 
+						облегчило мою жизнь. Сейчас у меня 900 рекламных конструкций.</div>
+						<div class="review-bottom">
+							<span>8-913-750-66-33</span>
+							<a href="">rad-novosibirsk@mail.ru</a>
+						</div>
+					</div>
+					<div class="review-item animate fadeUp delay2">
+						<div class="review-top">
+							<div class="review-photo"><img src="{% static 'landing/images/media/r7.png' %}" alt=""></div>
+							<div class="review-top-content">
+								<div class="review-author">Николай Юмаев</div>
+								<div class="review-author-text">партнер по Казани, Альметьевску</div>
+							</div>
+						</div>
+						<div class="review-info">
+							<div class="review-info-min"><b>2400</b> стендов</div>
+							<div class="review-info-big"><b>200 000 руб.</b> Ежемесячный доход</div>
+						</div>
+						<div class="review-text">Рекламная компания РТС МЕДИА. г. Казань.<br>
+						В рекламном бизнесе с 2010г. Обратили внимание на данный продукт, проанализировали и решили развивать данное направление. 
+						Решающую роль сыграли многие факторы…<br>
+						В том числе:<br>
+						- уникальность продукта…<br>
+						- хороший контакт с аудиторией..<br>
+						- программа онлайн контроля, которая очень помогает контролировать множество рабочих процессов …. Продажи…монтажи…и т.п.<br>
+						- отличный сервис для клиента…все прозрачно и понятно….<br>
+						- работа с лидерами рынка : МТС, Билай….а так же доступность мелком и среднему бизнесу…<br>
+						- обширный сегмент заказчиков, которые хотят доносить свою информацию максимально доступным и эффективным способом… 
+						Те кто хочет чтобы его рекламу видели несколько раз в день… Отличная бизнес модель!</div>
+						<div class="review-bottom">
+							<span>8-987-009-90-90</span>
+							<a href="">www.vk.com/nikolaiyumaev</a>
+						</div>
+					</div>
+					<div class="review-item review-collapsed">
+						<div class="review-top">
+							<div class="review-photo"><img src="{% static 'landing/images/media/r4.png' %}" alt=""></div>
+							<div class="review-top-content">
+								<div class="review-author">Данила Юсько</div>
+								<div class="review-author-text">партнер по г. Севастополь, Симферополь</div>
+							</div>
+						</div>
+						<div class="review-info">
+							<div class="review-info-min"><b>3000</b> стендов</div>
+							<div class="review-info-big"><b>250 000 руб.</b> Ежемесячный доход</div>
+						</div>
+						<div class="review-text">
+						Преимущество такой франшизы не только в том, что проект достаточно прибыльный и несет социальную пользу, что упрощает 
+						его внедрение в городах. Продают не только саму бизнес-идею с программным комплексом, но и клиентскую наработку.<br>
+						Думаю, для многих плюс будет еще и в том, что можно вполне обойтись без собственного продажного отдела с соответствующими
+						тратами, проблемным персоналом и т.д, франчайзер предоставляет услуги своих продажных отделов, что существенно упрощает
+						функционирование франчайзи- все переговоры, споры, иные вопросы с клиентами решает преимущественно специалист франчайзера.<br>
+						По факту, от партнера требуется только качественное размещение рекламы. После 1 года работы приняли решение о покупке 
+						дополнительно одного города.</div>
+						<div class="review-bottom">
+							<span>8-978-783-85-37</span>
+							<a href="">www.vk.com/id4171929</a>
+						</div>
+					</div>
+					<div class="review-item review-collapsed">
+						<div class="review-top">
+							<div class="review-photo"><img src="{% static 'landing/images/media/r2.jpg' %}" alt=""></div>
+							<div class="review-top-content">
+								<div class="review-author">Оксана Захарова</div>
+								<div class="review-author-text">партнер по Горно-Алтайску</div>
+							</div>
+						</div>
+						<div class="review-info">
+							<div class="review-info-min"><b>350</b> стендов</div>
+							<div class="review-info-big"><b>37 000 руб.</b> Ежемесячный доход</div>
+						</div>
+						<div class="review-text">На данный момент имеем 350 рекламных поверхностей. Стенды все сданы под клиентов.Планируем расширяться к весне, так как монтаж в морозы почти невозможен. Вандализм небольшой, не более 
+						3%. Работать нравится, приходится учиться чему то новому, сам бизнес востребованный и многие бы хотели разместить свою рекламу на наших стендах.
+						Нравится работа офиса продаж, как по оперативности, как и по удобности, всегда помогут словом или делом. Отдельное спасибо Марине и Дмитрию.</div>
+						<div class="review-bottom">
+							<span>8(923)665-13-29</span>
+							<a href="">work04@list.ru</a>
+						</div>
+					</div>
+					<div class="review-item review-collapsed">
+						<div class="review-top">
+							<div class="review-photo"><img src="{% static 'landing/images/media/r3.jpg' %}" alt=""></div>
+							<div class="review-top-content">
+								<div class="review-author">Бирюкова Мария</div>
+								<div class="review-author-text">партнер по г. Чита</div>
+							</div>
+						</div>
+						<div class="review-info">
+							<div class="review-info-min"><b>850</b> стендов</div>
+							<div class="review-info-big"><b>80 000 руб.</b> Ежемесячный доход</div>
+						</div>
+						<div class="review-text">После длительного поиска дополнительного заработка, наткнулась на франшизу ГК "Дружба". Долго 
+						сомневалась, но решила, что надо попробовать. Я далека и от бизнеса, и от рекламы, и от продаж, но сотрудники ГК Дружбы 
+						оказывали помощь во всем, Валерий прилетел ко мне в город, после знакомства с ним я поняла, что смогу стать успешной в этом бизнесе.<br>
+						Приобрела 300 стендов, уже через 3 месяца все стенды были размещены и я поняла, что этого количества очень мало, так как стенды заняты 
+						постоянно в полном объёме, но доход от такого количества небольшой. Сейчас мы с мужем приняли решение и дополнительно приобрели еще 800 стендов.<br>
+						С такими руководителями франшизного проекта не страшно, каждый шаг уже продуман до мелочей, клиентов помогают найти, дополнительно 
+						предлагают сопутствующие " продукты" по раскрутке бизнеса. Спасибо Валерию и Дмитрию с ними я уверена в завтрашнем дне и успехе! </div>
+						<div class="review-bottom">
+							<span>8-914-503-26-46</span>
+							<a href="">mariybiryukova@yandex.ru</a>
+						</div>
+					</div>
+					<div class="review-item review-collapsed">
+						<div class="review-top">
+							<div class="review-photo"><img src="{% static 'landing/images/media/r6.png' %}" alt=""></div>
+							<div class="review-top-content">
+								<div class="review-author">Игорь Аладин</div>
+								<div class="review-author-text">партнер по г.Волгоград, г.Волжский</div>
+							</div>
+						</div>
+						<div class="review-info">
+							<div class="review-info-min"><b>6500</b> стендов</div>
+							<div class="review-info-big"><b>400 000 руб.</b> Ежемесячный доход</div>
+						</div>
+						<div class="review-text">Для меня рекламный бизнес хорошо знаком, т.к. в рекламной сфере я с 17 лет - студентом начинал работать 
+						промоутером. Работал в газете менеджером по рекламе, пресс-секретарём партии ЛДПР, руководил проведением рекламных кампаний по 
+						выборам в ГосДуму, ОблДуму, Городскую Думу( полный цикл: наисание и размещение статей, сюжеты на телевидении, ролики на радио,
+						наружка индор и аутдор).<br>
+						Затем пришёл на должность начальником отдела продаж в только что зародившуюся компанию занимающуюся рекламой в лифтах (компания 
+						РЕКВолга успешно работает и по сей день является самой крупной в г. Волгоград, кстати, они пользуются идентичным программным 
+						комплексом). Считаю своей личной заслугой развитие данной компании с 50 стендов до 3000 стендов.<br>
+						Я могу оценивать целесообразность размещения и справедливую цену того или иного рекламного носителя и считаю продукт 
+						nadomofone.ru инновационным, а главное - высокоэффективным, прозрачным и честным для рекламодателя. Сейчас у нас 6500 
+						стендов, уже заключено долгосрочных договоров с рекламодателями почти на 300 тысяч ежемесячных платежей.</div>
+						<div class="review-bottom">
+							<span>8-904-756-46-76</span>
+							<a href="">www.vk.com/igorancho</a>
+						</div>
+					</div>
+				</div>
+				<div class="button-holder">
+					<a href="" class="button review-more">ЗАГРУЗТЬ ЕЩЕ</a>
+				</div>
+			</div>
+		</section>
+		<section class="market">
+			<div class="holder">
+				<div class="market-text">По состоянию на 2017г. рекламный рынок России оценивается в</div>
+				<div class="market-title">416 500 000 000 рублей в год.</div>
+				<div class="market-green">Прирост составил +14% по сравнению с 2016г.</div>
+				<div class="market-note">Согласно данным АКАР (Ассоциации Коммуникационных Агентств России)</div>
+			</div>
+		</section>
+		<section class="order2">
+			<div class="holder">
+				<div class="order-holder">
+					<div class="order-frame frame2"></div>
+					<div class="order-img12"></div>
+					<div class="order-img11"></div>
+					<div class="order-img13"></div>
+					<div class="order-form">
+						<div class="order-form-title">Хотите стать партнером и начать зарабатывать на рекламе вместе с нами?</div>
+            {% include 'landing/__includes/form.html' with MAIN_FORM=True NUMBER=2 %}
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="map">
+			<div class="holder">
+				<h2 class="center">Города присутствия франшизы</h2>
+			</div>
+			<div class="map-block">
+				<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+				<script type="text/javascript">
+						ymaps.ready(init);
+						var myMap;
+
+						function init(){     
+							myMap = new ymaps.Map("map", {
+								center: [54.672871,54.674484],
+								zoom: 5,
+							});
+							// Создание метки
+							var coords = [{% for city in CITY_LIST %}[{{ city.coord_y|safe }}, {{ city.coord_x|safe }}],{% endfor %}],
+							  myCollection = new ymaps.GeoObjectCollection({}, {
+								 preset: 'islands#redIcon', //все метки красные
+								 draggable: false // и их можно перемещать
+							  });
+
+							for (var i = 0; i < coords.length; i++) {
+								myCollection.add(new ymaps.Placemark(
+									coords[i], {}, {
+										iconLayout: 'default#image',
+										iconImageHref: '{% static 'landing/images/marker.png' %}',
+										iconImageSize: [21, 54],
+										iconImageOffset: [-1, -51]
+									}
+								));
+							}
+							
+							myMap.geoObjects.add(myCollection);
+							myMap.behaviors.disable('scrollZoom');
+							
+							if($(window).width() < 1023){
+								myMap.behaviors.disable('drag');
+							}
+							
+							
+						}
+				</script>
+				<div id="map"></div>
+			</div>
+		</section>
+		<div class="map-line">
+			<div class="holder">
+				Эксклюзивным представителем по городу может быть только одна компания
+			</div>
 		</div>
-		<!--   Всплывающие окна end  -->
+		<section class="contacts" id="block5">
+			<div class="holder">
+				<div class="contacts-block">
+					<div class="contacts-holder">
+						<div class="contacts-item">
+							<div class="contacts-title">Представительство <br>в г. Волгоград
+							</div>
+							<div class="contacts-text">ул. Рабоче-Крестьянская, 9 (8 этаж)<br><br>
+							- Финансовый отдел<br><br>
+							- Отдел IT разработки</div>
+						</div>
+						<div class="contacts-item">
+							<div class="contacts-title">Представительство <br>в г. Ростов-на-Дону</div>
+							<div class="contacts-text">Ул. Буровая 46, офис 24<br><br>
+							- Отдел по работе с Федеральными 
+							рекламодателями<br><br>
+							- Отдел развития партнерской сети</div>
+						</div>
+					</div>
+					<div class="contacts-bottom">
+						<div class="contacts-phone"><a href="tel:+{{ SETUP.tel_format }}">{{ SETUP.phone|default:'8(952)608-62-95' }}</a></div>
+						<div class="contacts-vk">
+							<a href="https://vk.com/franchise_nadomofone" target="_blank"><img src="{% static 'landing/images/web-big.png' %}" alt=""></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="contacts-map">
+				<script type="text/javascript">
+						ymaps.ready(init);
+						var myMap2;
+
+						function init(){     
+							myMap2 = new ymaps.Map("map2", {
+								center: [48.051702, 40.595066],
+								zoom: 6
+							});
+							mark1 = new ymaps.Placemark([47.251702, 39.615066],{},{iconLayout: 'default#image', iconImageHref: '{% static 'landing/images/marker.png' %}', iconImageSize: [21, 54], iconImageOffset: [-1, -54]});
+							mark2 = new ymaps.Placemark([48.697560, 44.501515],{},{iconLayout: 'default#image', iconImageHref: '{% static 'landing/images/marker.png' %}', iconImageSize: [21, 54], iconImageOffset: [-1, -54]});
+							
+							// Создаем коллекцию, в которую будем добавлять метки
+							myCollection = new ymaps.GeoObjectCollection();
+							//Добавляем метки в коллекцию геообъектов.
+							myCollection
+								.add(mark1)
+								.add(mark2);
+								
+							// Добавляем коллекцию геообъектов на карту.
+							myMap2.geoObjects.add(myCollection);
+							myMap2.behaviors.disable('scrollZoom');
+							
+							if($(window).width() < 1023){
+								myMap2.behaviors.disable('drag');
+							}
+							
+							
+						}
+				</script>
+				<div id="map2"></div>
+			</div>
+		</section>
+		<footer class="footer">
+			<div class="holder">
+				<div class="footer-logo">
+					<img src="{% static 'landing/images/logo2.png' %}" alt="">
+				</div>
+				<div class="footer-links">
+					<a href="#hidden-block" class="fancybox">Политика конфиденциальности</a><br>
+					<a href="#hidden-block2" class="fancybox">Пользовательское соглашение</a>
+					<div id="hidden-block" class="hidden-block">
+						<h2>Политика конфиденциальности</h2>
+						<p>Мы не собираем личную информацию о Вас, когда Вы заходите на наш сайт.
+						Вы можете анонимно просматривать сайт. Тем не менее, Ваш браузер все же автоматически сообщает нам тип компьютера и операционной системы, которые Вы используете. Единственная личная информация о Вас, которую мы получаем, это те данные, которые Вы добровольно предоставляете при заполнении форм.
+						При заполнении форм на сайте у Вас запросят персональную информацию, такую как имя, номер телефона. Предоставление такой информации в ответ на запрос осуществляется Вами исключительно добровольно. 
+						Предоставленная Вами информация используется чтобы оказать те услуги, которые Вы сами запрашиваете.</p>
+					</div>
+					<div id="hidden-block2" class="hidden-block">
+						<h2>Пользовательское соглашение</h2>
+						<p>
+              Принимая условия настоящего Соглашения сторона, оставившая заявку (зарегистрировавшись) на сайте
+              (далее - Заявитель),  подтверждает, что тем самым дает Индивидуальному предпринимателю Луневу Валерию
+              Александровичу (ОГРН 309345903700027) свое согласие на обработку его персональных данных в соответствии с
+              Федеральным Законом от 27.07.2006 г. № 152-ФЗ «О персональных данных», с использованием средств
+              автоматизации или без использования таких средств с целью ведения информационного учета в соответствии с
+              требованиями законодательства Российской Федерации.
+            </p>
+            <p>
+              Заявитель предоставляет Индивидуальному предпринимателю Луневу Валерию Александровичу (ОГРН 309345903700027)
+              право осуществлять следующие действия (операции) с его персональными данными: сбор, систематизацию,
+              накопление, хранение, уточнение (обновление, изменение), использование, распространение (в том числе
+              передачу третьим лицам), обезличивание, блокирование, уничтожение. Заявитель подтверждает, что настоящее
+              согласие дается добровольно и действует бессрочно.
+            </p>
+					</div>	
+				</div>
+				<div class="footer-webs">
+					<a href="https://vk.com/franchise_nadomofone" target="_blank"><img src="{% static 'landing/images/web1.png' %}" alt=""></a>
+					<a href=""><img src="{% static 'landing/images/web2.png' %}" alt=""></a>
+				</div>
+				<div class="footer-phone">
+					<a href="tel:+89526086295">8 (952) 608-62-95</a>
+				</div>
+				<div class="footer-studio">
+					<a href="http://neurondg.com/" target="_blank"><img src="{% static 'landing/images/studio.png' %}" alt=""></a><br>
+				</div>
+			</div>
+		</footer>
+		<div id="popup" class="popup">
+			<div class="order-form">
+				<div class="order-form-title">Хотите узнать о нашем бизнесе подробнее?</div>
+				{% include 'landing/__includes/form.html' with MAIN_FORM=True NUMBER=3 %}
+			</div>
+		</div>
+		<div id="video-popup1" class="video-popup">
+			<iframe src="https://www.youtube.com/embed/HsLoyu0LeM4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+		</div>
+		<div id="video-popup2" class="video-popup">
+			<iframe src="https://www.youtube.com/embed/j1wQYVDNUYw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+		</div>
+		<div id="popup2" class="popup">
+			<div class="popup-leave">
+				<div class="popup-leave-left">
+					<img src="{% static 'landing/images/media/book.png' %}" alt="" class="popup-leave-book">
+				</div>
+				<div class="popup-leave-right">
+					<a href="" class="fancy-close"><img src="{% static 'landing/images/close.png' %}" alt=""></a>
+					<div class="order-form">
+						<div class="order-form-title">Не уходите!</div>
+						<div class="order-form-subtitle">Мы отправим вам финансовый план на email:</div>
+            {% include 'landing/__includes/form.html' with FORM_SUBMIT_TEXT='ПОЛУЧИТЬ ФИНАНСОВЫЙ ПЛАН' NUMBER=4 %}
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-<link media="all" rel="stylesheet" type="text/css" href="{% static 'landing/css/jquery.fancybox.min.css' %}" />
-<link media="all" rel="stylesheet" type="text/css" href="{% static 'landing/css/owl.carousel.min.css' %}?v=1" />
-<script src="{% static 'landing/js/jquery-1.9.1.min.js' %}"></script>
-<script src="{% static 'landing/js/jquery.validate.js' %}"></script>
-<script src="{% static 'landing/js/jquery.fancybox.js' %}"></script>
-<script src="{% static 'landing/js/tabs.js' %}"></script>
-<script src="{% static 'landing/js/jquery.scrollTo.min.js' %}"></script>
-<script src="{% static 'landing/js/jquery.maskedinput.js' %}"></script>
-<script src="{% static 'landing/js/owl.carousel.min.js' %}"></script>
-<script src="{% static 'landing/js/all.js' %}"></script>
-<script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-<script type="text/javascript">
-  ymaps.ready(init);
-  var myMap;
-
-  function init(){
-    myMap = new ymaps.Map("ya_map", {
-      center: [57.672871,54.674484],
-      zoom: 5,
-    //	type: 'yandex#satellite'
-    });
-
-    // Создание метки
-    var coords = [{% for city in CITY_LIST %}[{{ city.coord_y|safe }}, {{ city.coord_x|safe }}],{% endfor %}],
-      myCollection = new ymaps.GeoObjectCollection({}, {
-         preset: 'islands#redIcon', //все метки красные
-         draggable: false // и их можно перемещать
-      });
-
-    for (var i = 0; i < coords.length; i++) {
-      myCollection.add(new ymaps.Placemark(
-        coords[i], {}, {
-          iconLayout: 'default#image',
-          iconImageHref: '{% static 'landing/images/mark.png' %}',
-          iconImageSize: [18, 26],
-          iconImageOffset: [-9, -26]
-        }
-      ));
-    }
-
-    myMap.geoObjects.add(myCollection);
-    myMap.behaviors.disable('scrollZoom');
-  }
-</script>
+{% endblock %}
+{% block bottom_js %}
 <script type="text/javascript" src="//vk.com/js/api/openapi.js?152"></script>
 <!-- VK Widget --> <div id="vk_community_messages"></div> <script type="text/javascript"> VK.Widgets.CommunityMessages("vk_community_messages", 149980062, {expandTimeout: "600000",tooltipButtonText: "Отправьте нам сообщение!"}); </script>
+{% endblock %}
 
 
 {{ SETUP.bottom_js|safe|default:'' }}

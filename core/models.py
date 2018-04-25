@@ -92,17 +92,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
 class Setup(models.Model):
-    class Meta:
-        verbose_name = u'Настройки сайта'
-        verbose_name_plural = u'Настройки сайта'
-        app_label = 'core'
-
-    def __unicode__(self):
-        if self.title:
-            return self.title
-        else:
-            return u'Настройки'
-
     title = models.CharField(verbose_name=u'Заголовок <TITLE>...</TITLE>', max_length=256, blank=True)
     phone = models.CharField(verbose_name=u'Телефон', max_length=256, blank=True)
     email = models.EmailField(verbose_name=u'e-mail для приёма заявок', blank=True)
@@ -115,3 +104,20 @@ class Setup(models.Model):
     bottom_js = models.TextField(verbose_name=u'Скрипты перед закрывающим </BODY>', blank=True)
     robots_txt = models.TextField(verbose_name=u'ROBOTS.TXT', blank=True, null=True)
     sitemap = models.TextField(verbose_name=u'sitemap.xml', blank=True, null=True)
+
+    class Meta:
+        verbose_name = u'Настройки сайта'
+        verbose_name_plural = u'Настройки сайта'
+        app_label = 'core'
+
+    def __unicode__(self):
+        if self.title:
+            return self.title
+        else:
+            return u'Настройки'
+
+    def tel_format(self):
+        tel = False
+        if self.phone:
+            tel = ''.join([i for i in self.phone if i.isdigit()])
+        return tel

@@ -19,6 +19,5 @@ MIDDLEWARE_CLASSES = (
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
     'core.context.site_setup',
-    'apps.blog.context.postsection_list',
     'apps.city.context.city_list',
 )

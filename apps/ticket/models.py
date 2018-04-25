@@ -32,9 +32,9 @@ class Ticket(Common):
     )
 
     manager = models.ForeignKey(to=User, verbose_name=u'Менеджер', blank=True, null=True)
-    name = models.CharField(verbose_name=u'Имя', max_length=256)
-    phone = models.CharField(verbose_name=u'Телефон', max_length=20)
-    mail = models.EmailField(verbose_name=u'e-mail', max_length=100, blank=True, null=True)
+    name = models.CharField(verbose_name=u'Имя', max_length=256, blank=True, null=True)
+    phone = models.CharField(verbose_name=u'Телефон', max_length=20, blank=True, null=True)
+    mail = models.EmailField(verbose_name=u'e-mail', max_length=100)
     comment = models.TextField(verbose_name=u'Сообщение', blank=True, null=True)
     status = models.PositiveSmallIntegerField(verbose_name=u'Статус заявки', choices=TICKET_STATUS_CHOICE, default=1)
     theme = models.PositiveSmallIntegerField(verbose_name=u'Тема', choices=THEME_CHOICES, default=1)
@@ -57,19 +57,19 @@ class Ticket(Common):
 
     def save(self, *args, **kwargs):
         # if not self.country and self.city and self.time_zone:
-
-        data = PhoneGeocode(self.phone).get_info()
-        if data:
-            if 'fullname' in data:
-                self.country = data['fullname']
-            elif 'country' in data and 'fullname' in data['country']:
-                self.country = data['country']['fullname']
-            if 'time_zone' in data:
-                self.time_zone = data['time_zone']
-            if '0' in data and 'name' in data['0']:
-                self.city = data['0']['name']
-            elif 'region' in data and 'name' in data['region']:
-                self.city = data['region']['name']
+        if self.phone:
+            data = PhoneGeocode(self.phone).get_info()
+            if data:
+                if 'fullname' in data:
+                    self.country = data['fullname']
+                elif 'country' in data and 'fullname' in data['country']:
+                    self.country = data['country']['fullname']
+                if 'time_zone' in data:
+                    self.time_zone = data['time_zone']
+                if '0' in data and 'name' in data['0']:
+                    self.city = data['0']['name']
+                elif 'region' in data and 'name' in data['region']:
+                    self.city = data['region']['name']
         super(Ticket, self).save(*args, **kwargs)
 
     def performed_at(self):

@@ -12,11 +12,9 @@ from apps.ticket.models import Ticket
 def ticket_send(request):
     if request.method == "POST":
         form = TicketForm(data=request.POST)
-        theme = request.POST.get('theme')
         if form.is_valid():
             ticket = form.save(commit=False)
             ticket.status = 1
-            ticket.theme = int(theme)
             ticket.save()
     return HttpResponseRedirect(reverse('landing:thnx'))
 
