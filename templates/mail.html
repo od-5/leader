@@ -139,7 +139,7 @@
                                 <td width="10%" height="1" valign="top"></td>
                                 <td width="80%" valign="top">
 				  <span style="color: #000000; font-size: 18px; font-family: Arial; line-height: 25px;">
-					Добрый день,<span style="color: #ed6a07;">{{ name|default:'Александр' }}</span> <br>
+					Добрый день{% if name %},{% else %}.{% endif %}<span style="color: #ed6a07;">{{ name|default:'' }}</span> <br>
                       Мы получили вашу заявку!
 				  </span>
           <img src="{{ site_name|default:'' }}{% url 'ticket:mail_read' id %}" alt="" width="100%">
@@ -213,7 +213,7 @@
                                 <td width="10%" height="1" valign="top"></td>
                                 <td width="80%" valign="top">
 				            <span style="color: #000000; font-size: 18px; font-family: Arial; line-height: 25px;">
-					            « Удачного дня! <br> <span style="margin-left: 16px">Рад знакомству, {{ name|default:'Александр' }} »</span>
+					            « Удачного дня! <br> <span style="margin-left: 16px">Рад знакомству{% if name %},{% else %}.{% endif %} {{ name|default:'' }} »</span>
 				            </span>
                                 </td>
                                 <td width="10%" height="1" valign="top"></td>
