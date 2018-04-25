@@ -47,10 +47,14 @@ $(document).ready(function () {
 			mail: {
 				required: true,
 				email: true
+			},
+			terms: {
+				required: true
 			}
 		},
 		messages: {
 			mail: false,
+			terms: 'Вы не можете оставить заявку без согласия на обработку персональных данных'
 		}
 	});
 
