@@ -9,6 +9,6 @@ __author__ = 'alexy'
 urlpatterns = patterns(
     '',
     url(r'^$', ticket_send, name='send'),
-    url(r'csv/^$', ticket_csv, name='csv'),
+    url(r'^csv/$', ticket_csv, name='csv'),
     url(r'^check.png/(?P<pk>\d+)/$', mail_read, name='mail_read'),
 )
