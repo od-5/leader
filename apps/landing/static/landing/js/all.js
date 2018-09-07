@@ -61,7 +61,7 @@ $(document).ready(function () {
 
 	// typing animation
 	var typed = new Typed('.type-animation', {
-		strings: ["Запустите готовый рекламный бизнес"],
+		strings: ["Прибыльная франшиза в сфере рекламы"],
 		typeSpeed: 45
 	});
 	

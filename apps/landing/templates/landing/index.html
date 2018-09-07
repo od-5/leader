@@ -62,10 +62,10 @@
 							<div class="header-phone"><a href="tel:{{ SETUP.tel_format }}">{{ SETUP.phone|default:'8(952)608-62-95' }}</a></div>
 							<h1 class="header-title">
 								<span class="type-holder"><span class="type-animation"></span> </span>
-								<div class="header-title-light">по франшизе и зарабатывайте от 1 000 000 руб. в год</div>
+								<div class="header-title-light">Зарабатывайте до 300 000 рублей в месяц, уделяя работе не более 3-х часов в день</div>
 							</h1>
 							<div class="header-button">
-								<a href="#popup" class="button button-red fancybox">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ</a>
+								<a href="#popup" class="button button-red fancybox">Скачать материалы проекта</a>
 								<div class="header-button-text">Все 100% наших <br>партнеров успешны </div>
 							</div>
 							<div class="header-warranty">
@@ -151,7 +151,7 @@
 					<div class="order-img1"></div>
 					<div class="order-form">
 						<div class="order-form-title">Хотите узнать о нашем бизнесе подробнее?</div>
-            {% include 'landing/__includes/form.html' with MAIN_FORM=True NUMBER=1 %}
+            {% include 'landing/__includes/form.html' with MAIN_FORM=True NUMBER=1 FORM_SUBMIT_TEXT='Получить презентацию франшизы' %}
 					</div>
 				</div>
 			</div>
@@ -521,8 +521,8 @@
 					<div class="order-img11"></div>
 					<div class="order-img13"></div>
 					<div class="order-form">
-						<div class="order-form-title">Хотите стать партнером и начать зарабатывать на рекламе вместе с нами?</div>
-            {% include 'landing/__includes/form.html' with MAIN_FORM=True NUMBER=2 %}
+						<div class="order-form-title">95% наших партнёров успешно работают на протяжении многих лет. Убедитесь сами!</div>
+            {% include 'landing/__includes/form.html' with MAIN_FORM=True NUMBER=2 FORM_SUBMIT_TEXT='скачать 7 историй успеха' %}
 					</div>
 				</div>
 			</div>
@@ -585,7 +585,7 @@
 						<div class="contacts-item">
 							<div class="contacts-title">Представительство <br>в г. Волгоград
 							</div>
-							<div class="contacts-text">ул. Рабоче-Крестьянская, 9 (8 этаж)<br><br>
+							<div class="contacts-text">Ул. Пугачевская, 7Г, оф. 76<br><br>
 							- Финансовый отдел<br><br>
 							- Отдел IT разработки</div>
 						</div>
@@ -687,8 +687,8 @@
 		</footer>
 		<div id="popup" class="popup">
 			<div class="order-form">
-				<div class="order-form-title">Хотите узнать о нашем бизнесе подробнее?</div>
-				{% include 'landing/__includes/form.html' with MAIN_FORM=True NUMBER=3 %}
+				<div class="order-form-title">Скачать материалы проекта</div>
+				{% include 'landing/__includes/form.html' with MAIN_FORM=True NUMBER=3 FORM_SUBMIT_TEXT='Скачать' %}
 			</div>
 		</div>
 		<div id="video-popup1" class="video-popup">
