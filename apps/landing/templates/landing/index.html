@@ -24,7 +24,7 @@
 	<script src="{% static 'landing/js/jquery.scrollTo.min.js' %}"></script>
 	<script src="{% static 'landing/js/typed.min.js' %}"></script>
 	<!--[if lt IE 9]><script type="text/javascript" src="{% static 'landing/js/html5.js' %}"></script><![endif]-->
-	<script src="{% static 'landing/js/all.js' %}"></script>
+	<script src="{% static 'landing/js/all.js' %}?v=1"></script>
 {% block top_js %}
 {% endblock %}
 {{ SETUP.top_js|safe|default:'' }}
