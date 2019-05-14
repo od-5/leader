@@ -15,7 +15,7 @@
 	{% block title %}
 	<title>{{ SETUP.title|default:'Не указано' }}</title>
   {% endblock %}
-	<link media="all" rel="stylesheet" type="text/css" href="{% static 'landing/css/all.min.css' %}" />
+	<link media="all" rel="stylesheet" type="text/css" href="{% static 'landing/css/all.css' %}" />
 	<link media="all" rel="stylesheet" type="text/css" href="{% static 'landing/css/jquery.fancybox.min.css' %}" />
 	<script src="{% static 'landing/js/jquery-1.9.1.min.js' %}"></script>
 	<script src="{% static 'landing/js/jquery.fancybox.js' %}"></script>
@@ -115,7 +115,7 @@
               Бизнес, который можно вести и контролировать с вашего смартфона или планшета в любой точке мира.
             </div>
 					</div>
-					<p>Наши партнеры зарабатывают, рекламируя таких гигантов, как Ростелеком, МТС, Билайн, Дом.ru и множество других компаний.
+					<p>Наши партнеры зарабатывают, рекламируя таких гигантов, как Ростелеком, МТС, Билайн, Дом.ru, Сбербанк, Росбанк и множество других компаний.
 					Все 100% наших партнеров в 34 городах России 
 					довольны сотрудничеством с нами.
           <br>
@@ -176,8 +176,9 @@
 							<ul class="case-item-list">
 								<li>- Ростов-на-Дону</li>
 								<li>- Волгоград</li>
-								<li>- Волжский</li>
 								<li>- Севастополь</li>
+								<li>- Новокузнецк</li>
+								<li>- Кемерово</li>
 							</ul>
 						</div>
 					</div>
@@ -199,6 +200,7 @@
 								<li>- Новосибирск</li>
 								<li>- Ростов-на-Дону</li>
 								<li>- Горно-Алтайск</li>
+								<li>- Воронеж</li>
 							</ul>
 						</div>
 					</div>
@@ -217,9 +219,10 @@
 							<div class="case-item-text">В каких городах размещается реклама:</div>
 							<ul class="case-item-list">
 								<li>- Волгоград</li>
-								<li>- Волжский</li>
 								<li>- Ростов-на-Дону</li>
-								<li>- Новочеркасск</li>
+								<li>- Кемерово</li>
+								<li>- Воронеж</li>
+								<li>- Новокузнецк</li>
 							</ul>
 						</div>
 					</div>
@@ -239,6 +242,9 @@
 							<ul class="case-item-list">
 								<li>- Ростов-на-Дону</li>
 								<li>- Волгоград</li>
+								<li>- Барнаул</li>
+								<li>- Воронеж</li>
+								<li>- Рязань</li>
 							</ul>
 						</div>
 					</div>
@@ -320,7 +326,7 @@
 					</div>
 				</div>
 				<div class="button-holder">
-					<a href="" class="button case-more">ЗАГРУЗТЬ ЕЩЕ</a>
+					<a href="" class="button case-more">ЗАГРУЗИТЬ ЕЩЕ</a>
 				</div>
 			</div>
 		</section>
@@ -328,87 +334,101 @@
 			<div class="holder">
 				<h2 class="center">Отзывы наших партнеров</h2>
 				<div class="review-block">
+					<!--<div class="review-item animate fadeUp">-->
+						<!--<div class="review-top">-->
+							<!--<div class="review-photo"><img src="{% static 'landing/images/media/r1.jpg' %}" alt=""></div>-->
+							<!--<div class="review-top-content">-->
+								<!--<div class="review-author">Вадим Бекетов</div>-->
+								<!--<div class="review-author-text">партнер, г. Мичуринск</div>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="review-info">-->
+							<!--<div class="review-info-min"><b>450</b> стендов</div>-->
+							<!--<div class="review-info-big"><b>35 000 руб.</b> Ежемесячный доход</div>-->
+						<!--</div>-->
+						<!--<div class="review-text">-->
+							<!--<div class="indent">У меня есть собственная типография и техника загружена не на 100%, поэтому решил попробовать себя в-->
+								<!--рекламной франшизе.<br>-->
+							<!--</div>-->
+							<!--<div class="indent">Мне понравился проект "Надомофоне". В январе 2018 года я-->
+								<!--подключился к франшизе. Сразу у меня появился клиент: сеть супермаркетов "Светофор". Через неделю я заключил договор с компанией-->
+								<!--"Ростелеком", на весь город на год.<br>-->
+							<!--</div>-->
+							<!--<div class="indent">Сейчас я планирую увеличить количество конструкций-->
+								<!--в моем городе в два раза, тогда франшиза будет приносить пассивный доход около 80 тысяч в месяц. Следующим этапом я собираюсь купить франшизу в соседних-->
+								<!--городах: Тамбове и Липецке. Надеюсь, что города закрепят за мной и не уйдут к другим партнерам.-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="review-bottom">-->
+							<!--<span>8-900-496-66-57</span>-->
+							<!--<a href="http://www.vk.com/id3597965" target="_blank">www.vk.com/id3597965</a>-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="review-item animate fadeUp delay1">-->
+						<!--<div class="review-top">-->
+							<!--<div class="review-photo"><img src="{% static 'landing/images/media/r5.png' %}" alt=""></div>-->
+							<!--<div class="review-top-content">-->
+								<!--<div class="review-author">Андрей Мошачков</div>-->
+								<!--<div class="review-author-text">партнер, г. Новосибирск и г. Бердск</div>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="review-info">-->
+							<!--<div class="review-info-min"><b>900</b> стендов</div>-->
+							<!--<div class="review-info-big"><b>115 000 руб.</b> Ежемесячный доход</div>-->
+						<!--</div>-->
+						<!--<div class="review-text">-->
+							<!--<div class="indent">Рекламную франшизу взял под себя, чтобы рекламировать свой основной бизнес, так как сам вкладывался-->
+								<!--постоянно в рекламу. После 4-х месяцев я еще не успел разместить свою рекламу, так как мне привели клиентов на рекламные-->
+								<!--конструкции отдел продаж из Ростова. Пока они приносят деньги, мне пока нет смысла вешать свою рекламу.<br>-->
+							<!--</div>-->
+							<!--<div class="indent">По началу, вешал рекламу на стенды сам и не понимал, зачем нужно мобильное приложение. Так как это мой бизнес, делал все-->
+								<!--качественно и так. Как только нанял монтажников, понял, что программа эта необходима, так как каждый пытался меня-->
+								<!--надурить. Я очень занятой человек и некогда следить за работой монтажника, поэтому приложение на телефоне реально-->
+								<!--облегчило мою жизнь. Сейчас у меня 900 рекламных конструкций.-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="review-bottom">-->
+							<!--<span>8-913-750-66-33</span>-->
+							<!--<a href="mailto:rad-novosibirsk@mail.ru">rad-novosibirsk@mail.ru</a>-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="review-item animate fadeUp delay2">-->
+						<!--<div class="review-top">-->
+							<!--<div class="review-photo"><img src="{% static 'landing/images/media/r7.png' %}" alt=""></div>-->
+							<!--<div class="review-top-content">-->
+								<!--<div class="review-author">Николай Юмаев</div>-->
+								<!--<div class="review-author-text">партнер, г. Казань, г. Альметьевск</div>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="review-info">-->
+							<!--<div class="review-info-min"><b>2400</b> стендов</div>-->
+							<!--<div class="review-info-big"><b>200 000 руб.</b> Ежемесячный доход</div>-->
+						<!--</div>-->
+						<!--<div class="review-text">-->
+							<!--<div class="indent">Рекламная компания РТС МЕДИА. г. Казань.<br></div>-->
+							<!--<div class="indent">В рекламном бизнесе с 2010г. Обратили внимание на данный продукт, проанализировали и решили развивать данное направление.</div>-->
+								<!--<div class="indent">Решающую роль сыграли многие факторы, в том числе:<br></div>-->
+								<!--<div style="text-align: left;">-->
+									<!--<div class="indent">- уникальность продукта</div>-->
+									<!--<div class="indent">- хороший контакт с аудиторией</div>-->
+									<!--<div class="indent">- программа онлайн-контроля, которая серьезно помогает контролировать множество рабочих процессов, например: продажи, монтажи, и т.д.</div>-->
+									<!--<div class="indent">- отличный сервис для клиента: все прозрачно и понятно.</div>-->
+									<!--<div class="indent">- работа с лидерами рынка, такими как МТС и Билайн. Так же доступно и среднему бизнесу.</div>-->
+									<!--<div class="indent">- обширный сегмент заказчиков, которые хотят доносить свою информацию максимально доступным и эффективным способом.</div>-->
+								<!--</div>-->
+							<!--<div class="indent">Отличная бизнес модель для тех, кто хочет, чтобы его рекламу видели несколько раз в день!</div>-->
+						<!--</div>-->
+						<!--<div class="review-bottom">-->
+							<!--<span>8-987-009-90-90</span>-->
+							<!--<a href="http://www.vk.com/nikolaiyumaev" target="_blank">www.vk.com/nikolaiyumaev</a>-->
+						<!--</div>-->
+					<!--</div>-->
 					<div class="review-item animate fadeUp">
-						<div class="review-top">
-							<div class="review-photo"><img src="{% static 'landing/images/media/r1.jpg' %}" alt=""></div>
-							<div class="review-top-content">
-								<div class="review-author">Вадим Бекетов</div>
-								<div class="review-author-text">партнер по г. Мичуринск</div>
-							</div>
-						</div>
-						<div class="review-info">
-							<div class="review-info-min"><b>450</b> стендов</div>
-							<div class="review-info-big"><b>35 000 руб.</b> Ежемесячный доход</div>
-						</div>
-						<div class="review-text">У меня есть собственная типография и техника загружена не на 100%. Поэтому решил попробовать себя в 
-						рекламной франшизе. Мне понравился проект надомофоне, что у них свой отдел продаж в помощь партнерам. В январе 2018 года я 
-						подключился к франшизе, хотя были сомнения. Сразу у меня появился клиентов "Светофор супермаркет". Через неделю мне позвонил 
-						менеджер с Ростова и сказал, что клиент Ростелеком забирает весь город на год. Сейчас я планирую довести до 900 конструкций 
-						в моем городе и франшиза будет приносить пассивный доход около 80 тысяч в месяц. Весной собираюсь купить франшизу в соседних 
-						Тамбове и в Липецке. Надеюсь, что города закрепяться за мной и не уйдут к другим партнерам.</div>
-						<div class="review-bottom">
-							<span>8-900-496-66-57</span>
-							<a href="http://www.vk.com/id3597965" target="_blank">www.vk.com/id3597965</a>
-						</div>
-					</div>
-					<div class="review-item animate fadeUp delay1">
-						<div class="review-top">
-							<div class="review-photo"><img src="{% static 'landing/images/media/r5.png' %}" alt=""></div>
-							<div class="review-top-content">
-								<div class="review-author">Андрей Мошачков</div>
-								<div class="review-author-text">партнер по г. Новосибирск и г. Бердск</div>
-							</div>
-						</div>
-						<div class="review-info">
-							<div class="review-info-min"><b>900</b> стендов</div>
-							<div class="review-info-big"><b>115 000 руб.</b> Ежемесячный доход</div>
-						</div>
-						<div class="review-text">Рекламную франшизу взял под себя, чтобы рекламировать свой основной бизнес, так как сам вкладывался
-						постоянно в рекламу. После 4-х месяцев я еще не успел разместить свою рекламу, так как мне привели клиентов на рекламные 
-						конструкции отдел продаж из Ростова. Пока они приносят деньги, мне пока нет смысла вешать свою рекламу.<br>
-						По началу, вешал рекламу на стенды сам и не понимал, зачем нужно мобильное приложение. Так как это мой бизнес, делал все 
-						качественно и так. Как только нанял монтажников, понял, что программа эта необходима, так как каждый пытался меня 
-						надурить. Я очень занятой человек и некогда следить за работой монтажника, поэтому приложение на телефоне реально 
-						облегчило мою жизнь. Сейчас у меня 900 рекламных конструкций.</div>
-						<div class="review-bottom">
-							<span>8-913-750-66-33</span>
-							<a href="mailto:rad-novosibirsk@mail.ru">rad-novosibirsk@mail.ru</a>
-						</div>
-					</div>
-					<div class="review-item animate fadeUp delay2">
-						<div class="review-top">
-							<div class="review-photo"><img src="{% static 'landing/images/media/r7.png' %}" alt=""></div>
-							<div class="review-top-content">
-								<div class="review-author">Николай Юмаев</div>
-								<div class="review-author-text">партнер по Казани, Альметьевску</div>
-							</div>
-						</div>
-						<div class="review-info">
-							<div class="review-info-min"><b>2400</b> стендов</div>
-							<div class="review-info-big"><b>200 000 руб.</b> Ежемесячный доход</div>
-						</div>
-						<div class="review-text">Рекламная компания РТС МЕДИА. г. Казань.<br>
-						В рекламном бизнесе с 2010г. Обратили внимание на данный продукт, проанализировали и решили развивать данное направление. 
-						Решающую роль сыграли многие факторы…<br>
-						В том числе:<br>
-						- уникальность продукта…<br>
-						- хороший контакт с аудиторией..<br>
-						- программа онлайн контроля, которая очень помогает контролировать множество рабочих процессов …. Продажи…монтажи…и т.п.<br>
-						- отличный сервис для клиента…все прозрачно и понятно….<br>
-						- работа с лидерами рынка : МТС, Билай….а так же доступность мелком и среднему бизнесу…<br>
-						- обширный сегмент заказчиков, которые хотят доносить свою информацию максимально доступным и эффективным способом… 
-						Те кто хочет чтобы его рекламу видели несколько раз в день… Отличная бизнес модель!</div>
-						<div class="review-bottom">
-							<span>8-987-009-90-90</span>
-							<a href="http://www.vk.com/nikolaiyumaev" target="_blank">www.vk.com/nikolaiyumaev</a>
-						</div>
-					</div>
-					<div class="review-item review-collapsed">
 						<div class="review-top">
 							<div class="review-photo"><img src="{% static 'landing/images/media/r4.png' %}" alt=""></div>
 							<div class="review-top-content">
 								<div class="review-author">Данила Юсько</div>
-								<div class="review-author-text">партнер по г. Севастополь, Симферополь</div>
+								<div class="review-author-text">г. Севастополь, г.Симферополь</div>
 							</div>
 						</div>
 						<div class="review-info">
@@ -416,100 +436,120 @@
 							<div class="review-info-big"><b>250 000 руб.</b> Ежемесячный доход</div>
 						</div>
 						<div class="review-text">
-						Преимущество такой франшизы не только в том, что проект достаточно прибыльный и несет социальную пользу, что упрощает 
-						его внедрение в городах. Продают не только саму бизнес-идею с программным комплексом, но и клиентскую наработку.<br>
-						Думаю, для многих плюс будет еще и в том, что можно вполне обойтись без собственного продажного отдела с соответствующими
-						тратами, проблемным персоналом и т.д, франчайзер предоставляет услуги своих продажных отделов, что существенно упрощает
-						функционирование франчайзи- все переговоры, споры, иные вопросы с клиентами решает преимущественно специалист франчайзера.<br>
-						По факту, от партнера требуется только качественное размещение рекламы. После 1 года работы приняли решение о покупке 
-						дополнительно одного города.</div>
+							<div class="indent">Преимущество такой франшизы в том, что проект прибыльный и несет социальную пользу, что упрощает
+								его внедрение в городах. Продают не только саму бизнес-идею с программным комплексом, но и клиентскую наработку.
+							</div>
+							<div class="indent">Думаю, для многих плюс будет еще и в том, что можно обойтись без собственного отдела продаж с соответствующими
+								тратами, проблемным персоналом и т.д. Франчайзер предоставляет услуги рекламного агентства, что существенно упрощает
+								функционирование франчайзи - все переговоры, споры и иные вопросы с клиентами решает преимущественно специалист франчайзера.
+							</div>
+							<div class="indent">По факту, от партнера требуется только качественное размещение рекламы. После 1 года работы приняли решение о покупке
+								дополнительно одного города.
+							</div>
+						</div>
 						<div class="review-bottom">
 							<span>8-978-783-85-37</span>
 							<a href="http://www.vk.com/id4171929" target="_blank">www.vk.com/id4171929</a>
 						</div>
 					</div>
-					<div class="review-item review-collapsed">
-						<div class="review-top">
-							<div class="review-photo"><img src="{% static 'landing/images/media/r2.jpg' %}" alt=""></div>
-							<div class="review-top-content">
-								<div class="review-author">Оксана Захарова</div>
-								<div class="review-author-text">партнер по Горно-Алтайску</div>
-							</div>
-						</div>
-						<div class="review-info">
-							<div class="review-info-min"><b>350</b> стендов</div>
-							<div class="review-info-big"><b>37 000 руб.</b> Ежемесячный доход</div>
-						</div>
-						<div class="review-text">На данный момент имеем 350 рекламных поверхностей. Стенды все сданы под клиентов.Планируем расширяться к весне, так как монтаж в морозы почти невозможен. Вандализм небольшой, не более 
-						3%. Работать нравится, приходится учиться чему то новому, сам бизнес востребованный и многие бы хотели разместить свою рекламу на наших стендах.
-						Нравится работа офиса продаж, как по оперативности, как и по удобности, всегда помогут словом или делом. Отдельное спасибо Марине и Дмитрию.</div>
-						<div class="review-bottom">
-							<span>8(923)665-13-29</span>
-							<a href="mailto:work04@list.ru">work04@list.ru</a>
-						</div>
-					</div>
-					<div class="review-item review-collapsed">
-						<div class="review-top">
-							<div class="review-photo"><img src="{% static 'landing/images/media/r3.jpg' %}" alt=""></div>
-							<div class="review-top-content">
-								<div class="review-author">Бирюкова Мария</div>
-								<div class="review-author-text">партнер по г. Чита</div>
-							</div>
-						</div>
-						<div class="review-info">
-							<div class="review-info-min"><b>850</b> стендов</div>
-							<div class="review-info-big"><b>80 000 руб.</b> Ежемесячный доход</div>
-						</div>
-						<div class="review-text">После длительного поиска дополнительного заработка, наткнулась на франшизу ГК "Дружба". Долго 
-						сомневалась, но решила, что надо попробовать. Я далека и от бизнеса, и от рекламы, и от продаж, но сотрудники ГК Дружбы 
-						оказывали помощь во всем, Валерий прилетел ко мне в город, после знакомства с ним я поняла, что смогу стать успешной в этом бизнесе.<br>
-						Приобрела 300 стендов, уже через 3 месяца все стенды были размещены и я поняла, что этого количества очень мало, так как стенды заняты 
-						постоянно в полном объёме, но доход от такого количества небольшой. Сейчас мы с мужем приняли решение и дополнительно приобрели еще 800 стендов.<br>
-						С такими руководителями франшизного проекта не страшно, каждый шаг уже продуман до мелочей, клиентов помогают найти, дополнительно 
-						предлагают сопутствующие " продукты" по раскрутке бизнеса. Спасибо Валерию и Дмитрию с ними я уверена в завтрашнем дне и успехе! </div>
-						<div class="review-bottom">
-							<span>8-914-503-26-46</span>
-							<a href="mailto:mariybiryukova@yandex.ru">mariybiryukova@yandex.ru</a>
-						</div>
-					</div>
-					<div class="review-item review-collapsed">
+					<div class="review-item animate fadeUp delay1">
 						<div class="review-top">
 							<div class="review-photo"><img src="{% static 'landing/images/media/r6.png' %}" alt=""></div>
 							<div class="review-top-content">
 								<div class="review-author">Игорь Аладин</div>
-								<div class="review-author-text">партнер по г.Волгоград, г.Волжский</div>
+								<div class="review-author-text">г.Волгоград, г.Волжский</div>
 							</div>
 						</div>
 						<div class="review-info">
-							<div class="review-info-min"><b>6500</b> стендов</div>
-							<div class="review-info-big"><b>400 000 руб.</b> Ежемесячный доход</div>
+							<div class="review-info-min"><b>8000</b> стендов</div>
+							<div class="review-info-big"><b>500 000 руб.</b> Ежемесячный доход</div>
 						</div>
-						<div class="review-text">Для меня рекламный бизнес хорошо знаком, т.к. в рекламной сфере я с 17 лет - студентом начинал работать 
-						промоутером. Работал в газете менеджером по рекламе, пресс-секретарём партии ЛДПР, руководил проведением рекламных кампаний по 
-						выборам в ГосДуму, ОблДуму, Городскую Думу( полный цикл: наисание и размещение статей, сюжеты на телевидении, ролики на радио,
-						наружка индор и аутдор).<br>
-						Затем пришёл на должность начальником отдела продаж в только что зародившуюся компанию занимающуюся рекламой в лифтах (компания 
-						РЕКВолга успешно работает и по сей день является самой крупной в г. Волгоград, кстати, они пользуются идентичным программным 
-						комплексом). Считаю своей личной заслугой развитие данной компании с 50 стендов до 3000 стендов.<br>
-						Я могу оценивать целесообразность размещения и справедливую цену того или иного рекламного носителя и считаю продукт 
-						nadomofone.ru инновационным, а главное - высокоэффективным, прозрачным и честным для рекламодателя. Сейчас у нас 6500 
-						стендов, уже заключено долгосрочных договоров с рекламодателями почти на 300 тысяч ежемесячных платежей.</div>
+						<div class="review-text">
+							<div class="indent">Для меня рекламный бизнес хорошо знаком. Долгое время я работал начальником
+								отдела продаж в компании, которая занимается размещением рекламы в лифтах (компания
+								РЕКВолга успешно работает по сей день в городах Волгоград, Ростов-на-Дону, Грозный, Астрахань).
+								Считаю своей личной заслугой развитие данной компании с 50 до 4000 стендов.
+							</div>
+							<div class="indent">Когда я увидел таблички на домофонах в нашем городе, то сразу обратил внимание на данный вид рекламы,
+								так как считаю его в разы эффективнее - за счёт размещения только одного рекламодателя рядом с полезной информацией
+								для жителей конкретного дома.
+							</div>
+							<div class="indent">
+								Оставил заявку на сайте и выяснил, что эта тема родилась в моём родном городе, и есть возможность стать в нём партнером.
+								В Волгограде уже было размещено 800 стендов, я выкупил их вместе с партнерским проектом в ноябре 2016 года.
+								В сентябре 2017 года в Волгограде и Волжском уже было 6500 стендов и несколько крупных рекламодателей с общей
+								ежемесячной суммой платежей около 500 тысяч рублей.
+							</div>
+							<div class="indent">
+								Я поставил задачу к концу 2019 года нарастить объём рекламных конструкций до 12 000.
+							</div>
+						</div>
 						<div class="review-bottom">
 							<span>8-904-756-46-76</span>
 							<a href="http://www.vk.com/igorancho" target="_blank">www.vk.com/igorancho</a>
 						</div>
 					</div>
+					<div class="review-item animate fadeUp delay2">
+						<div class="review-top">
+							<div class="review-photo"><img src="{% static 'landing/images/media/r3.jpg' %}" alt=""></div>
+							<div class="review-top-content">
+								<div class="review-author">Бирюкова Мария</div>
+								<div class="review-author-text">г. Чита</div>
+							</div>
+						</div>
+						<div class="review-info">
+							<div class="review-info-min"><b>900</b> стендов</div>
+							<div class="review-info-big"><b>85 000 руб.</b> Ежемесячный доход</div>
+						</div>
+						<div class="review-text">
+							<div class="indent">После длительного поиска дополнительного заработка, наткнулась на франшизу "Nadomofone.ru". Долго
+								сомневалась, но решила, что надо попробовать. Я далека и от бизнеса, и от рекламы, и от продаж, но сотрудники "Nadomofone.ru"
+								оказывали помощь во всем. Валерий прилетел ко мне в город, после знакомства с ним я поняла, что смогу стать успешной в этом бизнесе.
+							</div>
+							<div class="indent"> Я приобрела 300 стендов и уже через 3 месяца все стенды были размещены. Я поняла, что этого количества очень мало, так как стенды заняты
+								постоянно в полном объёме, но доход от такого количества небольшой. Мы с мужем приняли решение и дополнительно приобрели еще 800 стендов.
+							</div>
+							<div class="indent">С такими руководителями франшизного проекта не страшно. Каждый шаг уже продуман до мелочей, клиентов помогают найти, дополнительно
+								предлагают сопутствующие " продукты" по раскрутке бизнеса. Спасибо Валерию и Игорю, с ними я уверена в успехе и завтрашнем дне!
+							</div>
+						</div>
+						<div class="review-bottom">
+							<span>8-914-503-26-46</span>
+							<a href="mailto:mariybiryukova@yandex.ru">mariybiryukova@yandex.ru</a>
+						</div>
+					</div>
+
+					<!--<div class="review-item review-collapsed">-->
+						<!--<div class="review-top">-->
+							<!--<div class="review-photo"><img src="{% static 'landing/images/media/r2.jpg' %}" alt=""></div>-->
+							<!--<div class="review-top-content">-->
+								<!--<div class="review-author">Оксана Захарова</div>-->
+								<!--<div class="review-author-text">партнер, г. Горно-Алтайск</div>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="review-info">-->
+							<!--<div class="review-info-min"><b>350</b> стендов</div>-->
+							<!--<div class="review-info-big"><b>37 000 руб.</b> Ежемесячный доход</div>-->
+						<!--</div>-->
+						<!--<div class="review-text">На данный момент имеем 350 рекламных поверхностей. Стенды все сданы под клиентов.Планируем расширяться к весне, так как монтаж в морозы почти невозможен. Вандализм небольшой, не более-->
+						<!--3%. Работать нравится, приходится учиться чему то новому, сам бизнес востребованный и многие бы хотели разместить свою рекламу на наших стендах.-->
+						<!--Нравится работа офиса продаж, как по оперативности, как и по удобности, всегда помогут словом или делом. Отдельное спасибо Марине и Дмитрию.</div>-->
+						<!--<div class="review-bottom">-->
+							<!--<span>8(923)665-13-29</span>-->
+							<!--<a href="mailto:work04@list.ru">work04@list.ru</a>-->
+						<!--</div>-->
+					<!--</div>-->
 				</div>
-				<div class="button-holder">
-					<a href="" class="button review-more">ЗАГРУЗТЬ ЕЩЕ</a>
-				</div>
+				<!--<div class="button-holder">-->
+					<!--<a href="" class="button review-more">ЗАГРУЗИТЬ ЕЩЕ</a>-->
+				<!--</div>-->
 			</div>
 		</section>
 		<section class="market">
 			<div class="holder">
-				<div class="market-text">По состоянию на 2017г. рекламный рынок России оценивается в</div>
+				<div class="market-text">По состоянию на 2018г. рекламный рынок России оценивается в</div>
 				<div class="market-title">416 500 000 000 рублей в год.</div>
-				<div class="market-green">Прирост составил +14% по сравнению с 2016г.</div>
+				<div class="market-green">Прирост составил +14% по сравнению с 2017г.</div>
 				<div class="market-note">Согласно данным АКАР (Ассоциации Коммуникационных Агентств России)</div>
 			</div>
 		</section>
@@ -590,8 +630,8 @@
 							- Отдел IT разработки</div>
 						</div>
 						<div class="contacts-item">
-							<div class="contacts-title">Представительство <br>в г. Ростов-на-Дону</div>
-							<div class="contacts-text">Ул. Буровая 46, офис 24<br><br>
+							<div class="contacts-title">Представительство <br>в г. Сочи</div>
+							<div class="contacts-text">Курортный проспект, 73, оф. 302В<br><br>
 							- Отдел по работе с Федеральными 
 							рекламодателями<br><br>
 							- Отдел развития партнерской сети</div>
@@ -692,10 +732,10 @@
 			</div>
 		</div>
 		<div id="video-popup1" class="video-popup">
-			<iframe src="https://www.youtube.com/embed/HsLoyu0LeM4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			<iframe src="https://www.youtube.com/embed/Kntda--DvS4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 		</div>
 		<div id="video-popup2" class="video-popup">
-			<iframe src="https://www.youtube.com/embed/j1wQYVDNUYw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			<iframe src="https://www.youtube.com/embed/ggMtE8UFkxY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 		</div>
 		<div id="popup2" class="popup">
 			<div class="popup-leave">
