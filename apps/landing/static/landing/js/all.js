@@ -60,10 +60,10 @@ $(document).ready(function () {
 
 
 	// typing animation
-	var typed = new Typed('.type-animation', {
-		strings: ["Прибыльная франшиза в сфере рекламы"],
-		typeSpeed: 45
-	});
+	// var typed = new Typed('.type-animation', {
+	// 	strings: ["Прибыльная франшиза в сфере рекламы"],
+	// 	typeSpeed: 45
+	// });
 	
 	// scroll
 	$('.scroll').click(function(e){
